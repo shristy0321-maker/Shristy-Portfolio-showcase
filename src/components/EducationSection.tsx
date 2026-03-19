@@ -3,14 +3,28 @@ import { GraduationCap } from "lucide-react";
 
 const education = [
   {
-    degree: "MBA – Product / Technology Management",
+    degree: "TMBA – Product / Technology Management",
     school: "Institute of Product Leadership",
-    period: "2025 – Present",
+    period: "2025 – 2027",
+    detail: "Pursuing",
   },
   {
     degree: "BBA",
-    school: "Banasthali Vidyapith University",
+    school: "Banasthali Vidyapeeth",
     period: "2021 – 2024",
+    detail: "8.9 CGPA",
+  },
+  {
+    degree: "Higher Secondary (12th)",
+    school: "CBSE",
+    period: "2021",
+    detail: "80%",
+  },
+  {
+    degree: "Secondary (10th)",
+    school: "CBSE",
+    period: "2019",
+    detail: "69%",
   },
 ];
 
@@ -44,7 +58,12 @@ const EducationSection = () => {
               <div>
                 <h3 className="font-display font-semibold text-foreground mb-1">{edu.degree}</h3>
                 <p className="text-sm text-muted-foreground">{edu.school}</p>
-                <span className="text-xs font-medium text-primary mt-1 inline-block">{edu.period}</span>
+                <div className="flex items-center gap-3 mt-1">
+                  <span className="text-xs font-medium text-primary">{edu.period}</span>
+                  {edu.detail && (
+                    <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded-full">{edu.detail}</span>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

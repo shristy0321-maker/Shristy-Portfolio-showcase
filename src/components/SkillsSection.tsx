@@ -5,17 +5,17 @@ const skillGroups = [
   {
     title: "Product Skills",
     icon: Compass,
-    skills: ["Product Discovery", "User Research", "Market Analysis", "Go-To-Market Strategy"],
+    skills: ["Product Discovery", "PRD & User Stories", "Acceptance Criteria", "User Research", "Market Analysis", "Go-To-Market Strategy"],
   },
   {
-    title: "Operations Skills",
+    title: "Methodologies & Soft Skills",
     icon: Settings,
-    skills: ["Vendor Management", "Process Optimization", "KPI Tracking"],
+    skills: ["Agile & Scrum", "Stakeholder Communication", "Problem Solving", "Negotiation"],
   },
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Excel", "Data Analysis", "Stakeholder Management"],
+    skills: ["Jira", "Confluence", "Figma (Basic)", "Excel", "Data Analysis"],
   },
 ];
 

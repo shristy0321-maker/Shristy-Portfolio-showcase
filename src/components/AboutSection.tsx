@@ -22,9 +22,10 @@ const AboutSection = () => {
             From Customer Problems to Product Solutions
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mb-12 leading-relaxed">
-            I'm an MBA candidate in Product / Technology Management at the Institute of Product Leadership,
-            with experience in entrepreneurship, operations, and customer engagement. I focus on identifying
-            user pain points, conducting research, and turning insights into structured product solutions.
+            Seeking a Product Management role to apply skills in user research, requirement gathering, and product documentation.
+            Experienced in creating PRDs, user stories, and acceptance criteria using Agile methodologies.
+            Currently pursuing TMBA in Product / Technology Management at the Institute of Product Leadership,
+            with hands-on experience in client management, operations, and customer engagement.
           </p>
         </motion.div>
 
