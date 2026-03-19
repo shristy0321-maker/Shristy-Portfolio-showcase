@@ -5,7 +5,7 @@ const skillGroups = [
   {
     title: "Product Skills",
     icon: Compass,
-    skills: ["Product Discovery", "PRD & User Stories", "Acceptance Criteria", "User Research", "Market Analysis", "Go-To-Market Strategy"],
+    skills: ["Product Discovery", "PRD & User Stories", "BRD", "Acceptance Criteria", "User Research", "Market Analysis", "Go-To-Market Strategy"],
   },
   {
     title: "Methodologies & Soft Skills",
