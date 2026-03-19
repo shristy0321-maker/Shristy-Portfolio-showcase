@@ -3,24 +3,25 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
-    role: "Founder",
-    company: "VLLP Foods",
-    period: "2023 – Present",
+    role: "Relationship Manager",
+    company: "Trade India",
+    location: "Jaipur",
+    period: "Nov 2024 – May 2025",
     points: [
-      "Built and managed a B2B sourcing and distribution model",
-      "Handled procurement, vendor negotiation, quality control, and customer fulfillment",
-      "Improved operational efficiency by implementing structured processes",
+      "Managed B2B Client Relationships and gathered Business Requirements to improve Platform Adoption",
+      "Analyzed client performance data and shared actionable insights with internal team",
+      "Coordinated with cross-functional teams to resolve issues and enhance customer experience",
     ],
   },
   {
-    role: "Relationship Manager",
-    company: "",
-    period: "2024",
+    role: "Client Management",
+    company: "Nimble Cowork",
+    location: "Jaipur",
+    period: "Mar 2024 – Oct 2024",
     points: [
-      "Managed customer accounts and handled escalations",
-      "Acted as the primary point of contact for resolving customer issues",
-      "Collected feedback and worked with internal teams to improve service workflows",
-      "Helped strengthen client relationships and retention",
+      "Managed Client Onboarding, support and relationship management for coworking members",
+      "Gathered Client Feedback and coordinated with internal team to improve service delivery",
+      "Supported retention and customer experience initiatives",
     ],
   },
 ];
@@ -40,7 +41,6 @@ const ExperienceSection = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
 
           <div className="space-y-8">
@@ -53,19 +53,21 @@ const ExperienceSection = () => {
                 transition={{ duration: 0.5, delay: i * 0.2 }}
                 className="relative md:pl-16"
               >
-                {/* Timeline dot */}
                 <div className="absolute left-4 top-6 w-5 h-5 rounded-full bg-primary border-4 border-background hidden md:block" />
 
                 <div className="card-elevated p-6 md:p-8">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     <Briefcase size={18} className="text-primary" />
                     <h3 className="font-display font-bold text-lg text-foreground">
-                      {exp.role}{exp.company && ` – ${exp.company}`}
+                      {exp.role} – {exp.company}
                     </h3>
                     <span className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">
                       {exp.period}
                     </span>
                   </div>
+                  {exp.location && (
+                    <p className="text-xs text-muted-foreground mb-3">{exp.location}</p>
+                  )}
                   <ul className="space-y-2">
                     {exp.points.map((point, j) => (
                       <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">

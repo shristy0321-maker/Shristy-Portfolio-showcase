@@ -5,6 +5,40 @@ import { useState } from "react";
 
 const projects = [
   {
+    title: "Digital Passenger Journey Transformation",
+    subtitle: "Airline Industry – Product Case Study",
+    tags: ["Product Discovery", "Process Mapping", "Digital Transformation"],
+    sections: [
+      { heading: "Problem", content: "Airline passengers face key pain points such as flight delays, poor disruption communication, and baggage handling issues, leading to fragmented and frustrating travel experiences." },
+      { heading: "Analysis", content: "Conducted analysis of the airline passenger journey to identify operational, technology, and process gaps including legacy systems, siloed operations, and lack of real-time operational visibility." },
+      { heading: "Proposed Solution", content: "Designed a Passenger 360° customer insights platform integrating booking, loyalty, complaints, and operational data to create a unified view of each passenger." },
+      { heading: "Transformation Roadmap", content: "Proposed a digital transformation roadmap covering Shared Customer Insights, Digital Platform, Operational Backbone, Governance Framework, and Ecosystem integration." },
+      { heading: "Frameworks Applied", content: "Applied project management frameworks including Agile Scrum, Lean Six Sigma, Process Mapping, WBS, Gantt Charts, and RACI Matrix to structure implementation." },
+    ],
+  },
+  {
+    title: "MailNiti – GTM Strategy",
+    subtitle: "AI-Powered Email Automation – Marketing & Go-To-Market Plan",
+    tags: ["Go-To-Market", "Market Analysis", "Competitor Research"],
+    sections: [
+      { heading: "Problem", content: "Indian SMEs, startups, and solopreneurs lack affordable, AI-driven email automation tools with regional language support tailored to the Indian market." },
+      { heading: "Market Research", content: "Conducted market and competitor analysis to identify differentiation opportunities in the AI email automation space for the Indian SME segment." },
+      { heading: "Value Proposition", content: "Defined a value proposition focusing on AI-driven personalization and regional language support to serve Indian SMEs more effectively than existing global solutions." },
+      { heading: "GTM Strategy", content: "Proposed customer acquisition channels and marketing campaigns to drive early product adoption among SMEs, startups, and solopreneurs in India." },
+    ],
+  },
+  {
+    title: "VLLP Foods",
+    subtitle: "B2B Sourcing & Distribution – Entrepreneurial Venture",
+    tags: ["Entrepreneurship", "Operations", "B2B"],
+    sections: [
+      { heading: "Overview", content: "Founded and managed a B2B sourcing and distribution business, handling end-to-end operations from procurement to customer fulfillment." },
+      { heading: "Operations", content: "Handled procurement, vendor negotiation, quality control, and customer fulfillment across multiple B2B channels." },
+      { heading: "Process Improvement", content: "Improved operational efficiency by implementing structured processes for order management, inventory tracking, and vendor coordination." },
+      { heading: "Key Learnings", content: "Gained hands-on experience in supply chain management, stakeholder negotiation, and building scalable operational workflows from scratch." },
+    ],
+  },
+  {
     title: "MeetCraft",
     subtitle: "Structured Networking Solution",
     tags: ["Product Discovery", "User Research", "MVP Design"],
