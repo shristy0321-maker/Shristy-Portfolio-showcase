@@ -19,7 +19,7 @@ const HeroSection = () => {
             className="max-w-2xl flex-1"
           >
             <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-              Product Manager · Builder · Problem Solver
+              Product Manager · Problem Solver
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               <span className="text-foreground">Hi, I'm </span>
@@ -59,7 +59,7 @@ const HeroSection = () => {
               <img
                 src={profileImg}
                 alt="Shristy Kumari"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-[center_30%]"
               />
             </div>
           </motion.div>
