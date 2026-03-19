@@ -15,7 +15,7 @@ const skillGroups = [
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Jira", "Confluence", "Figma (Basic)", "Excel", "Data Analysis"],
+    skills: ["Jira", "Power BI", "Lovable", "Figma (Basic)", "Excel", "Data Analysis"],
   },
 ];
 
