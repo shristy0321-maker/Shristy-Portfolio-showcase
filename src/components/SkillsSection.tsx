@@ -5,7 +5,7 @@ const skillGroups = [
   {
     title: "Product Skills",
     icon: Compass,
-    skills: ["Product Discovery", "PRD & User Stories", "Acceptance Criteria", "User Research", "Market Analysis", "Go-To-Market Strategy"],
+    skills: ["Product Discovery", "PRD & User Stories", "BRD", "Acceptance Criteria", "User Research", "Market Analysis", "Go-To-Market Strategy"],
   },
   {
     title: "Methodologies & Soft Skills",
@@ -15,7 +15,7 @@ const skillGroups = [
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Jira", "Confluence", "Figma (Basic)", "Excel", "Data Analysis"],
+    skills: ["Jira", "Power BI", "Lovable", "Figma (Basic)", "Excel", "Data Analysis"],
   },
 ];
 
