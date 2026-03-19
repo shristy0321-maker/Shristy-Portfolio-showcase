@@ -59,7 +59,7 @@ const HeroSection = () => {
               <img
                 src={profileImg}
                 alt="Shristy Kumari"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-[center_30%]"
               />
             </div>
           </motion.div>
