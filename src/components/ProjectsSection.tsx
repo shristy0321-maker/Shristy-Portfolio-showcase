@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
