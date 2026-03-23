@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -31,6 +31,7 @@ const projects = [
     title: "Global Makhana",
     subtitle: "Premium Farm-to-Pack Makhana Brand – Entrepreneurial Venture",
     tags: ["Entrepreneurship", "B2B", "Go-To-Market", "Supply Chain"],
+    presentationUrl: "/presentations/global-makhana.pptx",
     sections: [
       { heading: "Problem", content: "Farmers earn low income with no direct premium buyers. Export buyers face inconsistent quality and non-export-ready products. Consumers lack trustworthy makhana brands with variety in flavours." },
       { heading: "Market Context", content: "Bihar produces 85–90% of India's total makhana with 56,400+ tonnes annually. The global makhana market is projected to reach USD 120M by 2030, yet export potential remains largely untapped." },
@@ -124,6 +125,16 @@ const ProjectsSection = () => {
                         <p className="text-sm text-muted-foreground leading-relaxed">{section.content}</p>
                       </div>
                     ))}
+                    {project.presentationUrl && (
+                      <a
+                        href={project.presentationUrl}
+                        download
+                        className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+                      >
+                        <Download size={16} />
+                        Download Presentation Deck
+                      </a>
+                    )}
                   </motion.div>
                 )}
               </div>
