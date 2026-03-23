@@ -28,14 +28,16 @@ const projects = [
     ],
   },
   {
-    title: "VLLP Foods",
-    subtitle: "B2B Sourcing & Distribution – Entrepreneurial Venture",
-    tags: ["Entrepreneurship", "Operations", "B2B"],
+    title: "Global Makhana",
+    subtitle: "Premium Farm-to-Pack Makhana Brand – Entrepreneurial Venture",
+    tags: ["Entrepreneurship", "B2B", "Go-To-Market", "Supply Chain"],
     sections: [
-      { heading: "Overview", content: "Founded and managed a B2B sourcing and distribution business, handling end-to-end operations from procurement to customer fulfillment." },
-      { heading: "Operations", content: "Handled procurement, vendor negotiation, quality control, and customer fulfillment across multiple B2B channels." },
-      { heading: "Process Improvement", content: "Improved operational efficiency by implementing structured processes for order management, inventory tracking, and vendor coordination." },
-      { heading: "Key Learnings", content: "Gained hands-on experience in supply chain management, stakeholder negotiation, and building scalable operational workflows from scratch." },
+      { heading: "Problem", content: "Farmers earn low income with no direct premium buyers. Export buyers face inconsistent quality and non-export-ready products. Consumers lack trustworthy makhana brands with variety in flavours." },
+      { heading: "Market Context", content: "Bihar produces 85–90% of India's total makhana with 56,400+ tonnes annually. The global makhana market is projected to reach USD 120M by 2030, yet export potential remains largely untapped." },
+      { heading: "Value Proposition", content: "A premium farm-to-pack makhana brand offering traceable quality and export-standard processing. Direct sourcing from Bihar farmers with in-house roasting and grading, unlike unorganized sellers with poor consistency." },
+      { heading: "Solution", content: "Built a brand around four key pillars: direct partnership with farmers, in-house roasting & grading, global reach via TradeIndia & IndiaMART, and a premium product line including plain, roasted, and flavoured variants." },
+      { heading: "Why Now", content: "Rising global plant-based snack trend, makhana gaining recognition as a superfood, increasing international demand, and the opportunity to improve Bihar's rural economy through value-added processing." },
+      { heading: "Key Learnings", content: "Gained hands-on experience in supply chain management, B2B sourcing & distribution, vendor negotiation, and building scalable operational workflows from farm to global market." },
     ],
   },
   {
