@@ -31,6 +31,7 @@ const projects = [
     title: "Global Makhana",
     subtitle: "Premium Farm-to-Pack Makhana Brand – Entrepreneurial Venture",
     tags: ["Entrepreneurship", "B2B", "Go-To-Market", "Supply Chain"],
+    presentationUrl: "/presentations/global-makhana.pptx",
     sections: [
       { heading: "Problem", content: "Farmers earn low income with no direct premium buyers. Export buyers face inconsistent quality and non-export-ready products. Consumers lack trustworthy makhana brands with variety in flavours." },
       { heading: "Market Context", content: "Bihar produces 85–90% of India's total makhana with 56,400+ tonnes annually. The global makhana market is projected to reach USD 120M by 2030, yet export potential remains largely untapped." },
