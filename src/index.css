@@ -114,11 +114,32 @@
   .card-elevated {
     @apply bg-card rounded-xl border border-border;
     box-shadow: var(--shadow-card);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   }
 
   .card-elevated:hover {
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
+    border-color: hsl(var(--accent) / 0.3);
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.18em] uppercase text-accent;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border bg-secondary text-foreground/80;
+  }
+
+  .chip-accent {
+    @apply inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md bg-accent/10 text-accent border border-accent/20;
+  }
+
+  .mesh-bg {
+    background-image: var(--gradient-mesh);
+  }
+
+  .divider {
+    @apply h-px w-full bg-border;
   }
 }
