@@ -1,11 +1,31 @@
 import { motion } from "framer-motion";
-import { Compass, Settings, Wrench } from "lucide-react";
+import { Compass, Settings, Wrench, Sparkles } from "lucide-react";
 
 const skillGroups = [
   {
     title: "Product Skills",
     icon: Compass,
-    skills: ["Product Discovery", "PRD & User Stories", "BRD", "Acceptance Criteria", "User Research", "Market Analysis", "Go-To-Market Strategy"],
+    skills: [
+      "Product Discovery",
+      "PRD & User Stories",
+      "BRD",
+      "Acceptance Criteria",
+      "User Research",
+      "Market Analysis",
+      "Go-To-Market Strategy",
+      "RICE / MoSCoW",
+    ],
+  },
+  {
+    title: "AI in Product Workflows",
+    icon: Sparkles,
+    skills: [
+      "ChatGPT for PRDs",
+      "Interview Synthesis",
+      "Competitive Teardowns",
+      "Edge Case Generation",
+      "Prompt Engineering",
+    ],
   },
   {
     title: "Methodologies & Soft Skills",
