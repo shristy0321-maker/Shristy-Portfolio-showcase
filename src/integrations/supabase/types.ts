@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      case_studies: {
+        Row: {
+          created_at: string
+          description: string
+          featured: boolean
+          id: string
+          presentation_url: string | null
+          report_url: string | null
+          sort_order: number
+          tags: string[]
+          thumbnail: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          featured?: boolean
+          id?: string
+          presentation_url?: string | null
+          report_url?: string | null
+          sort_order?: number
+          tags?: string[]
+          thumbnail?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          featured?: boolean
+          id?: string
+          presentation_url?: string | null
+          report_url?: string | null
+          sort_order?: number
+          tags?: string[]
+          thumbnail?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
