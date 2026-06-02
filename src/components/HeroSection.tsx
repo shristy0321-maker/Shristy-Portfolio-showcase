@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, FileDown, Sparkles, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profileImg from "@/assets/profile.jpeg";
+import profileAsset from "@/assets/profile.png.asset.json";
+
+const profileImg = profileAsset.url;
 
 const stats = [
   { value: "4", label: "Case Studies" },
