@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       case_studies: {
         Row: {
+          badge: string | null
           created_at: string
           description: string
           featured: boolean
@@ -29,6 +30,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          badge?: string | null
           created_at?: string
           description: string
           featured?: boolean
@@ -42,6 +44,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          badge?: string | null
           created_at?: string
           description?: string
           featured?: boolean
