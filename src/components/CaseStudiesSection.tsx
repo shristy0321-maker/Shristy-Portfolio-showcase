@@ -13,6 +13,7 @@ type CaseStudy = {
   presentation_url: string | null;
   report_url: string | null;
   featured: boolean;
+  badge: string | null;
 };
 
 const gradients = [
@@ -93,10 +94,10 @@ const CaseStudiesSection = () => {
                       <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30">
                         <FileText className="text-white" size={22} />
                       </div>
-                      {cs.featured && (
+                      {(cs.badge || cs.featured) && (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 text-xs font-medium text-foreground shadow-sm">
                           <Trophy size={12} className="text-accent" />
-                          Featured
+                          {cs.badge ?? "Featured"}
                         </span>
                       )}
                     </div>
