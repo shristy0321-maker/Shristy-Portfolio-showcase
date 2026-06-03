@@ -1,36 +1,57 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
   { label: "Case Studies", href: "#case-studies" },
   { label: "Framework", href: "#thinking" },
   { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
+  { label: "What I Bring", href: "#bring" },
   { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  const renderLink = (link: { label: string; href: string }) => {
+    if (isHome) {
+      return (
+        <a
+          key={link.href}
+          href={link.href}
+          onClick={() => setOpen(false)}
+          className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+        >
+          {link.label}
+        </a>
+      );
+    }
+    return (
+      <Link
+        key={link.href}
+        to={`/${link.href}`}
+        onClick={() => setOpen(false)}
+        className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+      >
+        {link.label}
+      </Link>
+    );
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="section-container flex items-center justify-between h-16">
-        <a href="#home" className="font-display text-lg font-bold text-primary">
+        <Link to="/" className="font-display text-lg font-bold text-primary">
           SK
-        </a>
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        </Link>
+        <div className="hidden md:flex items-center gap-6">
+          {navLinks.map(renderLink)}
         </div>
         <button
           className="md:hidden text-foreground"
@@ -49,16 +70,7 @@ const Navbar = () => {
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="section-container py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map(renderLink)}
             </div>
           </motion.div>
         )}
