@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Download, Trophy, FileText } from "lucide-react";
+import { ExternalLink, Download, Trophy, FileText, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 
 type CaseStudy = {
   id: string;
+  slug: string;
   title: string;
   description: string;
   tags: string[];
@@ -76,37 +78,39 @@ const CaseStudiesSection = () => {
                   transition={{ duration: 0.5, delay: i * 0.05 }}
                   className="group card-elevated overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className={`relative h-44 overflow-hidden ${cs.thumbnail ? "" : `bg-gradient-to-br ${gradient}`}`}>
-                    {cs.thumbnail ? (
-                      <img
-                        src={cs.thumbnail}
-                        alt={cs.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <>
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_60%)]" />
-                        <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_40%,rgba(0,0,0,0.15))]" />
-                      </>
-                    )}
-                    <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30">
-                        <FileText className="text-white" size={22} />
-                      </div>
-                      {(cs.badge || cs.featured) && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 text-xs font-medium text-foreground shadow-sm">
-                          <Trophy size={12} className="text-accent" />
-                          {cs.badge ?? "Featured"}
-                        </span>
+                  <Link to={`/case-study/${cs.slug}`} className="block">
+                    <div className={`relative h-44 overflow-hidden ${cs.thumbnail ? "" : `bg-gradient-to-br ${gradient}`}`}>
+                      {cs.thumbnail ? (
+                        <img
+                          src={cs.thumbnail}
+                          alt={cs.title}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_60%)]" />
+                          <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_40%,rgba(0,0,0,0.15))]" />
+                        </>
                       )}
+                      <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30">
+                          <FileText className="text-white" size={22} />
+                        </div>
+                        {(cs.badge || cs.featured) && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 text-xs font-medium text-foreground shadow-sm">
+                            <Trophy size={12} className="text-accent" />
+                            {cs.badge ?? "Featured"}
+                          </span>
+                        )}
+                      </div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="font-display font-bold text-2xl text-white tracking-tight drop-shadow">
+                          {cs.title}
+                        </h3>
+                      </div>
                     </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="font-display font-bold text-2xl text-white tracking-tight drop-shadow">
-                        {cs.title}
-                      </h3>
-                    </div>
-                  </div>
+                  </Link>
 
                   <div className="p-6 flex flex-col flex-1">
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">
@@ -121,23 +125,31 @@ const CaseStudiesSection = () => {
                       ))}
                     </div>
 
-                    <div className="mt-auto flex flex-wrap gap-2">
-                      {cs.presentation_url && (
-                        <Button asChild size="sm" className="flex-1 min-w-[140px]">
-                          <a href={cs.presentation_url} target="_blank" rel="noreferrer">
-                            <ExternalLink size={14} className="mr-1.5" />
-                            View Presentation
-                          </a>
-                        </Button>
-                      )}
-                      {cs.report_url && (
-                        <Button asChild size="sm" variant="outline" className="flex-1 min-w-[140px]">
-                          <a href={cs.report_url} download>
-                            <Download size={14} className="mr-1.5" />
-                            Download Report
-                          </a>
-                        </Button>
-                      )}
+                    <div className="mt-auto space-y-2">
+                      <Link
+                        to={`/case-study/${cs.slug}`}
+                        className="inline-flex items-center text-sm font-semibold text-accent hover:gap-2 gap-1 transition-all"
+                      >
+                        Read Case Study <ArrowRight size={14} />
+                      </Link>
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {cs.presentation_url && (
+                          <Button asChild size="sm" className="flex-1 min-w-[140px]">
+                            <a href={cs.presentation_url} target="_blank" rel="noreferrer">
+                              <ExternalLink size={14} className="mr-1.5" />
+                              View Presentation
+                            </a>
+                          </Button>
+                        )}
+                        {cs.report_url && (
+                          <Button asChild size="sm" variant="outline" className="flex-1 min-w-[140px]">
+                            <a href={cs.report_url} target="_blank" rel="noreferrer">
+                              <Download size={14} className="mr-1.5" />
+                              Download Report
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.article>
