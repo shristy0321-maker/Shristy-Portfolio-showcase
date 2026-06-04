@@ -21,17 +21,18 @@ const ContactSection = () => {
 
           <div className="space-y-4 mb-10">
             <a
-              href="mailto:shristy0321@gmail.com"
-              className="card-elevated p-4 flex items-center gap-4 text-left"
+              href="mailto:shristy1921@gmail.com"
+              className="card-elevated p-4 flex items-center gap-4 text-left hover:border-primary/40 hover:shadow-lg transition-all"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                 <Mail size={18} className="text-primary" />
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Email</p>
-                <p className="text-sm font-medium text-foreground">shristy0321@gmail.com</p>
+                <p className="text-sm font-medium text-foreground">shristy1921@gmail.com</p>
               </div>
             </a>
+
 
             <a
               href="tel:+916203189245"
@@ -63,8 +64,9 @@ const ContactSection = () => {
           </div>
 
           <Button variant="hero" size="lg" asChild>
-            <a href="mailto:shristy0321@gmail.com">Send a Message</a>
+            <a href="mailto:shristy1921@gmail.com">Send a Message</a>
           </Button>
+
         </motion.div>
       </div>
     </section>

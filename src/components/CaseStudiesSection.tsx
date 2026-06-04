@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Download, Trophy, FileText, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, FileText, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -18,15 +18,6 @@ type CaseStudy = {
   badge: string | null;
 };
 
-const gradients = [
-  "from-indigo-500 via-blue-500 to-cyan-400",
-  "from-emerald-500 via-teal-500 to-lime-400",
-  "from-fuchsia-500 via-pink-500 to-rose-400",
-  "from-amber-500 via-orange-500 to-red-400",
-  "from-violet-500 via-purple-500 to-indigo-400",
-  "from-sky-500 via-blue-500 to-indigo-400",
-];
-
 const CaseStudiesSection = () => {
   const { data: caseStudies, isLoading } = useQuery({
     queryKey: ["case_studies"],
@@ -41,120 +32,122 @@ const CaseStudiesSection = () => {
   });
 
   return (
-    <section id="case-studies" className="py-24 bg-muted/30">
-      <div className="section-container">
+    <section id="case-studies" className="py-28 bg-[hsl(224,30%,7%)] text-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-[hsl(260,85%,55%)]/10 blur-[120px]" />
+        <div className="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-[hsl(255,90%,60%)]/10 blur-[120px]" />
+      </div>
+
+      <div className="section-container relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 max-w-2xl"
+          className="mb-16 max-w-2xl"
         >
-          <p className="eyebrow mb-3">Case Studies</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
-            Featured Works
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-[hsl(260,90%,75%)] mb-4">
+            Case Studies
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+            Selected Product Work
           </h2>
-          <p className="text-muted-foreground">
-            A snapshot of recent product, GTM, and platform case studies — each with a deck and a detailed report.
+          <p className="text-white/60 text-base md:text-lg leading-relaxed">
+            A snapshot of recent product, GTM, and platform case studies — each grounded in user research and business impact.
           </p>
         </motion.div>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {[0, 1, 2, 3].map((i) => (
-              <div key={i} className="card-elevated h-80 animate-pulse bg-muted" />
+              <div key={i} className="h-80 rounded-2xl bg-white/5 animate-pulse" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {caseStudies?.map((cs, i) => {
-              const gradient = gradients[i % gradients.length];
-              return (
-                <motion.article
-                  key={cs.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="group card-elevated overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Link to={`/case-study/${cs.slug}`} className="block">
-                    <div className={`relative h-44 overflow-hidden ${cs.thumbnail ? "" : `bg-gradient-to-br ${gradient}`}`}>
-                      {cs.thumbnail ? (
-                        <img
-                          src={cs.thumbnail}
-                          alt={cs.title}
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <>
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_60%)]" />
-                          <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_40%,rgba(0,0,0,0.15))]" />
-                        </>
-                      )}
-                      <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
-                        <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30">
-                          <FileText className="text-white" size={22} />
-                        </div>
-                        {(cs.badge || cs.featured) && (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 text-xs font-medium text-foreground shadow-sm">
-                            <Trophy size={12} className="text-accent" />
-                            {cs.badge ?? "Featured"}
-                          </span>
-                        )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+            {caseStudies?.map((cs, i) => (
+              <motion.article
+                key={cs.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="group relative rounded-2xl overflow-hidden bg-gradient-to-b from-white/[0.04] to-white/[0.02] border border-white/10 hover:border-[hsl(260,85%,65%)]/40 hover:shadow-[0_20px_60px_-20px_hsl(260,85%,55%/0.4)] hover:-translate-y-1 transition-all duration-500 flex flex-col"
+              >
+                <Link to={`/case-study/${cs.slug}`} className="block">
+                  <div className="relative h-48 overflow-hidden bg-[hsl(224,30%,10%)]">
+                    {cs.thumbnail ? (
+                      <img
+                        src={cs.thumbnail}
+                        alt={cs.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(260,40%,18%)] via-[hsl(240,30%,12%)] to-[hsl(224,30%,8%)]">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(260,85%,60%/0.25),transparent_60%)]" />
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="font-display font-bold text-2xl text-white tracking-tight drop-shadow">
-                          {cs.title}
-                        </h3>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[hsl(224,30%,7%)] via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
+                      <div className="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center ring-1 ring-white/15">
+                        <FileText className="text-white" size={18} />
                       </div>
-                    </div>
-                  </Link>
-
-                  <div className="p-6 flex flex-col flex-1">
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {cs.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {cs.tags.map((t) => (
-                        <span key={t} className="chip">
-                          {t}
+                      {(cs.badge || cs.featured) && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[hsl(260,85%,55%)]/20 backdrop-blur-md border border-[hsl(260,85%,70%)]/30 text-xs font-medium text-[hsl(260,90%,85%)]">
+                          <Trophy size={11} />
+                          {cs.badge ?? "Featured"}
                         </span>
-                      ))}
-                    </div>
-
-                    <div className="mt-auto space-y-2">
-                      <Link
-                        to={`/case-study/${cs.slug}`}
-                        className="inline-flex items-center text-sm font-semibold text-accent hover:gap-2 gap-1 transition-all"
-                      >
-                        Read Case Study <ArrowRight size={14} />
-                      </Link>
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {cs.presentation_url && (
-                          <Button asChild size="sm" className="flex-1 min-w-[140px]">
-                            <a href={cs.presentation_url} target="_blank" rel="noreferrer">
-                              <ExternalLink size={14} className="mr-1.5" />
-                              View Presentation
-                            </a>
-                          </Button>
-                        )}
-                        {cs.report_url && (
-                          <Button asChild size="sm" variant="outline" className="flex-1 min-w-[140px]">
-                            <a href={cs.report_url} target="_blank" rel="noreferrer">
-                              <Download size={14} className="mr-1.5" />
-                              Download Report
-                            </a>
-                          </Button>
-                        )}
-                      </div>
+                      )}
                     </div>
                   </div>
-                </motion.article>
-              );
-            })}
+                </Link>
+
+                <div className="p-7 flex flex-col flex-1">
+                  <Link to={`/case-study/${cs.slug}`}>
+                    <h3 className="font-display font-bold text-2xl md:text-[1.6rem] text-white tracking-tight mb-3 leading-tight group-hover:text-[hsl(260,90%,80%)] transition-colors">
+                      {cs.title}
+                    </h3>
+                  </Link>
+                  <p className="text-sm text-white/60 leading-relaxed mb-5">
+                    {cs.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-7">
+                    {cs.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 text-white/70 border border-white/10"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto flex flex-col gap-3">
+                    <Link
+                      to={`/case-study/${cs.slug}`}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(260,90%,80%)] hover:gap-2.5 transition-all w-fit"
+                    >
+                      Read Case Study <ArrowRight size={14} />
+                    </Link>
+                    {cs.presentation_url && (
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="outline"
+                        className="w-full bg-transparent border-white/15 text-white/90 hover:bg-[hsl(260,85%,55%)]/15 hover:border-[hsl(260,85%,70%)]/50 hover:text-white"
+                      >
+                        <a href={cs.presentation_url} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={14} className="mr-1.5" />
+                          View Presentation
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
           </div>
         )}
       </div>
