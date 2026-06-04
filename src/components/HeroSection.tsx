@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, FileDown, Sparkles, Trophy } from "lucide-react";
+import { ArrowRight, FileDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileAsset from "@/assets/profile.png.asset.json";
 
@@ -75,10 +75,6 @@ const HeroSection = () => {
                 alt="Shristy Kumari, Product Manager"
                 className="w-full h-full object-cover object-[center_30%]"
               />
-            </div>
-            <div className="absolute -bottom-3 -right-3 bg-card border border-border rounded-xl px-3 py-2 shadow-lg flex items-center gap-2">
-              <Trophy size={14} className="text-accent" />
-              <span className="text-xs font-medium text-foreground">Skillathon Winner</span>
             </div>
           </motion.div>
         </div>

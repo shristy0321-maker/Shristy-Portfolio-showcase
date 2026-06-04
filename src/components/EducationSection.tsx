@@ -9,22 +9,10 @@ const education = [
     detail: "Pursuing",
   },
   {
-    degree: "BBA",
-    school: "Banasthali Vidyapeeth",
+    degree: "Bachelor of Business Administration (BBA)",
+    school: "",
     period: "2021 – 2024",
     detail: "8.9 CGPA",
-  },
-  {
-    degree: "Higher Secondary (12th)",
-    school: "CBSE",
-    period: "2021",
-    detail: "80%",
-  },
-  {
-    degree: "Secondary (10th)",
-    school: "CBSE",
-    period: "2019",
-    detail: "69%",
   },
 ];
 
