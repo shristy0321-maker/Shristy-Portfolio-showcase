@@ -6,13 +6,12 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
   { label: "Case Studies", href: "#case-studies" },
-  { label: "Framework", href: "#thinking" },
   { label: "Experience", href: "#experience" },
   { label: "What I Bring", href: "#bring" },
   { label: "Contact", href: "#contact" },
 ];
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

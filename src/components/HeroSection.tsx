@@ -5,11 +5,12 @@ import profileAsset from "@/assets/profile.png.asset.json";
 
 const profileImg = profileAsset.url;
 
-const stats = [
-  { value: "4", label: "Case Studies" },
-  { value: "1", label: "Skillathon Win" },
-  { value: "AI-native", label: "Workflows" },
+const identity = [
+  { icon: "🔍", label: "Product Discovery" },
+  { icon: "🏆", label: "Skillathon Winner" },
+  { icon: "⚡", label: "AI-Native Builder" },
 ];
+
 
 const HeroSection = () => {
   return (
@@ -52,14 +53,15 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            <div className="flex items-center gap-8 pt-6 border-t border-border">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="font-display text-2xl font-bold text-foreground">{s.value}</div>
-                  <div className="text-xs text-muted-foreground tracking-wide">{s.label}</div>
+            <div className="flex flex-wrap items-center gap-6 md:gap-10 pt-6 border-t border-border">
+              {identity.map((s) => (
+                <div key={s.label} className="flex items-center gap-2.5">
+                  <span className="text-2xl leading-none" aria-hidden="true">{s.icon}</span>
+                  <span className="text-sm font-medium text-foreground tracking-tight">{s.label}</span>
                 </div>
               ))}
             </div>
+
           </motion.div>
 
           <motion.div
