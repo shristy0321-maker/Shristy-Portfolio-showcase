@@ -50,10 +50,10 @@ const CaseStudiesSection = () => {
             Case Studies
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
-            Selected Product Work
+            Product Case Studies
           </h2>
           <p className="text-white/60 text-base md:text-lg leading-relaxed">
-            A snapshot of recent product, GTM, and platform case studies — each grounded in user research and business impact.
+            Exploring customer needs, business challenges, and product opportunities through structured thinking and real-world problem solving.
           </p>
         </motion.div>
 
