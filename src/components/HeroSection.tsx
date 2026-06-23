@@ -15,29 +15,36 @@ const identity = [
 const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden mesh-bg">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-secondary/40 pointer-events-none" />
+      {/* Ambient backdrop */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 -left-32 w-[36rem] h-[36rem] rounded-full bg-primary/10 blur-[140px]" />
+        <div className="absolute -bottom-32 right-0 w-[32rem] h-[32rem] rounded-full bg-accent/10 blur-[140px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-secondary/40" />
+      </div>
 
       <div className="section-container relative z-10 py-16 md:py-24">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+        <div className="grid md:grid-cols-12 items-center gap-12 md:gap-10">
+          {/* Left: content */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl flex-1"
+            className="md:col-span-7 order-2 md:order-1"
           >
-            <div className="inline-flex items-center gap-2 chip-accent mb-6">
+            <div className="inline-flex items-center gap-2 chip-accent mb-7">
               <Sparkles size={12} />
               Available for PM roles · 2026
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-[4.25rem] font-bold leading-[1.05] tracking-tight mb-6">
-              <span className="text-foreground">Aspiring Product Manager building </span>
-              <span className="gradient-text">execution-first, AI-driven products</span>
+            <h1 className="font-display font-bold tracking-[-0.02em] mb-7 text-[2.5rem] leading-[1.05] sm:text-5xl md:text-[4.25rem] lg:text-[5rem] md:leading-[1.02]">
+              <span className="block text-foreground">Building products</span>
+              <span className="block text-foreground">that solve</span>
+              <span className="block gradient-text">real customer problems.</span>
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-xl leading-relaxed">
-              I turn user problems into structured product solutions using research,
-              documentation, and rapid execution — with AI woven into every step of the workflow.
+              Aspiring Product Manager turning user research and business signals
+              into structured, AI-native product solutions — from discovery to launch.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-12">
@@ -57,57 +64,43 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 md:gap-10 pt-6 border-t border-border">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-border">
               {identity.map((s) => (
                 <div key={s.label} className="flex items-center gap-2.5">
-                  <span className="text-2xl leading-none" aria-hidden="true">{s.icon}</span>
+                  <span className="text-xl leading-none" aria-hidden="true">{s.icon}</span>
                   <span className="text-sm font-medium text-foreground tracking-tight">{s.label}</span>
                 </div>
               ))}
             </div>
-
           </motion.div>
 
+          {/* Right: portrait */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="shrink-0 relative flex items-center justify-center"
+            className="md:col-span-5 order-1 md:order-2 flex items-center justify-center md:justify-end"
           >
-            {/* Ambient glow */}
-            <div className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-accent/25 via-primary/15 to-transparent blur-3xl pointer-events-none" />
+            <div className="relative">
+              {/* Soft ambient glow */}
+              <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-br from-primary/25 via-accent/15 to-transparent blur-3xl pointer-events-none" />
 
-            {/* Layered depth panels — subtle glassmorphism */}
-            <div
-              aria-hidden="true"
-              className="absolute -top-6 -left-6 w-40 h-40 md:w-52 md:h-52 rounded-2xl border border-border/60 bg-card/40 backdrop-blur-md rotate-[-8deg] shadow-xl"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, hsl(var(--card)/0.55), hsl(var(--card)/0.15)), repeating-linear-gradient(0deg, hsl(var(--border)/0.25) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, hsl(var(--border)/0.25) 0 1px, transparent 1px 24px)",
-              }}
-            />
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-8 -right-6 w-44 h-28 md:w-60 md:h-36 rounded-2xl border border-border/60 bg-card/50 backdrop-blur-md rotate-[6deg] shadow-xl"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-2 right-10 w-24 h-24 md:w-32 md:h-32 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/15 to-accent/10 backdrop-blur-md rotate-[-5deg] shadow-lg"
-            />
-
-            {/* Floating portrait */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-[2rem] overflow-hidden border border-border/70 shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.35)] ring-1 ring-white/5"
-            >
-              <img
-                src={profileImg}
-                alt="Shristy Kumari, Product Manager"
-                className="w-full h-full object-cover object-[center_30%]"
+              {/* Single subtle backdrop surface */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-5 translate-y-5 rounded-[2rem] border border-border/60 bg-card/40 backdrop-blur-sm"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
-            </motion.div>
+
+              {/* Portrait */}
+              <div className="relative w-72 h-[22rem] sm:w-80 sm:h-96 md:w-[22rem] md:h-[28rem] lg:w-[26rem] lg:h-[32rem] rounded-[2rem] overflow-hidden border border-border/70 shadow-[0_40px_100px_-30px_hsl(var(--primary)/0.4)] ring-1 ring-white/5">
+                <img
+                  src={profileImg}
+                  alt="Shristy Kumari, Product Manager"
+                  className="w-full h-full object-cover object-[center_25%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
