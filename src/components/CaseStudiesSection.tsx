@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ExternalLink, ArrowRight, FileText, Trophy } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, FileText, Trophy } from "lucide-react";
+
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
@@ -124,26 +124,13 @@ const CaseStudiesSection = () => {
                     ))}
                   </div>
 
-                  <div className="mt-auto flex flex-col gap-3">
+                  <div className="mt-auto pt-2">
                     <Link
                       to={`/case-study/${cs.slug}`}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(260,90%,80%)] hover:gap-2.5 transition-all w-fit"
                     >
                       Read Case Study <ArrowRight size={14} />
                     </Link>
-                    {cs.presentation_url && (
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className="w-full bg-transparent border-white/15 text-white/90 hover:bg-[hsl(260,85%,55%)]/15 hover:border-[hsl(260,85%,70%)]/50 hover:text-white"
-                      >
-                        <a href={cs.presentation_url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink size={14} className="mr-1.5" />
-                          View Presentation
-                        </a>
-                      </Button>
-                    )}
                   </div>
                 </div>
               </motion.article>
