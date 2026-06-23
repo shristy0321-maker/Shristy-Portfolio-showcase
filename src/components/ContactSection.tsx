@@ -36,7 +36,7 @@ const ContactSection = () => {
 
             <a
               href="tel:+916203189245"
-              className="card-elevated p-4 flex items-center gap-4 text-left"
+              className="card-elevated p-4 flex items-center gap-4 text-left hover:border-primary/40 hover:shadow-lg transition-all"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                 <Phone size={18} className="text-primary" />
@@ -48,10 +48,10 @@ const ContactSection = () => {
             </a>
 
             <a
-              href="https://linkedin.com/in/shristy-kumari-42634221b"
+              href="https://www.linkedin.com/in/shristy-kumari-42634221b"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-elevated p-4 flex items-center gap-4 text-left"
+              className="card-elevated p-4 flex items-center gap-4 text-left hover:border-primary/40 hover:shadow-lg transition-all"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                 <Linkedin size={18} className="text-primary" />
