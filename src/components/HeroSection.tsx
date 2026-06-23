@@ -42,12 +42,16 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap gap-3 mb-12">
               <Button variant="hero" size="lg" asChild>
-                <a href="#projects">
+                <a href="#case-studies">
                   View Case Studies <ArrowRight className="ml-1" size={16} />
                 </a>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://docs.google.com/document/d/1SVSClilP8Q2__iAloBsbxeZ7tBYRWhHrBNYgw_BV_C8/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FileDown size={16} className="mr-1" /> View Resume
                 </a>
               </Button>
@@ -65,19 +69,45 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="shrink-0 relative"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="shrink-0 relative flex items-center justify-center"
           >
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-accent/30 to-primary/20 blur-2xl" />
-            <div className="relative w-52 h-52 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-border shadow-2xl">
+            {/* Ambient glow */}
+            <div className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-accent/25 via-primary/15 to-transparent blur-3xl pointer-events-none" />
+
+            {/* Layered depth panels — subtle glassmorphism */}
+            <div
+              aria-hidden="true"
+              className="absolute -top-6 -left-6 w-40 h-40 md:w-52 md:h-52 rounded-2xl border border-border/60 bg-card/40 backdrop-blur-md rotate-[-8deg] shadow-xl"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, hsl(var(--card)/0.55), hsl(var(--card)/0.15)), repeating-linear-gradient(0deg, hsl(var(--border)/0.25) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, hsl(var(--border)/0.25) 0 1px, transparent 1px 24px)",
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-8 -right-6 w-44 h-28 md:w-60 md:h-36 rounded-2xl border border-border/60 bg-card/50 backdrop-blur-md rotate-[6deg] shadow-xl"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-2 right-10 w-24 h-24 md:w-32 md:h-32 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/15 to-accent/10 backdrop-blur-md rotate-[-5deg] shadow-lg"
+            />
+
+            {/* Floating portrait */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-[2rem] overflow-hidden border border-border/70 shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.35)] ring-1 ring-white/5"
+            >
               <img
                 src={profileImg}
                 alt="Shristy Kumari, Product Manager"
                 className="w-full h-full object-cover object-[center_30%]"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
+            </motion.div>
           </motion.div>
         </div>
       </div>
