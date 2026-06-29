@@ -34,9 +34,9 @@ const FinalCTASection = () => {
             marginBottom: "20px",
           }}
         >
-          Let's connect,
+          The best products start with a conversation.
           <br />
-          and I'll take care of the rest
+          Let's have one.
         </h2>
 
         <p
@@ -77,7 +77,7 @@ const FinalCTASection = () => {
           style={{ marginTop: "40px", gap: "32px" }}
         >
           {[
-            { label: "LinkedIn", href: "https://www.linkedin.com/in/shristy-kumari/" },
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/shristy-kumari-42634221b" },
             {
               label: "Resume",
               href: "https://docs.google.com/document/d/1SVSClilP8Q2__iAloBsbxeZ7tBYRWhHrBNYgw_BV_C8/edit?usp=sharing",
