@@ -50,19 +50,19 @@ const CaseStudiesSection = () => {
   });
 
   return (
-    <section id="case-studies" className="py-24 md:py-32">
+    <section id="case-studies" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-14 max-w-3xl"
+          className="mb-10 max-w-3xl"
         >
-          <div className="editorial-rule mb-8" />
-          <p className="eyebrow mb-4">Case Studies</p>
+          <div className="editorial-rule mb-6" />
+          <p className="eyebrow mb-3">Case Studies</p>
           <h2 className="text-4xl leading-tight md:text-6xl">Product Case Studies</h2>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
             Real product problems explored through research, framing, execution, and outcomes.
           </p>
         </motion.div>
