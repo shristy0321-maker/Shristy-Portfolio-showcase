@@ -1,101 +1,79 @@
-
+import portrait from "@/assets/shristy-portrait.png.asset.json";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ height: "100vh", backgroundColor: "#f5f0e8" }}
+      style={{ minHeight: "100vh", backgroundColor: "#f5f0e8", paddingTop: "120px", paddingBottom: "60px" }}
     >
-      {/* Back arrow */}
-      <a
-        href="#"
-        aria-label="Back"
-        className="absolute"
-        style={{ top: "6%", left: "5%", zIndex: 2, color: "#1a1208", fontSize: "28px", lineHeight: 1, textDecoration: "none" }}
-      >
-        ‹
-      </a>
-
-      {/* Asterisk */}
+      {/* Small PORTFOLIO label, centered near top */}
       <div
-        className="absolute"
-        style={{ top: "6%", right: "5%", zIndex: 2, color: "#1a1208", fontSize: "20px", lineHeight: 1 }}
-      >
-        ✳
-      </div>
-
-      {/* PORTFOLIO oversized headline */}
-      <h1
-        className="absolute m-0 whitespace-nowrap text-center"
+        className="text-center"
         style={{
-          top: "8%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 2,
           color: "#1a1208",
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontWeight: 900,
-          fontSize: "clamp(4rem, 17vw, 18rem)",
-          lineHeight: 0.85,
-          letterSpacing: "-0.02em",
+          fontWeight: 600,
+          fontSize: "14px",
+          letterSpacing: "0.35em",
           textTransform: "uppercase",
+          marginBottom: "40px",
         }}
       >
         Portfolio
-      </h1>
-
-
-      {/* Tagline overlay */}
-      <div
-        className="absolute left-1/2 -translate-x-1/2"
-        style={{
-          top: "46%",
-          zIndex: 3,
-          color: "#f5f0e8",
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontStyle: "italic",
-          fontSize: "14px",
-          letterSpacing: "0.18em",
-          whiteSpace: "nowrap",
-          textShadow: "0 1px 8px rgba(0,0,0,0.25)",
-        }}
-      >
-        aspire. build. ship.
       </div>
 
-      {/* Bottom left label */}
-      <div
-        className="absolute"
-        style={{
-          bottom: "4%",
-          left: "5%",
-          zIndex: 2,
-          color: "#1a1208",
-          fontSize: "11px",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          fontWeight: 600,
-        }}
-      >
-        PM Intern
+      {/* Portrait — large, centered */}
+      <div className="flex justify-center">
+        <img
+          src={portrait.url}
+          alt="Shristy Kumari"
+          style={{
+            maxHeight: "65vh",
+            width: "auto",
+            objectFit: "contain",
+          }}
+        />
       </div>
 
-      {/* Bottom right label */}
+      {/* Bottom row labels */}
       <div
-        className="absolute"
-        style={{
-          bottom: "4%",
-          right: "5%",
-          zIndex: 2,
-          color: "#1a1208",
-          fontSize: "11px",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          fontWeight: 600,
-        }}
+        className="absolute flex items-center justify-between w-full"
+        style={{ bottom: "4%", left: 0, padding: "0 5%" }}
       >
-        Shristy Kumari
+        <div
+          style={{
+            color: "#1a1208",
+            fontSize: "11px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            fontWeight: 600,
+          }}
+        >
+          PM Intern
+        </div>
+        <div
+          style={{
+            color: "#1a1208",
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontStyle: "italic",
+            fontSize: "15px",
+            letterSpacing: "0.12em",
+          }}
+        >
+          aspire. build. ship.
+        </div>
+        <div
+          style={{
+            color: "#1a1208",
+            fontSize: "11px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            fontWeight: 600,
+          }}
+        >
+          Shristy Kumari
+        </div>
       </div>
     </section>
   );
