@@ -15,7 +15,7 @@ const items: Recognition[] = [
     title: "Skillathon Winner",
     org: "Institute of Product Leadership",
     description:
-      "Recognized for developing and presenting an end-to-end product solution during IPL's Skillathon, demonstrating product thinking, customer understanding, and execution.",
+      "Recognized for developing and presenting an end-to-end product solution during IPL's Skillathon.",
     meta: "2026",
   },
   {
@@ -23,57 +23,107 @@ const items: Recognition[] = [
     title: "Session Lead",
     org: "ProdXPulse 2026",
     description:
-      "Led a Product Management workshop during IPL's flagship Product Festival, facilitating sessions and helping create an engaging learning experience for participants.",
-    meta: "Leadership • Community • Product",
+      "Led a Product Management workshop during IPL's flagship Product Festival, facilitating sessions and helping deliver a successful learning experience.",
+    meta: "Leadership • Community",
   },
   {
     icon: Lightbulb,
     title: "Innovation Lab",
     org: "Top 10 Idea Selected",
     description:
-      "Selected among the Top 10 ideas in the Innovation Lab for identifying a real-world problem, validating customer needs, and presenting a product-driven solution.",
+      "Selected among the Top 10 ideas during the Innovation Lab for solving a real-world problem through customer research, validation, and product thinking.",
     meta: "Innovation • Product Discovery",
   },
 ];
 
 const RecognitionSection = () => {
   return (
-    <section id="recognition" className="py-20 md:py-24">
-      <div className="section-container">
+    <section
+      id="recognition"
+      className="relative py-24 md:py-32"
+      style={{ backgroundColor: "#2B211B" }}
+    >
+      <div className="section-container relative">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 max-w-3xl"
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="mx-auto text-center"
+          style={{ maxWidth: "720px" }}
         >
-          <div className="editorial-rule mb-6" />
-          <p className="eyebrow mb-3">Recognition</p>
-          <h2 className="text-4xl leading-tight md:text-6xl">Recognition Along the Way</h2>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+          <div
+            aria-hidden
+            className="mx-auto mb-6"
+            style={{ width: 80, height: 1, backgroundColor: "#C9A227", opacity: 0.6 }}
+          />
+          <p
+            className="mb-5 text-xs uppercase"
+            style={{ color: "#C9A227", letterSpacing: "0.28em", fontWeight: 500 }}
+          >
+            Recognition
+          </p>
+
+          <h2
+            className="text-4xl leading-[1.15] md:text-6xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "#FAF8F5",
+              fontWeight: 500,
+            }}
+          >
+            Recognition Along the Way
+          </h2>
+
+          <p
+            className="mx-auto mt-6 text-base leading-8 md:text-lg"
+            style={{ maxWidth: "600px", color: "#D8CDC1" }}
+          >
             A few milestones that shaped my journey into Product Management.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
               <motion.article
                 key={item.title}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="group flex h-full flex-col rounded-3xl border border-border bg-[#F2ECE4] p-8 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#c9b896]"
+                transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.15 }}
+                className="group flex h-full flex-col transition-all duration-300 ease-out hover:-translate-y-0.5"
+                style={{
+                  backgroundColor: "#F2ECE4",
+                  borderRadius: "24px",
+                  padding: "32px",
+                  border: "1px solid #E6DED2",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#C9B896")}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#E6DED2")}
               >
-                <Icon size={22} className="text-accent" strokeWidth={1.6} />
-                <h3 className="mt-6 text-2xl leading-tight text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{item.org}</p>
-                <p className="mt-5 text-base leading-7 text-muted-foreground">
+                <Icon size={24} strokeWidth={1.6} style={{ color: "#C9A227" }} />
+                <h3
+                  className="mt-6 text-2xl leading-tight"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    color: "#2B211B",
+                    fontWeight: 500,
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-sm" style={{ color: "#6B5E52" }}>
+                  {item.org}
+                </p>
+                <p className="mt-5 text-base leading-7" style={{ color: "#4A3F36" }}>
                   {item.description}
                 </p>
-                <p className="mt-auto pt-6 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <p
+                  className="mt-auto pt-6 text-xs uppercase"
+                  style={{ color: "#8B7B6C", letterSpacing: "0.18em" }}
+                >
                   {item.meta}
                 </p>
               </motion.article>
