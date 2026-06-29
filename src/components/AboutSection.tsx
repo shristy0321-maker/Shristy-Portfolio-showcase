@@ -25,15 +25,6 @@ const AboutSection = () => {
               Long before roadmaps or sprint planning. Just real people, real problems, and the gap
               between what was promised and what was delivered.
             </p>
-            <p>
-              Working across client engagement and relationship management taught me how trust is built,
-              where expectations break, and why clarity matters. That experience now shapes how I think
-              about products: listen deeply, define the right problem, and design outcomes that feel useful
-              in the real world.
-            </p>
-            <p className="text-foreground text-[1.35rem] leading-[1.45] md:text-[1.8rem]">
-              Now I'm here to make sure that gap doesn't exist.
-            </p>
           </div>
         </motion.div>
       </div>
