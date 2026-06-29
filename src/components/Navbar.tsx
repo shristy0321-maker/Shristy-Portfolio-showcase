@@ -162,47 +162,11 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
         <style>{`
           .resume-btn:hover { background-color: #111111; color: #FFFFFF; }
         `}</style>
-
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="md:hidden fixed inset-0 top-[80px]"
-              style={{ backgroundColor: "#FFFFFF" }}
-            >
-              <div className="px-6 py-8 flex flex-col gap-6">
-                {navLinks.map(renderLink)}
-                <a
-                  href={RESUME_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 16,
-                    fontWeight: 600,
-                    color: "#111111",
-                    border: "1px solid #111111",
-                    borderRadius: 999,
-                    padding: "10px 20px",
-                    textAlign: "center",
-                    alignSelf: "flex-start",
-                  }}
-                >
-                  Resume
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
     </>
   );
