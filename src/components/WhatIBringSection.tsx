@@ -70,6 +70,21 @@ const BRAND_ICONS: Record<string, JSX.Element> = {
       </text>
     </svg>
   ),
+  Canva: (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Canva">
+      <defs>
+        <linearGradient id="canvaGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#00c4cc" />
+          <stop offset="100%" stopColor="#7d2ae8" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="12" fill="url(#canvaGrad)" />
+      <path
+        fill="#ffffff"
+        d="M16.4 14.6c-.1-.1-.2-.1-.3 0-.9 1.1-2 1.8-3.2 1.8-2.1 0-3.4-1.9-3.4-4.2 0-2.5 1.3-4.6 3.1-4.6.8 0 1.3.5 1.3 1.1 0 .5-.3.8-.3 1.1 0 .5.4.9 1 .9.8 0 1.4-.7 1.4-1.7 0-1.4-1.3-2.5-3.3-2.5-3.3 0-5.5 2.7-5.5 5.9 0 3.3 2.1 5.6 5.2 5.6 1.8 0 3.4-.9 4.1-2.8.1-.2 0-.5-.1-.6z"
+      />
+    </svg>
+  ),
 };
 
 const ToolIcon = ({ name }: { name: string }) => {
