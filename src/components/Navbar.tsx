@@ -7,9 +7,28 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Case Studies", href: "#case-studies" },
+  { label: "Recognition", href: "#recognition" },
   { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#bring" },
   { label: "Contact", href: "#contact" },
 ];
+
+const easeInOutCubic = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+const smoothScrollTo = (targetY: number, duration = 800) => {
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  let start: number | null = null;
+  const step = (ts: number) => {
+    if (start === null) start = ts;
+    const elapsed = ts - start;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+};
 
 const RESUME_URL =
   "https://docs.google.com/document/d/1A1ZRcoT7HX-G9eu5ZbVfYx2sNg9_t0Yh/edit?usp=sharing";
@@ -78,7 +97,16 @@ const Navbar = () => {
         <a
           key={link.href}
           href={link.href}
-          onClick={() => setOpen(false)}
+          onClick={(e) => {
+            const el = document.getElementById(id);
+            if (el) {
+              e.preventDefault();
+              const top = el.getBoundingClientRect().top + window.scrollY - 80;
+              smoothScrollTo(top, 800);
+              history.replaceState(null, "", link.href);
+            }
+            setOpen(false);
+          }}
           className={className}
           style={style}
         >
@@ -136,7 +164,7 @@ const Navbar = () => {
             Shristy
           </Link>
 
-          <div className="flex items-center flex-wrap justify-end" style={{ gap: "clamp(16px, 3vw, 40px)" }}>
+          <div className="flex items-center flex-wrap justify-end" style={{ gap: "clamp(12px, 2vw, 28px)" }}>
             {navLinks.map(renderLink)}
             <a
               href={RESUME_URL}
