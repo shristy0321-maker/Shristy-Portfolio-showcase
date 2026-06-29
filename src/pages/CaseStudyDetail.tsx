@@ -178,20 +178,6 @@ const CaseStudyDetail = () => {
             ))}
           </div>
 
-          {cs.presentation_url && (
-            <section className="mb-16">
-              <p className="eyebrow mb-3">Presentation</p>
-              <h2 className="text-3xl leading-tight mb-6">Embedded Deck</h2>
-              <div className="aspect-video overflow-hidden rounded-lg border border-border bg-card">
-                <iframe
-                  src={cs.presentation_url}
-                  title={`${cs.title} presentation`}
-                  className="h-full w-full"
-                  allow="fullscreen"
-                />
-              </div>
-            </section>
-          )}
 
           {cs.report_url && (
             <section className="mb-16 border-y border-border py-10 text-left">
