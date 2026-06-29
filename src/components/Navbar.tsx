@@ -155,14 +155,8 @@ const Navbar = () => {
             </a>
           </div>
 
-          <button
-            className="md:hidden"
-            style={{ color: "#111111" }}
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
         </div>
+
 
         <style>{`
           .resume-btn:hover { background-color: #111111; color: #FFFFFF; }
