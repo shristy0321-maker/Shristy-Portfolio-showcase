@@ -184,17 +184,18 @@ const WhatIBringSection = () => {
 
               <div
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
-                style={{ padding: "44px 0" }}
+                style={{ padding: "56px 0" }}
               >
                 {/* Label */}
                 <div className="md:col-span-4">
                   <div
+                    className="mb-5 md:mb-0"
                     style={{
-                      fontSize: 11,
-                      letterSpacing: "0.28em",
-                      color: "#8a7a62",
+                      fontSize: 13,
+                      letterSpacing: "0.18em",
+                      color: "#5a4a36",
                       textTransform: "uppercase",
-                      fontWeight: 400,
+                      fontWeight: 600,
                       fontFamily: "'Inter Tight', sans-serif",
                     }}
                   >
