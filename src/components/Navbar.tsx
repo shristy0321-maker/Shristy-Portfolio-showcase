@@ -130,10 +130,10 @@ const Navbar = () => {
               letterSpacing: "-0.5px",
             }}
           >
-            Shristy Kumari
+            Shristy
           </Link>
 
-          <div className="hidden md:flex items-center" style={{ gap: 40 }}>
+          <div className="flex items-center flex-wrap justify-end" style={{ gap: "clamp(16px, 3vw, 40px)" }}>
             {navLinks.map(renderLink)}
             <a
               href={RESUME_URL}
