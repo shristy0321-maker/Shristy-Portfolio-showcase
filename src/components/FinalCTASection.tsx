@@ -94,8 +94,6 @@ const FinalCTASection = () => {
                   style={{
                     color: "#D8CDC1",
                     letterSpacing: "0.18em",
-                    // @ts-expect-error css var for ::after bg via inline style fallback
-                    ["--after-bg" as any]: "#FAF8F5",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#FAF8F5")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#D8CDC1")}
