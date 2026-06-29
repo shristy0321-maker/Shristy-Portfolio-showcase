@@ -59,18 +59,8 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden overflow-hidden border-t border-border bg-background"
           >
-            <div className="section-container py-5 flex flex-col gap-4">
+            <div className="px-8 py-5 flex flex-col gap-4">
               {navLinks.map(renderLink)}
-              <Button variant="resume" size="sm" asChild>
-                <a
-                  href="https://docs.google.com/document/d/1SVSClilP8Q2__iAloBsbxeZ7tBYRWhHrBNYgw_BV_C8/edit?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                >
-                  Resume <ArrowUpRight size={14} />
-                </a>
-              </Button>
             </div>
           </motion.div>
         )}
