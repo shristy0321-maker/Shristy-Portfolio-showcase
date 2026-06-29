@@ -12,8 +12,20 @@ const links = [
 
 const FinalCTASection = () => {
   return (
-    <section className="py-20 md:py-24">
-      <div className="section-container">
+    <section
+      className="relative py-24 md:py-32"
+      style={{ backgroundColor: "#2B211B" }}
+    >
+      {/* Soft editorial transition from ivory above */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-16 h-16"
+        style={{
+          background: "linear-gradient(to bottom, #FAF8F5 0%, #2B211B 100%)",
+        }}
+      />
+
+      <div className="section-container relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,18 +34,34 @@ const FinalCTASection = () => {
           className="mx-auto text-center"
           style={{ maxWidth: "720px" }}
         >
-          <div className="editorial-rule mx-auto mb-6" />
-          <p className="eyebrow mb-5">Let's Connect</p>
+          <div
+            aria-hidden
+            className="mx-auto mb-6"
+            style={{ width: 80, height: 1, backgroundColor: "#C9A227", opacity: 0.6 }}
+          />
+          <p
+            className="mb-5 text-xs uppercase"
+            style={{ color: "#C9A227", letterSpacing: "0.28em", fontWeight: 500 }}
+          >
+            Let's Connect
+          </p>
 
-          <h2 className="text-4xl leading-[1.15] text-foreground md:text-6xl">
+          <h2
+            className="text-4xl leading-[1.15] md:text-6xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "#FAF8F5",
+              fontWeight: 500,
+            }}
+          >
             The best products start with a conversation.
             <br />
             Let's have one.
           </h2>
 
           <p
-            className="mx-auto mt-6 text-base leading-8 text-muted-foreground md:text-lg"
-            style={{ maxWidth: "520px" }}
+            className="mx-auto mt-6 text-base leading-8 md:text-lg"
+            style={{ maxWidth: "520px", color: "#D8CDC1" }}
           >
             Open to Product Management internships, product roles, and meaningful collaborations.
           </p>
@@ -41,7 +69,14 @@ const FinalCTASection = () => {
           <div className="mt-10 flex justify-center">
             <a
               href="mailto:shristy0321@gmail.com"
-              className="group inline-flex items-center gap-2 rounded-full border border-foreground/80 bg-[#F2ECE4] px-9 py-3.5 text-sm font-medium text-foreground transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-foreground"
+              className="group inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-sm font-medium transition-all duration-200 ease-out hover:-translate-y-0.5"
+              style={{
+                backgroundColor: "#F2ECE4",
+                color: "#2B211B",
+                border: "1px solid #E6DED2",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F2ECE4")}
             >
               <span>Let's Connect</span>
               <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
@@ -55,12 +90,23 @@ const FinalCTASection = () => {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="relative text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full"
+                  className="relative text-xs uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:transition-all after:duration-300 hover:after:w-full"
+                  style={{
+                    color: "#D8CDC1",
+                    letterSpacing: "0.18em",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#FAF8F5")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#D8CDC1")}
                 >
                   {link.label}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 -bottom-1 h-px w-0 transition-all duration-300 group-hover:w-full"
+                    style={{ backgroundColor: "#FAF8F5" }}
+                  />
                 </a>
                 {i < links.length - 1 && (
-                  <span aria-hidden className="text-accent">·</span>
+                  <span aria-hidden style={{ color: "#C9A227" }}>·</span>
                 )}
               </div>
             ))}
