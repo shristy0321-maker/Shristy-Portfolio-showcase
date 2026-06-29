@@ -17,7 +17,7 @@ const education = [
 
 const EducationSection = () => {
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-14 md:py-20">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

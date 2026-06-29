@@ -40,7 +40,7 @@ const RecognitionSection = () => {
   return (
     <section
       id="recognition"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-20"
       style={{ backgroundColor: "#2B211B" }}
     >
       <div className="section-container relative">

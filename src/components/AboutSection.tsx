@@ -4,7 +4,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const AboutSection = () => {
   return (
-    <section id="about" className="pt-16 pb-28 md:pt-24 md:pb-36">
+    <section id="about" className="pt-10 pb-14 md:pt-14 md:pb-20">
       <div className="section-container">
         <motion.div
           initial="hidden"
