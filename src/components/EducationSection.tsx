@@ -17,17 +17,17 @@ const education = [
 
 const EducationSection = () => {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 max-w-2xl"
+          className="mb-10 max-w-2xl"
         >
-          <div className="editorial-rule mb-8" />
-          <p className="eyebrow mb-4">Education</p>
+          <div className="editorial-rule mb-6" />
+          <p className="eyebrow mb-3">Education</p>
           <h2 className="text-4xl leading-tight md:text-5xl">Academic Foundations</h2>
         </motion.div>
 

@@ -27,21 +27,21 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 md:py-32">
+    <section id="experience" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14 max-w-2xl"
+          className="mb-10 max-w-2xl"
         >
-          <div className="editorial-rule mb-8" />
-          <p className="eyebrow mb-4">Experience</p>
+          <div className="editorial-rule mb-6" />
+          <p className="eyebrow mb-3">Experience</p>
           <h2 className="text-4xl leading-tight md:text-5xl">Professional Journey</h2>
         </motion.div>
 
-        <div className="space-y-12 border-t border-border pt-10">
+        <div className="space-y-10 border-t border-border pt-8">
           {experiences.map((exp, i) => (
             <motion.article
               key={exp.company}

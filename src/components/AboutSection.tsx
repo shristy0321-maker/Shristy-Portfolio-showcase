@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 md:py-32">
+    <section id="about" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -11,13 +11,13 @@ const AboutSection = () => {
           transition={{ duration: 0.55 }}
           className="max-w-3xl"
         >
-          <div className="editorial-rule mb-8" />
-          <p className="eyebrow mb-4">About</p>
+          <div className="editorial-rule mb-6" />
+          <p className="eyebrow mb-3">About</p>
           <h2 className="max-w-2xl text-4xl leading-tight text-foreground md:text-6xl">
             From Conversations to Products
           </h2>
 
-          <div className="mt-10 max-w-[48rem] space-y-7 text-left text-lg leading-9 text-muted-foreground md:text-[1.3rem] md:leading-10">
+          <div className="mt-8 max-w-[48rem] space-y-6 text-left text-lg leading-9 text-muted-foreground md:text-[1.3rem] md:leading-10">
             <p className="max-w-[42rem] text-foreground text-[1.5rem] leading-[1.35] md:text-[2rem]">
               My product education started in client calls and stakeholder rooms.
             </p>

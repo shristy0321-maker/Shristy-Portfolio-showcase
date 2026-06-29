@@ -4,8 +4,8 @@ const FinalCTASection = () => {
       className="w-full"
       style={{
         backgroundColor: "#0f0a06",
-        paddingTop: "120px",
-        paddingBottom: "120px",
+        paddingTop: "96px",
+        paddingBottom: "96px",
       }}
     >
       <div

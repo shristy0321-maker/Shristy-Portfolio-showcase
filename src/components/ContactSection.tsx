@@ -25,7 +25,7 @@ const contacts = [
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -34,15 +34,15 @@ const ContactSection = () => {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <div className="editorial-rule mb-8" />
-          <p className="eyebrow mb-4">Contact</p>
+          <div className="editorial-rule mb-6" />
+          <p className="eyebrow mb-3">Contact</p>
           <h2 className="text-4xl leading-tight md:text-5xl">Open to thoughtful product conversations.</h2>
-          <p className="mt-5 text-base leading-8 text-muted-foreground md:text-lg">
+          <p className="mt-4 text-base leading-8 text-muted-foreground md:text-lg">
             For opportunities, collaborations, or product discussions, reach out directly.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {contacts.map((item, i) => (
             <motion.a
               key={item.label}
