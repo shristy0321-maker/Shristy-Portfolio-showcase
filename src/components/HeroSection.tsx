@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import portrait from "@/assets/shristy-cutout.png.asset.json";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
