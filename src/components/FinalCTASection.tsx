@@ -13,7 +13,7 @@ const links = [
 const FinalCTASection = () => {
   return (
     <section
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-20"
       style={{ backgroundColor: "#2B211B" }}
     >
       {/* Soft editorial transition from ivory above */}
