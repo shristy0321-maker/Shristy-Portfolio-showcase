@@ -131,23 +131,6 @@ const CaseStudyDetail = () => {
             </div>
           </motion.header>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="mb-14 overflow-hidden rounded-lg border border-border"
-          >
-            <motion.img
-              src={heroCover}
-              alt={`${cs.title} hero cover`}
-              className="h-[18rem] w-full object-cover md:h-[34rem]"
-              width={1536}
-              height={896}
-              initial={{ scale: 1.03 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-            />
-          </motion.div>
 
           {cs.overview && (
             <motion.section
