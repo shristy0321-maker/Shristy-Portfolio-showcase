@@ -12,7 +12,7 @@ const links = [
 
 const FinalCTASection = () => {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
