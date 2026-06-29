@@ -15,7 +15,7 @@ const rows = [
   },
   {
     label: "TOOLS",
-    pills: ["Figma", "Lovable", "Notion", "Claude", "Aha!"],
+    pills: ["Figma", "Lovable", "Notion", "Claude", "Aha!", "Canva"],
     isTools: true,
   },
 ];
