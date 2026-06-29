@@ -1,10 +1,21 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import portrait from "@/assets/shristy-cutout.png.asset.json";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const portraitOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.3, 0.45, 0.6],
+    [1, 0.8, 0.5, 0.2, 0]
+  );
   const fade = (y: number, delay: number) =>
     reduce
       ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.4, delay } }
@@ -16,6 +27,7 @@ const HeroSection = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative w-full overflow-hidden"
       style={{ minHeight: "100vh", backgroundColor: "#FAF7F3" }}
@@ -96,13 +108,14 @@ const HeroSection = () => {
       </div>
 
       {/* Layer 3: Portrait in front of PORTFOLIO */}
-      <div
+      <motion.div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-end"
         style={{
           bottom: "6%",
           zIndex: 3,
           height: "70%",
           width: "auto",
+          opacity: reduce ? 1 : portraitOpacity,
         }}
       >
         <motion.img
@@ -116,7 +129,7 @@ const HeroSection = () => {
             display: "block",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Bottom-right label */}
       <motion.div
