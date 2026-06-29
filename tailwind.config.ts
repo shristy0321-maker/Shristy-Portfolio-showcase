@@ -13,8 +13,9 @@ export default {
       },
     },
     fontFamily: {
-      display: ['Space Grotesk', 'sans-serif'],
-      body: ['Inter', 'sans-serif'],
+      display: ["Inter Tight", "sans-serif"],
+      body: ["Inter Tight", "sans-serif"],
+      serif: ["Cormorant Garamond", "serif"],
     },
     extend: {
       colors: {
@@ -43,7 +44,6 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        "accent-soft": "hsl(var(--accent) / 0.1)",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
