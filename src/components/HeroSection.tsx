@@ -108,13 +108,14 @@ const HeroSection = () => {
       </div>
 
       {/* Layer 3: Portrait in front of PORTFOLIO */}
-      <div
+      <motion.div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-end"
         style={{
           bottom: "6%",
           zIndex: 3,
           height: "70%",
           width: "auto",
+          opacity: reduce ? 1 : portraitOpacity,
         }}
       >
         <motion.img
@@ -128,7 +129,7 @@ const HeroSection = () => {
             display: "block",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Bottom-right label */}
       <motion.div
