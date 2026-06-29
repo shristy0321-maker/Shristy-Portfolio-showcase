@@ -115,7 +115,7 @@ const WhatIBringSection = () => {
   return (
     <section
       id="bring"
-      style={{ backgroundColor: "#eee8db", padding: "88px 0 96px" }}
+      style={{ backgroundColor: "#eee8db", padding: "80px 0 88px" }}
     >
       <div className="max-w-5xl mx-auto px-6 md:px-10">
         {/* Section header */}
@@ -125,14 +125,14 @@ const WhatIBringSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center"
-          style={{ marginBottom: 56 }}
+          style={{ marginBottom: 40 }}
         >
           <div
             style={{
               width: 32,
               height: 1,
               backgroundColor: "#c9b896",
-              margin: "0 auto 16px",
+              margin: "0 auto 12px",
             }}
           />
           <div
@@ -140,7 +140,7 @@ const WhatIBringSection = () => {
               fontSize: 10,
               letterSpacing: "0.3em",
               color: "#a89880",
-              marginBottom: 14,
+              marginBottom: 10,
               textTransform: "uppercase",
               fontWeight: 500,
             }}
@@ -184,7 +184,7 @@ const WhatIBringSection = () => {
 
               <div
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
-                style={{ padding: "36px 0" }}
+                style={{ padding: "28px 0" }}
               >
                 {/* Label */}
                 <div className="md:col-span-4">
