@@ -5,7 +5,7 @@ const EditorialTransition = () => {
     <section
       aria-label="Editorial pull quote"
       className="flex items-center justify-center"
-      style={{ padding: "56px 1.5rem 40px" }}
+      style={{ padding: "36px 1.5rem 28px" }}
     >
       <motion.div
         initial={{ opacity: 0, y: 14 }}
@@ -21,7 +21,7 @@ const EditorialTransition = () => {
 
         <p
           style={{
-            marginTop: "1.5rem",
+            marginTop: "1.1rem",
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontWeight: 600,
             color: "#1F1F1F",
@@ -50,7 +50,7 @@ const EditorialTransition = () => {
         <div
           aria-hidden
           style={{
-            marginTop: "1.5rem",
+            marginTop: "1.1rem",
             width: 80,
             height: 1,
             backgroundColor: "#C8A95B",
