@@ -53,10 +53,10 @@ const CaseStudiesSection = () => {
     <section id="case-studies" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-10 max-w-3xl"
         >
           <div className="editorial-rule mb-6" />
@@ -81,11 +81,12 @@ const CaseStudiesSection = () => {
               return (
                 <motion.article
                   key={cs.id}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="card-elevated flex h-full flex-col overflow-hidden"
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4 }}
+                  className="case-card card-elevated flex h-full flex-col overflow-hidden"
                 >
                   <Link to={`/case-study/${cs.slug}`} className="block overflow-hidden">
                     <img
@@ -94,7 +95,7 @@ const CaseStudiesSection = () => {
                       loading="lazy"
                       width={1536}
                       height={896}
-                      className="h-56 w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                      className="case-card-img h-56 w-full object-cover transition-transform duration-[600ms] ease-out"
                     />
                   </Link>
 
@@ -128,6 +129,11 @@ const CaseStudiesSection = () => {
           </div>
         )}
       </div>
+      <style>{`
+        .case-card { transition: border-color 200ms ease-out, box-shadow 200ms ease-out; will-change: transform; }
+        .case-card:hover .case-card-img { transform: scale(1.02); }
+        .case-card:hover { border-color: hsl(var(--foreground) / 0.18); }
+      `}</style>
     </section>
   );
 };

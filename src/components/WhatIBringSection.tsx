@@ -120,10 +120,10 @@ const WhatIBringSection = () => {
       <div className="max-w-5xl mx-auto px-6 md:px-10">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center"
           style={{ marginBottom: 40 }}
         >
@@ -167,10 +167,10 @@ const WhatIBringSection = () => {
           {rows.map((row, i) => (
             <motion.div
               key={row.label}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.06 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Divider above each row */}
               <div

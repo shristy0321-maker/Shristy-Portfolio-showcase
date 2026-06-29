@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const EditorialTransition = () => {
   return (
     <section
@@ -8,18 +10,25 @@ const EditorialTransition = () => {
       style={{ padding: "36px 1.5rem 28px" }}
     >
       <motion.div
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 1.6, ease: "easeOut" }}
+        variants={{ hidden: {}, visible: {} }}
         className="mx-auto flex max-w-3xl flex-col items-center text-center"
       >
-        <div
+        <motion.div
           aria-hidden
-          style={{ width: 80, height: 1, backgroundColor: "#C8A95B", opacity: 0.55 }}
+          variants={{
+            hidden: { opacity: 0, scaleX: 0.4 },
+            visible: { opacity: 0.55, scaleX: 1 },
+          }}
+          transition={{ duration: 0.7, ease: EASE }}
+          style={{ width: 80, height: 1, backgroundColor: "#C8A95B", transformOrigin: "center" }}
         />
 
-        <p
+        <motion.p
+          variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
           style={{
             marginTop: "1.1rem",
             fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -31,9 +40,11 @@ const EditorialTransition = () => {
           }}
         >
           I started with people.
-        </p>
+        </motion.p>
 
-        <p
+        <motion.p
+          variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.35 }}
           style={{
             marginTop: "0.75rem",
             fontFamily: "'Inter Tight', sans-serif",
@@ -45,16 +56,21 @@ const EditorialTransition = () => {
           }}
         >
           Then I learned how to build for them.
-        </p>
+        </motion.p>
 
-        <div
+        <motion.div
           aria-hidden
+          variants={{
+            hidden: { opacity: 0, scaleX: 0.4 },
+            visible: { opacity: 0.55, scaleX: 1 },
+          }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
           style={{
             marginTop: "1.1rem",
             width: 80,
             height: 1,
             backgroundColor: "#C8A95B",
-            opacity: 0.55,
+            transformOrigin: "center",
           }}
         />
       </motion.div>

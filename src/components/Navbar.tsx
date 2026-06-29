@@ -104,7 +104,10 @@ const Navbar = () => {
       <style>{`
         .nav-link:hover .nav-underline { width: 100% !important; }
       `}</style>
-      <nav
+      <motion.nav
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-x-0 top-0 z-50"
         style={{
           backgroundColor: "#FFFFFF",
@@ -161,7 +164,7 @@ const Navbar = () => {
         <style>{`
           .resume-btn:hover { background-color: #111111; color: #FFFFFF; }
         `}</style>
-      </nav>
+      </motion.nav>
     </>
   );
 };
