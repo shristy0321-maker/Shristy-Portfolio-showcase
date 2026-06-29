@@ -45,28 +45,6 @@ const HeroSection = () => {
         Portfolio
       </h1>
 
-      {/* Photo */}
-      <div
-        className="absolute left-1/2"
-        style={{
-          top: "15%",
-          transform: "translateX(-50%)",
-          height: "62%",
-          zIndex: 1,
-        }}
-      >
-        <img
-          src={profileImg}
-          alt="Shristy Kumari"
-          style={{
-            height: "100%",
-            width: "auto",
-            objectFit: "cover",
-            objectPosition: "center 20%",
-            display: "block",
-          }}
-        />
-      </div>
 
       {/* Tagline overlay */}
       <div
