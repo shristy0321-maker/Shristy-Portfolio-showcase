@@ -111,32 +111,40 @@ const WhatIBringSection = () => {
                   </div>
                 </div>
 
-                {/* Pills */}
+                {/* Pills or tool icons */}
                 <div className="md:col-span-8">
-                  <div className="flex flex-wrap gap-x-3 gap-y-3">
-                    {row.pills.map((pill) => (
-                      <span
-                        key={pill}
-                        className="editorial-chip-soft"
-                        style={{
-                          backgroundColor: "#faf6ec",
-                          color: "#2a2218",
-                          border: "1px solid #cdbf9f",
-                          fontSize: 13,
-                          padding: "9px 20px",
-                          borderRadius: 999,
-                          fontWeight: 500,
-                          letterSpacing: "0.01em",
-                          display: "inline-block",
-                          transition:
-                            "background-color 0.25s ease, border-color 0.25s ease",
-                          fontFamily: "'Inter Tight', sans-serif",
-                        }}
-                      >
-                        {pill}
-                      </span>
-                    ))}
-                  </div>
+                  {row.isTools ? (
+                    <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+                      {row.pills.map((tool) => (
+                        <ToolIcon key={tool} name={tool} />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap gap-x-3 gap-y-3">
+                      {row.pills.map((pill) => (
+                        <span
+                          key={pill}
+                          className="editorial-chip-soft"
+                          style={{
+                            backgroundColor: "#faf6ec",
+                            color: "#2a2218",
+                            border: "1px solid #cdbf9f",
+                            fontSize: 13,
+                            padding: "9px 20px",
+                            borderRadius: 999,
+                            fontWeight: 500,
+                            letterSpacing: "0.01em",
+                            display: "inline-block",
+                            transition:
+                              "background-color 0.25s ease, border-color 0.25s ease",
+                            fontFamily: "'Inter Tight', sans-serif",
+                          }}
+                        >
+                          {pill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
