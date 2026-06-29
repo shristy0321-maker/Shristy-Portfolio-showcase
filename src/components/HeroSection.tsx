@@ -1,11 +1,11 @@
-import portrait from "@/assets/shristy-portrait.png.asset.json";
+import portrait from "@/assets/shristy-cutout.png.asset.json";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ minHeight: "100vh", backgroundColor: "#FAF8F5" }}
+      style={{ minHeight: "100vh", backgroundColor: "#FAF7F3" }}
     >
       {/* Back arrow — top left */}
       <a
@@ -15,7 +15,7 @@ const HeroSection = () => {
         style={{
           top: "5%",
           left: "5%",
-          zIndex: 4,
+          zIndex: 5,
           color: "#1a1208",
           fontSize: 28,
           lineHeight: 1,
@@ -25,10 +25,10 @@ const HeroSection = () => {
         ‹
       </a>
 
-      {/* Star — top right */}
+      {/* Sparkle — top right */}
       <div
         className="absolute"
-        style={{ top: "5%", right: "5%", zIndex: 4, color: "#6A5B55", fontSize: 18 }}
+        style={{ top: "5%", right: "5%", zIndex: 5, color: "#6D5D57", fontSize: 18 }}
       >
         ✦
       </div>
@@ -38,71 +38,77 @@ const HeroSection = () => {
         aria-hidden
         className="absolute hidden md:block"
         style={{
-          top: "20%",
+          top: "22%",
           right: "4%",
           width: 140,
           height: 220,
           zIndex: 1,
-          opacity: 0.35,
-          backgroundImage: "radial-gradient(#6A5B55 1px, transparent 1px)",
+          opacity: 0.3,
+          backgroundImage: "radial-gradient(#6D5D57 1px, transparent 1px)",
           backgroundSize: "10px 10px",
         }}
       />
 
-      {/* PORTFOLIO heading */}
+      {/* Layer 2: PORTFOLIO heading (behind portrait) */}
       <div
         className="absolute text-center"
         style={{
-          top: "11%",
+          top: "12%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "80%",
+          width: "85%",
           zIndex: 2,
         }}
       >
         <h1
           style={{
             margin: 0,
-            color: "#6A5B55",
-            fontFamily: "'Bebas Neue', 'Anton', Impact, sans-serif",
-            fontWeight: 400,
-            fontSize: "clamp(5rem, 16vw, 16rem)",
+            color: "#6D5D57",
+            fontFamily: "'Anton', 'Bebas Neue', Impact, sans-serif",
+            fontWeight: 900,
+            textTransform: "uppercase",
+            fontSize: "clamp(5rem, 17vw, 18rem)",
             lineHeight: 0.9,
-            letterSpacing: "0.04em",
+            letterSpacing: "0.01em",
           }}
         >
           PORTFOLIO
         </h1>
       </div>
 
-      {/* Handwritten "product manager" tag */}
+      {/* Handwritten "Product Manager" subtitle */}
       <div
         className="absolute"
         style={{
-          top: "32%",
+          top: "33%",
           left: "10%",
-          zIndex: 3,
-          color: "#8A7666",
+          zIndex: 4,
+          color: "#9C7A5D",
           fontFamily: "'Caveat', cursive",
           fontWeight: 500,
-          fontSize: "clamp(1.4rem, 2.4vw, 2.2rem)",
-          transform: "rotate(-4deg)",
+          fontSize: "clamp(1.6rem, 2.6vw, 2.4rem)",
+          transform: "rotate(-5deg)",
         }}
       >
-        product manager
+        Product Manager
       </div>
 
-      {/* Portrait — lower center */}
+      {/* Layer 3: Portrait in front of PORTFOLIO */}
       <div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-end"
-        style={{ bottom: "10%", zIndex: 2, width: "min(560px, 70vw)" }}
+        style={{
+          bottom: "6%",
+          zIndex: 3,
+          height: "70%",
+          width: "auto",
+        }}
       >
         <img
           src={portrait.url}
           alt="Shristy Kumari"
           style={{
-            width: "100%",
-            height: "auto",
+            height: "100%",
+            width: "auto",
             objectFit: "contain",
             display: "block",
           }}
@@ -115,13 +121,14 @@ const HeroSection = () => {
         style={{
           bottom: "4%",
           left: "5%",
-          zIndex: 4,
-          color: "#3a3328",
+          zIndex: 5,
+          color: "#1a1208",
+          fontFamily: "'Inter', sans-serif",
           fontSize: 11,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          fontWeight: 600,
-          borderBottom: "1px solid #3a3328",
+          fontWeight: 700,
+          borderBottom: "1px solid #1a1208",
           paddingBottom: 4,
         }}
       >
@@ -134,13 +141,14 @@ const HeroSection = () => {
         style={{
           bottom: "4%",
           right: "5%",
-          zIndex: 4,
-          color: "#3a3328",
+          zIndex: 5,
+          color: "#1a1208",
+          fontFamily: "'Inter', sans-serif",
           fontSize: 11,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          fontWeight: 600,
-          borderBottom: "1px solid #3a3328",
+          fontWeight: 700,
+          borderBottom: "1px solid #1a1208",
           paddingBottom: 4,
         }}
       >
