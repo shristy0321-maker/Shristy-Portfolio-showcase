@@ -173,6 +173,14 @@ const CaseStudyDetail = () => {
               </Button>
             </section>
           )}
+
+          <div className="mb-16 flex justify-end">
+            <Button asChild size="lg" variant="hero">
+              <Link to="/#case-studies">
+                More Projects <ArrowRight size={15} />
+              </Link>
+            </Button>
+          </div>
         </div>
       </article>
       <Footer />
