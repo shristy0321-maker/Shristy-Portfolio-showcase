@@ -115,7 +115,7 @@ const WhatIBringSection = () => {
   return (
     <section
       id="bring"
-      style={{ backgroundColor: "#eee8db", padding: "160px 0" }}
+      style={{ backgroundColor: "#eee8db", padding: "88px 0 96px" }}
     >
       <div className="max-w-5xl mx-auto px-6 md:px-10">
         {/* Section header */}
@@ -125,14 +125,14 @@ const WhatIBringSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center"
-          style={{ marginBottom: 120 }}
+          style={{ marginBottom: 56 }}
         >
           <div
             style={{
               width: 32,
               height: 1,
               backgroundColor: "#c9b896",
-              margin: "0 auto 24px",
+              margin: "0 auto 16px",
             }}
           />
           <div
@@ -140,7 +140,7 @@ const WhatIBringSection = () => {
               fontSize: 10,
               letterSpacing: "0.3em",
               color: "#a89880",
-              marginBottom: 24,
+              marginBottom: 14,
               textTransform: "uppercase",
               fontWeight: 500,
             }}
