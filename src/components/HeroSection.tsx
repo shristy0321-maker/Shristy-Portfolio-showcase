@@ -76,22 +76,8 @@ const HeroSection = () => {
         </h1>
       </div>
 
-      {/* Handwritten "Product Manager" subtitle */}
-      <div
-        className="absolute"
-        style={{
-          top: "33%",
-          left: "10%",
-          zIndex: 4,
-          color: "#9C7A5D",
-          fontFamily: "'Caveat', cursive",
-          fontWeight: 500,
-          fontSize: "clamp(1.6rem, 2.6vw, 2.4rem)",
-          transform: "rotate(-5deg)",
-        }}
-      >
-        Product Manager
-      </div>
+
+
 
       {/* Layer 3: Portrait in front of PORTFOLIO */}
       <div
