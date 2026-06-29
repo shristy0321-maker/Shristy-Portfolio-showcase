@@ -83,10 +83,29 @@ const CaseStudyDetail = () => {
             <ArrowLeft size={15} /> Back to Case Studies
           </Link>
 
-          <header className="mb-12 border-b border-border pb-10">
+          <motion.header
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12 border-b border-border pb-10"
+          >
             <p className="eyebrow mb-4">Case Study</p>
-            <h1 className="max-w-4xl text-4xl leading-tight text-foreground md:text-6xl">{cs.title}</h1>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">{cs.description}</p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+              className="max-w-4xl text-4xl leading-tight text-foreground md:text-6xl"
+            >
+              {cs.title}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+              className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg"
+            >
+              {cs.description}
+            </motion.p>
             <div className="mt-7 flex flex-wrap gap-2">
               {cs.tags?.map((t: string) => (
                 <span key={t} className="editorial-chip">
@@ -110,23 +129,32 @@ const CaseStudyDetail = () => {
                 </Button>
               )}
             </div>
-          </header>
+          </motion.header>
 
-          <div className="mb-14 overflow-hidden rounded-lg border border-border">
-            <img
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="mb-14 overflow-hidden rounded-lg border border-border"
+          >
+            <motion.img
               src={heroCover}
               alt={`${cs.title} hero cover`}
               className="h-[18rem] w-full object-cover md:h-[34rem]"
               width={1536}
               height={896}
+              initial={{ scale: 1.03 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
             />
-          </div>
+          </motion.div>
 
           {cs.overview && (
             <motion.section
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="mb-16 max-w-3xl border-l border-accent pl-6"
             >
               <p className="eyebrow mb-3">Case Overview</p>
@@ -138,10 +166,10 @@ const CaseStudyDetail = () => {
             {sections.map((s, i) => (
               <motion.section
                 key={s.label}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
                 className="border-t border-border pt-5"
               >
                 <h2 className="text-2xl leading-tight text-foreground mb-4">{s.label}</h2>

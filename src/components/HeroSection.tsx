@@ -1,6 +1,19 @@
+import { motion, useReducedMotion } from "framer-motion";
 import portrait from "@/assets/shristy-cutout.png.asset.json";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const HeroSection = () => {
+  const reduce = useReducedMotion();
+  const fade = (y: number, delay: number) =>
+    reduce
+      ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.4, delay } }
+      : {
+          initial: { opacity: 0, y },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.9, delay, ease: EASE },
+        };
+
   return (
     <section
       id="home"
@@ -8,7 +21,7 @@ const HeroSection = () => {
       style={{ minHeight: "100vh", backgroundColor: "#FAF7F3" }}
     >
       {/* Back arrow — top left */}
-      <a
+      <motion.a
         href="#"
         aria-label="Back"
         className="absolute"
@@ -21,20 +34,22 @@ const HeroSection = () => {
           lineHeight: 1,
           textDecoration: "none",
         }}
+        {...fade(8, 0.1)}
       >
         ‹
-      </a>
+      </motion.a>
 
       {/* Sparkle — top right */}
-      <div
+      <motion.div
         className="absolute"
         style={{ top: "5%", right: "5%", zIndex: 5, color: "#6D5D57", fontSize: 18 }}
+        {...fade(8, 0.1)}
       >
         ✦
-      </div>
+      </motion.div>
 
       {/* Subtle dotted texture on the right */}
-      <div
+      <motion.div
         aria-hidden
         className="absolute hidden md:block"
         style={{
@@ -47,10 +62,13 @@ const HeroSection = () => {
           backgroundImage: "radial-gradient(#6D5D57 1px, transparent 1px)",
           backgroundSize: "10px 10px",
         }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ duration: 1.2, delay: 0.5, ease: EASE }}
       />
 
       {/* Layer 2: PORTFOLIO heading (behind portrait) */}
-      <div
+      <motion.div
         className="absolute text-center"
         style={{
           top: "12%",
@@ -59,6 +77,7 @@ const HeroSection = () => {
           width: "85%",
           zIndex: 2,
         }}
+        {...fade(15, 0.2)}
       >
         <h1
           style={{
@@ -74,13 +93,10 @@ const HeroSection = () => {
         >
           PORTFOLIO
         </h1>
-      </div>
-
-
-
+      </motion.div>
 
       {/* Layer 3: Portrait in front of PORTFOLIO */}
-      <div
+      <motion.div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-end"
         style={{
           bottom: "6%",
@@ -88,6 +104,7 @@ const HeroSection = () => {
           height: "70%",
           width: "auto",
         }}
+        {...fade(20, 0)}
       >
         <img
           src={portrait.url}
@@ -99,13 +116,10 @@ const HeroSection = () => {
             display: "block",
           }}
         />
-      </div>
-
-
-
+      </motion.div>
 
       {/* Bottom-right label */}
-      <div
+      <motion.div
         className="absolute"
         style={{
           bottom: "4%",
@@ -120,9 +134,10 @@ const HeroSection = () => {
           borderBottom: "1px solid #1a1208",
           paddingBottom: 4,
         }}
+        {...fade(10, 0.5)}
       >
         Shristy Kumari
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -30,10 +30,10 @@ const ExperienceSection = () => {
     <section id="experience" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-10 max-w-2xl"
         >
           <div className="editorial-rule mb-6" />
@@ -45,10 +45,10 @@ const ExperienceSection = () => {
           {experiences.map((exp, i) => (
             <motion.article
               key={exp.company}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="grid gap-5 border-b border-border pb-10 md:grid-cols-[15rem_1fr]"
             >
               <div>

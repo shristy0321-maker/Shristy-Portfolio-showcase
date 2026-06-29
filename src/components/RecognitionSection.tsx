@@ -89,10 +89,10 @@ const RecognitionSection = () => {
             return (
               <motion.article
                 key={item.title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.15 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 + i * 0.15 }}
                 className="group flex h-full flex-col transition-all duration-300 ease-out hover:-translate-y-0.5"
                 style={{
                   backgroundColor: "#F2ECE4",

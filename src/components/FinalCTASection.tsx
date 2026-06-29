@@ -27,26 +27,41 @@ const FinalCTASection = () => {
 
       <div className="section-container relative">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{ hidden: {}, visible: {} }}
           className="mx-auto text-center"
           style={{ maxWidth: "720px" }}
         >
-          <div
+          {[
+            { delay: 0 },
+            { delay: 0.15 },
+            { delay: 0.3 },
+            { delay: 0.45 },
+            { delay: 0.6 },
+            { delay: 0.75 },
+          ].map(() => null)}
+
+          <motion.div
             aria-hidden
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 0.6, y: 0 } }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto mb-6"
-            style={{ width: 80, height: 1, backgroundColor: "#C9A227", opacity: 0.6 }}
+            style={{ width: 80, height: 1, backgroundColor: "#C9A227" }}
           />
-          <p
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             className="mb-5 text-xs uppercase"
             style={{ color: "#C9A227", letterSpacing: "0.28em", fontWeight: 500 }}
           >
             Let's Connect
-          </p>
+          </motion.p>
 
-          <h2
+          <motion.h2
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             className="text-4xl leading-[1.15] md:text-6xl"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -57,19 +72,25 @@ const FinalCTASection = () => {
             The best products start with a conversation.
             <br />
             Let's have one.
-          </h2>
+          </motion.h2>
 
-          <p
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
             className="mx-auto mt-6 text-base leading-8 md:text-lg"
             style={{ maxWidth: "520px", color: "#D8CDC1" }}
           >
             Open to Product Management internships, product roles, and meaningful collaborations.
-          </p>
+          </motion.p>
 
-          <div className="mt-10 flex justify-center">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+            className="mt-10 flex justify-center"
+          >
             <a
               href="mailto:shristy0321@gmail.com"
-              className="group inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-sm font-medium transition-all duration-200 ease-out hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5"
               style={{
                 backgroundColor: "#F2ECE4",
                 color: "#2B211B",
@@ -79,18 +100,22 @@ const FinalCTASection = () => {
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F2ECE4")}
             >
               <span>Let's Connect</span>
-              <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
             </a>
-          </div>
+          </motion.div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.75 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
+          >
             {links.map((link, i) => (
               <div key={link.label} className="flex items-center gap-x-4">
                 <a
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="relative text-xs uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:transition-all after:duration-300 hover:after:w-full"
+                  className="relative text-xs uppercase transition-colors duration-300"
                   style={{
                     color: "#D8CDC1",
                     letterSpacing: "0.18em",
@@ -99,18 +124,13 @@ const FinalCTASection = () => {
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#D8CDC1")}
                 >
                   {link.label}
-                  <span
-                    aria-hidden
-                    className="absolute left-0 -bottom-1 h-px w-0 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: "#FAF8F5" }}
-                  />
                 </a>
                 {i < links.length - 1 && (
                   <span aria-hidden style={{ color: "#C9A227" }}>·</span>
                 )}
               </div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
