@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
@@ -8,9 +7,9 @@ const experiences = [
     location: "Jaipur",
     period: "Nov 2024 – May 2025",
     points: [
-      "Managed B2B Client Relationships and gathered Business Requirements to improve Platform Adoption",
-      "Analyzed client performance data and shared actionable insights with internal team",
-      "Coordinated with cross-functional teams to resolve issues and enhance customer experience",
+      "Managed B2B relationships and captured business requirements to improve platform adoption.",
+      "Translated client feedback into actionable recommendations for internal teams.",
+      "Worked across functions to resolve friction points and improve customer experience.",
     ],
   },
   {
@@ -19,67 +18,56 @@ const experiences = [
     location: "Jaipur",
     period: "Mar 2024 – Oct 2024",
     points: [
-      "Managed Client Onboarding, support and relationship management for coworking members",
-      "Gathered Client Feedback and coordinated with internal team to improve service delivery",
-      "Supported retention and customer experience initiatives",
+      "Handled onboarding, support, and retention for coworking members.",
+      "Mapped recurring service pain points and coordinated improvements.",
+      "Built a day-to-day understanding of how user expectations shape loyalty.",
     ],
   },
 ];
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 bg-secondary/50">
+    <section id="experience" className="py-24 md:py-32">
       <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="mb-14 max-w-2xl"
         >
-          <p className="text-sm font-medium tracking-widest uppercase text-primary mb-2">Experience</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">Professional Journey</h2>
+          <div className="editorial-rule mb-8" />
+          <p className="eyebrow mb-4">Experience</p>
+          <h2 className="text-4xl leading-tight md:text-5xl">Professional Journey</h2>
         </motion.div>
 
-        <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
-
-          <div className="space-y-8">
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="relative md:pl-16"
-              >
-                <div className="absolute left-4 top-6 w-5 h-5 rounded-full bg-primary border-4 border-background hidden md:block" />
-
-                <div className="card-elevated p-6 md:p-8">
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <Briefcase size={18} className="text-primary" />
-                    <h3 className="font-display font-bold text-lg text-foreground">
-                      {exp.role} – {exp.company}
-                    </h3>
-                    <span className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">
-                      {exp.period}
-                    </span>
-                  </div>
-                  {exp.location && (
-                    <p className="text-xs text-muted-foreground mb-3">{exp.location}</p>
-                  )}
-                  <ul className="space-y-2">
-                    {exp.points.map((point, j) => (
-                      <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-1.5 shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="space-y-12 border-t border-border pt-10">
+          {experiences.map((exp, i) => (
+            <motion.article
+              key={exp.company}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="grid gap-5 border-b border-border pb-10 md:grid-cols-[15rem_1fr]"
+            >
+              <div>
+                <p className="text-sm uppercase tracking-[0.18em] text-muted-foreground">{exp.period}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{exp.location}</p>
+              </div>
+              <div>
+                <h3 className="text-2xl leading-tight text-foreground">
+                  {exp.role}
+                  <span className="serif-accent text-muted-foreground"> at {exp.company}</span>
+                </h3>
+                <ul className="mt-5 space-y-3 text-base leading-8 text-muted-foreground">
+                  {exp.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

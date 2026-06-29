@@ -2,24 +2,37 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24">
-      <div className="section-container max-w-3xl">
+    <section id="about" className="py-24 md:py-32">
+      <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.55 }}
+          className="max-w-3xl"
         >
-          <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">About Me</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 tracking-tight">
-            From Customer Insight to Product Impact
+          <div className="editorial-rule mb-8" />
+          <p className="eyebrow mb-4">About</p>
+          <h2 className="max-w-2xl text-4xl leading-tight text-foreground md:text-6xl">
+            From Conversations to Products
           </h2>
-          <div className="space-y-5 text-muted-foreground text-base md:text-lg leading-relaxed">
-            <p>
-              I started my career working closely with customers, where I learned that the best solutions come from understanding real user problems. As a Relationship Manager, I developed a strong foundation in customer empathy, problem-solving, and business thinking.
+
+          <div className="mt-10 max-w-[48rem] space-y-7 text-left text-lg leading-9 text-muted-foreground md:text-[1.3rem] md:leading-10">
+            <p className="max-w-[42rem] text-foreground text-[1.5rem] leading-[1.35] md:text-[2rem]">
+              My product education started in client calls and stakeholder rooms.
             </p>
             <p>
-              Today, I am transitioning into Product Management at the Institute of Product Leadership and building real-world case studies focused on customer needs, business impact, and product strategy.
+              Long before roadmaps or sprint planning. Just real people, real problems, and the gap
+              between what was promised and what was delivered.
+            </p>
+            <p>
+              Working across client engagement and relationship management taught me how trust is built,
+              where expectations break, and why clarity matters. That experience now shapes how I think
+              about products: listen deeply, define the right problem, and design outcomes that feel useful
+              in the real world.
+            </p>
+            <p className="text-foreground text-[1.35rem] leading-[1.45] md:text-[1.8rem]">
+              Now I'm here to make sure that gap doesn't exist.
             </p>
           </div>
         </motion.div>
