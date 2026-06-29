@@ -15,7 +15,7 @@ const rows = [
   },
   {
     label: "TOOLS",
-    pills: ["Figma", "Lovable", "Notion", "Claude", "Aha!"],
+    pills: ["Figma", "Lovable", "Notion", "Claude", "Aha!", "Canva"],
     isTools: true,
   },
 ];
@@ -68,6 +68,21 @@ const BRAND_ICONS: Record<string, JSX.Element> = {
       >
         Aha!
       </text>
+    </svg>
+  ),
+  Canva: (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Canva">
+      <defs>
+        <linearGradient id="canvaGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#00c4cc" />
+          <stop offset="100%" stopColor="#7d2ae8" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="12" fill="url(#canvaGrad)" />
+      <path
+        fill="#ffffff"
+        d="M16.4 14.6c-.1-.1-.2-.1-.3 0-.9 1.1-2 1.8-3.2 1.8-2.1 0-3.4-1.9-3.4-4.2 0-2.5 1.3-4.6 3.1-4.6.8 0 1.3.5 1.3 1.1 0 .5-.3.8-.3 1.1 0 .5.4.9 1 .9.8 0 1.4-.7 1.4-1.7 0-1.4-1.3-2.5-3.3-2.5-3.3 0-5.5 2.7-5.5 5.9 0 3.3 2.1 5.6 5.2 5.6 1.8 0 3.4-.9 4.1-2.8.1-.2 0-.5-.1-.6z"
+      />
     </svg>
   ),
 };
@@ -169,17 +184,18 @@ const WhatIBringSection = () => {
 
               <div
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
-                style={{ padding: "44px 0" }}
+                style={{ padding: "56px 0" }}
               >
                 {/* Label */}
                 <div className="md:col-span-4">
                   <div
+                    className="mb-5 md:mb-0"
                     style={{
-                      fontSize: 11,
-                      letterSpacing: "0.28em",
-                      color: "#8a7a62",
+                      fontSize: 13,
+                      letterSpacing: "0.18em",
+                      color: "#5a4a36",
                       textTransform: "uppercase",
-                      fontWeight: 400,
+                      fontWeight: 600,
                       fontFamily: "'Inter Tight', sans-serif",
                     }}
                   >
