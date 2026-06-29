@@ -50,7 +50,7 @@ const CaseStudiesSection = () => {
   });
 
   return (
-    <section id="case-studies" className="py-20 md:py-24">
+    <section id="case-studies" className="py-14 md:py-20">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
