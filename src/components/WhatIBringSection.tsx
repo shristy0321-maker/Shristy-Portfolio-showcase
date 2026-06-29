@@ -243,6 +243,11 @@ const WhatIBringSection = () => {
           background-color: #f3ecdb !important;
           border-color: #a89262 !important;
         }
+        .tool-icon svg { height: 100%; width: auto; display: block; }
+        .tool-icon:hover {
+          transform: translateY(-2px) scale(1.03);
+          opacity: 1 !important;
+        }
       `}</style>
     </section>
   );
