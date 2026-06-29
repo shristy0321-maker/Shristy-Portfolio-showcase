@@ -102,9 +102,19 @@ const CaseStudiesSection = () => {
                   <div className="flex flex-1 flex-col p-7">
                     <div className="mb-5">
                       <Link to={`/case-study/${cs.slug}`}>
-                        <h3 className="text-3xl leading-tight text-foreground transition-colors hover:text-accent">
-                          {cs.title}
-                        </h3>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                          <h3 className="text-3xl leading-tight text-foreground transition-colors hover:text-accent">
+                            {cs.title}
+                          </h3>
+                          {cs.badge && (
+                            <span
+                              className="inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em]"
+                              style={{ borderColor: "#C9A227", color: "#8a6f1c", backgroundColor: "rgba(201,162,39,0.08)" }}
+                            >
+                              {cs.badge}
+                            </span>
+                          )}
+                        </div>
                       </Link>
                       <p className="mt-4 text-base leading-8 text-muted-foreground">{cs.description}</p>
                     </div>
