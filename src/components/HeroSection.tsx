@@ -6,6 +6,16 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const portraitOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.3, 0.45, 0.6],
+    [1, 0.8, 0.5, 0.2, 0]
+  );
   const fade = (y: number, delay: number) =>
     reduce
       ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.4, delay } }
@@ -17,6 +27,7 @@ const HeroSection = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative w-full overflow-hidden"
       style={{ minHeight: "100vh", backgroundColor: "#FAF7F3" }}
