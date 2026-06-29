@@ -101,25 +101,8 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Bottom-left label */}
-      <div
-        className="absolute"
-        style={{
-          bottom: "4%",
-          left: "5%",
-          zIndex: 5,
-          color: "#1a1208",
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 11,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          fontWeight: 700,
-          borderBottom: "1px solid #1a1208",
-          paddingBottom: 4,
-        }}
-      >
-        Product Manager
-      </div>
+
+
 
       {/* Bottom-right label */}
       <div
