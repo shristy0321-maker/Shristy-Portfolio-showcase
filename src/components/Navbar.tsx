@@ -164,7 +164,7 @@ const Navbar = () => {
             Shristy
           </Link>
 
-          <div className="flex items-center flex-wrap justify-end" style={{ gap: "clamp(16px, 3vw, 40px)" }}>
+          <div className="flex items-center flex-wrap justify-end" style={{ gap: "clamp(12px, 2vw, 28px)" }}>
             {navLinks.map(renderLink)}
             <a
               href={RESUME_URL}
