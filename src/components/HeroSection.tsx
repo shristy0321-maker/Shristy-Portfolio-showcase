@@ -68,7 +68,7 @@ const HeroSection = () => {
       />
 
       {/* Layer 2: PORTFOLIO heading (behind portrait) */}
-      <motion.div
+      <div
         className="absolute text-center"
         style={{
           top: "12%",
@@ -77,9 +77,9 @@ const HeroSection = () => {
           width: "85%",
           zIndex: 2,
         }}
-        {...fade(15, 0.2)}
       >
-        <h1
+        <motion.h1
+          {...fade(15, 0.2)}
           style={{
             margin: 0,
             color: "#6D5D57",
@@ -92,11 +92,11 @@ const HeroSection = () => {
           }}
         >
           PORTFOLIO
-        </h1>
-      </motion.div>
+        </motion.h1>
+      </div>
 
       {/* Layer 3: Portrait in front of PORTFOLIO */}
-      <motion.div
+      <div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-end"
         style={{
           bottom: "6%",
@@ -104,9 +104,9 @@ const HeroSection = () => {
           height: "70%",
           width: "auto",
         }}
-        {...fade(20, 0)}
       >
-        <img
+        <motion.img
+          {...fade(20, 0)}
           src={portrait.url}
           alt="Shristy Kumari"
           style={{
@@ -116,7 +116,7 @@ const HeroSection = () => {
             display: "block",
           }}
         />
-      </motion.div>
+      </div>
 
       {/* Bottom-right label */}
       <motion.div
