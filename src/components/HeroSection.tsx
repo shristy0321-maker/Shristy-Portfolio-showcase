@@ -1,4 +1,4 @@
-import profileImg from "@/assets/profile.jpeg";
+
 
 const HeroSection = () => {
   return (
