@@ -38,7 +38,7 @@ const AboutSection = () => {
           <motion.p
             variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.45 }}
-            className="mt-16 font-serif text-foreground text-[1.6rem] leading-[1.4] tracking-[-0.005em] md:text-[2rem] md:leading-[1.35]"
+            className="mt-7 font-serif text-foreground text-[1.6rem] leading-[1.4] tracking-[-0.005em] md:text-[2rem] md:leading-[1.35]"
           >
             My product education started in client calls and stakeholder rooms.
           </motion.p>
