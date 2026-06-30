@@ -37,11 +37,11 @@ const ESPRESSO = "#2B211B";
 
 const FinalCTASection = () => {
   return (
-    <section className="relative py-24 md:py-32" style={{ backgroundColor: ESPRESSO }}>
+    <section className="relative pt-20 pb-24 md:pt-24 md:pb-32" style={{ backgroundColor: ESPRESSO }}>
       {/* Soft editorial transition from ivory above */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-16 h-16"
+        className="pointer-events-none absolute inset-x-0 -top-8 h-8"
         style={{ background: `linear-gradient(to bottom, #FAF8F5 0%, ${ESPRESSO} 100%)` }}
       />
 
