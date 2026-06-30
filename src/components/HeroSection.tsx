@@ -294,13 +294,6 @@ const HeroSection = () => {
                 <img src={portrait} alt="Shristy Kumari" className="hero-portrait" />
               </div>
 
-              <div className="hero-vertical" aria-hidden="true">
-                <span>Building</span>
-                <span>Impactful</span>
-                <span>Products</span>
-                <span className="vrule" />
-                <span className="vstar">✦</span>
-              </div>
             </div>
           </motion.div>
         </div>
