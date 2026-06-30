@@ -102,12 +102,13 @@ const HeroSection = () => {
               src={portrait}
               alt="Shristy Kumari"
               style={{
-                width: "100%",
-                maxWidth: 520,
-                height: "auto",
-                maxHeight: "70vh",
+                width: "auto",
+                maxWidth: "100%",
+                height: "85vh",
+                maxHeight: "85vh",
                 objectFit: "contain",
                 display: "block",
+                margin: "0 auto",
                 WebkitMaskImage:
                   "linear-gradient(180deg, #000 0%, #000 86%, transparent 100%)",
                 maskImage:
