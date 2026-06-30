@@ -44,7 +44,7 @@ const HeroSection = () => {
         /* Giant background wordmark — sits behind portrait, never behind heading */
         .hero-watermark {
           position: absolute;
-          left: 70%;
+          left: calc(70% - 70px);
           top: 0;
           transform: translateX(-50%);
           font-family: var(--font-serif);
@@ -103,7 +103,7 @@ const HeroSection = () => {
         .hero-headline {
           font-family: var(--font-serif);
           font-weight: 500;
-          font-size: clamp(2.4rem, 5vw, 4.4rem);
+          font-size: clamp(2.15rem, 4.5vw, 4rem);
           line-height: 1.05;
           letter-spacing: -0.015em;
           color: hsl(var(--foreground));
