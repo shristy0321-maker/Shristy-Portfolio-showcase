@@ -112,7 +112,7 @@ const HeroSection = () => {
           font-size: clamp(2.15rem, 4.5vw, 4rem);
           line-height: 1.05;
           letter-spacing: -0.015em;
-          color: hsl(var(--foreground));
+          color: #2F241D;
         }
 
         .hero-divider {
@@ -125,11 +125,13 @@ const HeroSection = () => {
           font-family: var(--font-body);
           font-size: 15.5px;
           line-height: 1.75;
-          color: hsl(var(--muted-foreground));
+          color: #5C5148;
           max-width: 430px;
         }
 
         .hero-cta { margin-top: 36px; }
+        .hero-cta > * { background: #2B211B !important; color: #F7F3EE !important; border-color: #2B211B !important; }
+        .hero-cta > *:hover { background: #3A2C24 !important; color: #F7F3EE !important; }
 
         /* RIGHT */
         .hero-right {
@@ -227,7 +229,7 @@ const HeroSection = () => {
         .hero-featured .rule {
           flex: 0 0 clamp(40px, 14vw, 200px);
           height: 1px;
-          background: hsl(var(--primary-foreground) / 0.3);
+          background: #6C584B;
         }
 
         @media (max-width: 899px) {
