@@ -44,9 +44,10 @@ const HeroSection = () => {
         /* Giant background wordmark — sits behind portrait, never behind heading */
         .hero-watermark {
           position: absolute;
-          left: 50%;
+          left: clamp(24px, 5vw, 80px);
           top: 100px;
-          transform: translateX(-50%);
+          transform: none;
+
           font-family: var(--font-serif);
           font-weight: 500;
           font-size: clamp(120px, 15vw, 230px);
