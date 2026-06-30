@@ -86,7 +86,7 @@ const HeroSection = () => {
           top: "24%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "102vw",
+          width: "92vw",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -100,10 +100,11 @@ const HeroSection = () => {
             fontWeight: 400,
             fontStyle: "normal",
             textTransform: "uppercase",
-            fontSize: "clamp(3rem, 11.6vw, 13.2rem)",
+            fontSize: "clamp(2.5rem, 10.2vw, 11.5rem)",
             lineHeight: 0.88,
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.03em",
             whiteSpace: "nowrap",
+
           }}
         >
           PORTFOLIO
