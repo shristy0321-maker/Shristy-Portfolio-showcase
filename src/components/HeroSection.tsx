@@ -168,7 +168,7 @@ const HeroSection = () => {
                 marginTop: 18,
                 color: "#6b5d4f",
                 fontFamily: "Inter, sans-serif",
-                fontSize: 14,
+                fontSize: 13,
                 lineHeight: 1.7,
                 maxWidth: 360,
               }}
