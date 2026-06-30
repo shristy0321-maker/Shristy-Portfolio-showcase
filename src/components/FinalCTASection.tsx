@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, BookOpen, Phone } from "lucide-react";
 
+const LINKEDIN_URL = "https://www.linkedin.com/in/shristy-kumari-42634221b";
+
 const contacts = [
   {
     icon: Mail,
@@ -12,7 +14,7 @@ const contacts = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/shristy-kumari-42634221b",
-    href: "https://www.linkedin.com/in/shristy-kumari-42634221b",
+    href: LINKEDIN_URL,
     external: true,
   },
   {
@@ -122,8 +124,7 @@ const FinalCTASection = () => {
             >
               <a
                 href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 aria-label={item.label}
                 className="contact-icon-link"
               >
