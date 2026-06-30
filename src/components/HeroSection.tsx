@@ -49,9 +49,9 @@ const HeroSection = () => {
       ref={ref}
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ minHeight: "92vh", backgroundColor: "#F8F5EF", paddingTop: 80 }}
+      style={{ backgroundColor: "#F8F5EF", paddingTop: 88, paddingBottom: 48 }}
     >
-      {/* Subtle dotted grid on right */}
+      {/* Subtle dotted grid on right - desktop only */}
       <div
         aria-hidden
         className="hidden md:block absolute pointer-events-none"
@@ -67,31 +67,40 @@ const HeroSection = () => {
       />
 
       <div
-        className="mx-auto h-full grid items-center"
+        className="mx-auto h-full grid items-center hero-wrap"
         style={{
           maxWidth: 1280,
           paddingLeft: "clamp(20px, 6vw, 80px)",
           paddingRight: "clamp(20px, 6vw, 80px)",
-          minHeight: "calc(92vh - 80px)",
           gridTemplateColumns: "1fr",
           gap: 32,
         }}
       >
         <style>{`
+          .hero-wrap { min-height: auto; }
           @media (min-width: 768px) {
+            .hero-wrap { min-height: calc(92vh - 80px); }
             #hero-grid { grid-template-columns: 1fr 1.2fr 1fr !important; gap: 32px !important; align-items: center !important; }
             #hero-left { order: 1 !important; text-align: left; }
             #hero-center { order: 2 !important; }
             #hero-right { order: 3 !important; }
+          }
+          /* Mobile: stacked, centered */
+          @media (max-width: 767px) {
+            #hero-left, #hero-right { text-align: center; }
+            #hero-left .hero-label,
+            #hero-right .hero-label { display: inline-block; }
+            #hero-left h1, #hero-right p { margin-left: auto; margin-right: auto; }
+            #hero-left .hero-cta-wrap { display: flex; justify-content: center; }
           }
         `}</style>
 
         <div
           id="hero-grid"
           className="grid items-center w-full"
-          style={{ gridTemplateColumns: "1fr", gap: 40 }}
+          style={{ gridTemplateColumns: "1fr", gap: 32 }}
         >
-          {/* Center portrait (first on mobile) */}
+          {/* Portrait — first on mobile */}
           <motion.div
             id="hero-center"
             className="flex justify-center items-center relative"
@@ -101,10 +110,10 @@ const HeroSection = () => {
             <img
               src={portrait}
               alt="Shristy Kumari"
+              className="hero-portrait"
               style={{
                 width: "auto",
-                height: "62vh",
-                maxHeight: "62vh",
+                height: "clamp(280px, 52vh, 620px)",
                 maxWidth: "100%",
                 objectFit: "contain",
                 display: "block",
@@ -113,26 +122,26 @@ const HeroSection = () => {
             />
           </motion.div>
 
-          {/* Left text */}
+          {/* Left text — tagline + CTA */}
           <div id="hero-left" style={{ order: 1 }}>
-            <motion.div {...fadeFrom(-24, 0.15)} style={label}>
+            <motion.div {...fadeFrom(-24, 0.15)} style={label} className="hero-label">
               PRODUCT MANAGEMENT
             </motion.div>
             <motion.h1
               {...fadeFrom(-24, 0.25)}
               style={{
-                marginTop: 24,
+                marginTop: 20,
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 700,
-                fontSize: "clamp(2.4rem, 4.4vw, 4.25rem)",
-                lineHeight: 1.05,
+                fontSize: "clamp(2rem, 6.4vw, 4.25rem)",
+                lineHeight: 1.08,
                 color: "#1F1F1F",
                 maxWidth: 340,
               }}
             >
               Built from real conversations, not assumptions.
             </motion.h1>
-            <motion.div {...fadeFrom(-24, 0.35)} style={{ marginTop: 36 }}>
+            <motion.div {...fadeFrom(-24, 0.35)} style={{ marginTop: 28 }} className="hero-cta-wrap">
               <a
                 href="#case-studies"
                 onClick={onView}
@@ -146,6 +155,8 @@ const HeroSection = () => {
                   fontWeight: 600,
                   textDecoration: "none",
                   display: "inline-block",
+                  minHeight: 44,
+                  lineHeight: "20px",
                 }}
               >
                 Explore My Work →
@@ -153,20 +164,20 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right text */}
+          {/* Right — About */}
           <div id="hero-right" style={{ order: 2 }}>
-            <motion.div {...fadeFrom(24, 0.15)} style={label}>
+            <motion.div {...fadeFrom(24, 0.15)} style={label} className="hero-label">
               ABOUT
             </motion.div>
             <motion.p
               {...fadeFrom(24, 0.25)}
               style={{
-                marginTop: 24,
+                marginTop: 20,
                 color: "#1F1F1F",
                 fontFamily: "Inter, sans-serif",
-                fontSize: 18,
+                fontSize: 17,
                 lineHeight: 1.7,
-                maxWidth: 320,
+                maxWidth: 360,
               }}
             >
               My product education started in client calls and stakeholder rooms. Long before
