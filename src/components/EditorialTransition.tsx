@@ -34,7 +34,7 @@ const EditorialTransition = () => {
       </div>
 
       {/* Generous whitespace */}
-      <div style={{ height: "clamp(72px, 10vw, 120px)" }} />
+      <div style={{ height: "clamp(40px, 5vw, 64px)" }} />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
