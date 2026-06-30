@@ -37,6 +37,7 @@ const ESPRESSO = "#2B211B";
 
 const FinalCTASection = () => {
   return (
+    <>
     <section className="relative pt-20 pb-24 md:pt-24 md:pb-32" style={{ backgroundColor: ESPRESSO }}>
       {/* Soft editorial transition from ivory above */}
       <div
