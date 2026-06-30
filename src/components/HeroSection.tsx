@@ -49,43 +49,54 @@ const HeroSection = () => {
       ref={ref}
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#F8F5EF", paddingTop: 88, paddingBottom: 48 }}
+      style={{
+        backgroundColor: "#F8F5EF",
+        paddingTop: 88,
+        paddingBottom: 0,
+        minHeight: "100vh",
+      }}
     >
-      {/* Subtle dotted grid on right - desktop only */}
+      {/* Subtle dotted grid — desktop only, decorative anchor */}
       <div
         aria-hidden
         className="hidden md:block absolute pointer-events-none"
         style={{
-          top: 120,
-          right: 40,
-          width: 180,
-          height: 220,
+          top: 132,
+          right: 48,
+          width: 140,
+          height: 180,
           backgroundImage: "radial-gradient(#1F1F1F 1px, transparent 1px)",
           backgroundSize: "14px 14px",
-          opacity: 0.08,
+          opacity: 0.07,
         }}
       />
 
       <div
-        className="mx-auto h-full grid items-center hero-wrap"
+        className="mx-auto hero-wrap"
         style={{
-          maxWidth: 1280,
-          paddingLeft: "clamp(20px, 6vw, 80px)",
-          paddingRight: "clamp(20px, 6vw, 80px)",
-          gridTemplateColumns: "1fr",
-          gap: 32,
+          maxWidth: 1320,
+          paddingLeft: "clamp(20px, 5vw, 64px)",
+          paddingRight: "clamp(20px, 5vw, 64px)",
         }}
       >
         <style>{`
-          .hero-wrap { min-height: auto; }
+          .hero-wrap { min-height: auto; display: block; }
           @media (min-width: 768px) {
-            .hero-wrap { min-height: calc(92vh - 80px); }
-            #hero-grid { grid-template-columns: 1fr 1.2fr 1fr !important; gap: 32px !important; align-items: center !important; }
-            #hero-left { order: 1 !important; text-align: left; }
-            #hero-center { order: 2 !important; }
-            #hero-right { order: 3 !important; }
+            .hero-wrap {
+              min-height: calc(100vh - 88px);
+              display: grid;
+              align-items: stretch;
+            }
+            #hero-grid {
+              grid-template-columns: 1fr 1.55fr 1fr !important;
+              gap: clamp(24px, 3vw, 56px) !important;
+              align-items: stretch !important;
+              min-height: calc(100vh - 88px);
+            }
+            #hero-left { order: 1 !important; text-align: left; padding-top: 14vh; }
+            #hero-center { order: 2 !important; align-self: end; }
+            #hero-right { order: 3 !important; text-align: left; padding-top: 14vh; }
           }
-          /* Mobile: stacked, centered */
           @media (max-width: 767px) {
             #hero-left, #hero-right { text-align: center; }
             #hero-left .hero-label,
@@ -97,13 +108,13 @@ const HeroSection = () => {
 
         <div
           id="hero-grid"
-          className="grid items-center w-full"
+          className="grid w-full"
           style={{ gridTemplateColumns: "1fr", gap: 32 }}
         >
-          {/* Portrait — first on mobile */}
+          {/* Portrait — dominant center, anchored to bottom of section */}
           <motion.div
             id="hero-center"
-            className="flex justify-center items-center relative"
+            className="flex justify-center items-end relative"
             style={{ order: 0, opacity: portraitOpacity, y: portraitY }}
             {...fadeIn(0.1)}
           >
@@ -113,7 +124,7 @@ const HeroSection = () => {
               className="hero-portrait"
               style={{
                 width: "auto",
-                height: "clamp(280px, 52vh, 620px)",
+                height: "min(82vh, 720px)",
                 maxWidth: "100%",
                 objectFit: "contain",
                 display: "block",
@@ -122,7 +133,7 @@ const HeroSection = () => {
             />
           </motion.div>
 
-          {/* Left text — tagline + CTA */}
+          {/* Left — eyebrow, headline, CTA */}
           <div id="hero-left" style={{ order: 1 }}>
             <motion.div {...fadeFrom(-24, 0.15)} style={label} className="hero-label">
               PRODUCT MANAGEMENT
@@ -130,18 +141,19 @@ const HeroSection = () => {
             <motion.h1
               {...fadeFrom(-24, 0.25)}
               style={{
-                marginTop: 20,
+                marginTop: 24,
                 fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 700,
-                fontSize: "clamp(2rem, 6.4vw, 4.25rem)",
-                lineHeight: 1.08,
+                fontWeight: 600,
+                fontSize: "clamp(2rem, 4.2vw, 3.6rem)",
+                lineHeight: 1.06,
+                letterSpacing: "-0.01em",
                 color: "#1F1F1F",
-                maxWidth: 340,
+                maxWidth: 360,
               }}
             >
               Built from real conversations, not assumptions.
             </motion.h1>
-            <motion.div {...fadeFrom(-24, 0.35)} style={{ marginTop: 28 }} className="hero-cta-wrap">
+            <motion.div {...fadeFrom(-24, 0.35)} style={{ marginTop: 36 }} className="hero-cta-wrap">
               <a
                 href="#case-studies"
                 onClick={onView}
@@ -164,7 +176,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right — About */}
+          {/* Right — eyebrow + about paragraph */}
           <div id="hero-right" style={{ order: 2 }}>
             <motion.div {...fadeFrom(24, 0.15)} style={label} className="hero-label">
               ABOUT
@@ -172,12 +184,12 @@ const HeroSection = () => {
             <motion.p
               {...fadeFrom(24, 0.25)}
               style={{
-                marginTop: 20,
+                marginTop: 24,
                 color: "#1F1F1F",
                 fontFamily: "Inter, sans-serif",
-                fontSize: 17,
-                lineHeight: 1.7,
-                maxWidth: 360,
+                fontSize: 16,
+                lineHeight: 1.75,
+                maxWidth: 320,
               }}
             >
               My product education started in client calls and stakeholder rooms. Long before
