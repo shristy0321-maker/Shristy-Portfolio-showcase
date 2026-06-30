@@ -74,14 +74,15 @@ const HeroSection = () => {
               align-items: stretch;
             }
             #hero-grid {
-              grid-template-columns: 1fr 1.55fr 1fr !important;
-              gap: clamp(24px, 3vw, 56px) !important;
-              align-items: stretch !important;
+              grid-template-columns: 1fr 1.6fr 1fr !important;
+              gap: clamp(20px, 2.5vw, 48px) !important;
+              align-items: center !important;
               min-height: calc(100vh - 88px);
             }
-            #hero-left { order: 1 !important; text-align: left; padding-top: 14vh; }
+            #hero-left { order: 1 !important; text-align: left; align-self: center; }
             #hero-center { order: 2 !important; align-self: end; }
-            #hero-right { order: 3 !important; text-align: left; padding-top: 14vh; }
+            #hero-right { order: 3 !important; text-align: left; align-self: center; }
+
           }
           @media (max-width: 767px) {
             #hero-left, #hero-right { text-align: center; }
