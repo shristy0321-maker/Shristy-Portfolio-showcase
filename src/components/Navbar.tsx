@@ -31,7 +31,7 @@ const smoothScrollTo = (targetY: number, duration = 800) => {
 };
 
 const RESUME_URL =
-  "https://docs.google.com/document/d/1A1ZRcoT7HX-G9eu5ZbVfYx2sNg9_t0Yh/edit?usp=sharing";
+  "https://docs.google.com/document/d/1SVSClilP8Q2__iAloBsbxeZ7tBYRWhHrBNYgw_BV_C8/edit?usp=sharing";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
