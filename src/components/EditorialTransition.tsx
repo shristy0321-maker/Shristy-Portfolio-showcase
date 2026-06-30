@@ -40,42 +40,92 @@ const EditorialTransition = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
         variants={{ hidden: {}, visible: {} }}
-        className="mx-auto flex max-w-3xl flex-col items-center px-6 text-center"
+        className="mx-auto flex flex-col items-center px-6 text-center"
+        style={{ maxWidth: 650 }}
       >
+        {/* Top hairline with centered dot */}
+        <motion.div
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: EASE }}
+          aria-hidden
+          className="flex items-center justify-center"
+          style={{ marginBottom: 28 }}
+        >
+          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
+          <span
+            style={{
+              width: 4,
+              height: 4,
+              borderRadius: "50%",
+              backgroundColor: "#B89A84",
+              margin: "0 10px",
+            }}
+          />
+          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
+        </motion.div>
+
         <motion.p
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
           style={{
             margin: 0,
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontWeight: 600,
             color: "#1F1F1F",
-            fontSize: "clamp(1.9rem, 4.2vw, 3.25rem)",
-            lineHeight: 1.2,
-            letterSpacing: "-0.005em",
+            fontSize: "clamp(2.25rem, 5.2vw, 4rem)",
+            lineHeight: 0.98,
+            letterSpacing: "-0.01em",
           }}
         >
-          I started with people.
+          I started
+          <br />
+          with people.
         </motion.p>
 
         <motion.p
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.25 }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.22 }}
           style={{
-            marginTop: "0.75rem",
-            fontFamily: "'Inter Tight', sans-serif",
-            fontWeight: 500,
-            color: "#7a6a55",
-            fontSize: "clamp(0.98rem, 1.4vw, 1.15rem)",
-            lineHeight: 1.6,
+            marginTop: 24,
+            fontFamily: "'Inter Tight', 'Inter', sans-serif",
+            fontWeight: 400,
+            color: "#8A6B5B",
+            fontSize: "clamp(1.05rem, 1.8vw, 1.5rem)",
+            lineHeight: 1.3,
             letterSpacing: "0.005em",
           }}
         >
-          Then I learned how to build for them.
+          Then I learned
+          <br />
+          how to build
+          <br />
+          for them.
         </motion.p>
+
+        {/* Bottom hairline with centered dot */}
+        <motion.div
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.32 }}
+          aria-hidden
+          className="flex items-center justify-center"
+          style={{ marginTop: 36 }}
+        >
+          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
+          <span
+            style={{
+              width: 4,
+              height: 4,
+              borderRadius: "50%",
+              backgroundColor: "#B89A84",
+              margin: "0 10px",
+            }}
+          />
+          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
+        </motion.div>
       </motion.div>
 
-      <div style={{ height: 48 }} />
+      <div style={{ height: 56 }} />
+
     </section>
   );
 };
