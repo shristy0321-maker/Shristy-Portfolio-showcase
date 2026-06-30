@@ -130,6 +130,11 @@ const HeroSection = () => {
             width: "auto",
             objectFit: "contain",
             display: "block",
+            filter: "drop-shadow(0 30px 60px rgba(40, 25, 15, 0.12))",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, #000 0%, #000 86%, rgba(0,0,0,0.6) 94%, rgba(0,0,0,0) 100%)",
+            maskImage:
+              "linear-gradient(to bottom, #000 0%, #000 86%, rgba(0,0,0,0.6) 94%, rgba(0,0,0,0) 100%)",
           }}
         />
       </motion.div>
