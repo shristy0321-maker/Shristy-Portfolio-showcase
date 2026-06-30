@@ -104,15 +104,11 @@ const HeroSection = () => {
               style={{
                 width: "auto",
                 maxWidth: "100%",
-                height: "85vh",
-                maxHeight: "85vh",
+                height: "80vh",
+                maxHeight: "80vh",
                 objectFit: "contain",
                 display: "block",
                 margin: "0 auto",
-                WebkitMaskImage:
-                  "linear-gradient(180deg, #000 0%, #000 86%, transparent 100%)",
-                maskImage:
-                  "linear-gradient(180deg, #000 0%, #000 86%, transparent 100%)",
               }}
             />
           </motion.div>
