@@ -7,7 +7,7 @@ import WhatIBringSection from "@/components/WhatIBringSection";
 import EducationSection from "@/components/EducationSection";
 import FinalCTASection from "@/components/FinalCTASection";
 
-import Footer from "@/components/Footer";
+
 
 const Index = () => {
   return (
@@ -20,7 +20,6 @@ const Index = () => {
       <WhatIBringSection />
       <EducationSection />
       <FinalCTASection />
-      <Footer />
     </>
   );
 };
