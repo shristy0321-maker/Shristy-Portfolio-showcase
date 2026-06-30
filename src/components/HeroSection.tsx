@@ -49,32 +49,39 @@ const HeroSection = () => {
         .hero-cta:hover .hero-arrow { transform: translateX(6px); }
         .hero-arrow { transition: transform .35s ease; display: inline-block; }
 
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 48px;
-          align-items: center;
-          min-height: calc(100vh - 160px);
+        .hero-shell {
           position: relative;
+          min-height: calc(100vh - 160px);
           z-index: 2;
         }
-        @media (min-width: 900px) {
-          .hero-grid {
-            grid-template-columns: 1.05fr 1fr 0.5fr;
-            gap: clamp(24px, 4vw, 72px);
-          }
+
+        /* Watermark name */
+        .hero-watermark {
+          position: absolute;
+          left: -2vw;
+          bottom: 8%;
+          font-family: 'Cormorant Garamond', serif;
+          font-style: italic;
+          font-weight: 500;
+          font-size: clamp(8rem, 22vw, 22rem);
+          line-height: 0.85;
+          letter-spacing: -0.04em;
+          color: hsl(var(--foreground) / 0.04);
+          pointer-events: none;
+          user-select: none;
+          white-space: nowrap;
+          z-index: 0;
         }
 
         .hero-display {
           font-family: 'Cormorant Garamond', serif;
           font-weight: 500;
-          font-size: clamp(4.5rem, 13vw, 11rem);
+          font-size: clamp(4.5rem, 11vw, 9.5rem);
           line-height: 0.92;
           letter-spacing: -0.025em;
           color: hsl(var(--foreground));
           margin: 0;
         }
-
         .hero-sub {
           font-family: 'Cormorant Garamond', serif;
           font-style: italic;
@@ -83,25 +90,39 @@ const HeroSection = () => {
           text-transform: uppercase;
           color: hsl(var(--muted-foreground));
         }
-
-        .hero-ornament {
-          display: inline-flex; align-items: center; gap: 10px;
-          color: hsl(var(--border));
-          margin-top: 14px;
-        }
+        .hero-ornament { display: inline-flex; align-items: center; gap: 10px; color: hsl(var(--border)); margin-top: 14px; }
         .hero-ornament .line { width: 36px; height: 1px; background: hsl(var(--border)); display: inline-block; }
         .hero-ornament .dot { width: 4px; height: 4px; transform: rotate(45deg); background: hsl(var(--accent)); }
+        .hero-divider { display:inline-block; width: clamp(40px, 10vw, 110px); height:1px; background: hsl(var(--accent)); vertical-align:middle; margin-left:14px; margin-right: 10px; }
+        .hero-spark { color: hsl(var(--accent)); font-size: 11px; }
 
+        /* LEFT text column */
+        .hero-left {
+          position: relative;
+          z-index: 3;
+          max-width: 640px;
+          padding-top: 24px;
+          padding-bottom: 80px;
+        }
+
+        /* RIGHT-anchored portrait */
+        .hero-portrait-anchor {
+          position: absolute;
+          right: -6%;
+          bottom: -32px;
+          width: clamp(360px, 42vw, 560px);
+          z-index: 2;
+        }
+        .hero-arch-wrap { position: relative; width: 100%; }
         .hero-arch {
           position: relative;
-          width: min(420px, 92%);
+          width: 100%;
           aspect-ratio: 3/4;
           border-radius: 999px 999px 18px 18px;
           background: hsl(var(--foreground));
           border: 1px solid hsl(var(--border));
-          box-shadow: 0 40px 80px -40px hsl(var(--foreground) / 0.35);
+          box-shadow: 0 40px 80px -40px hsl(var(--foreground) / 0.45);
           overflow: hidden;
-          margin: 0 auto;
         }
         .hero-arch img {
           position: absolute;
@@ -111,35 +132,33 @@ const HeroSection = () => {
           object-fit: contain;
           object-position: bottom center;
         }
-        .hero-floral {
-          position: absolute;
-          inset: -24px;
-          pointer-events: none;
-          z-index: 1;
-        }
-        .hero-arch-wrap { position: relative; width: min(420px, 92%); margin: 0 auto; }
+        .hero-floral { position: absolute; inset: -24px; pointer-events: none; z-index: 1; }
 
-        .hero-divider { display:inline-block; width: clamp(40px, 10vw, 110px); height:1px; background: hsl(var(--accent)); vertical-align:middle; margin-left:14px; margin-right: 10px; }
-        .hero-spark { color: hsl(var(--accent)); font-size: 11px; }
-
+        /* Featured strip */
         .hero-featured {
+          position: relative;
+          z-index: 1;
           border-top: 1px solid hsl(var(--border));
           background: hsl(var(--secondary));
           padding: 14px 16px;
           display: flex; align-items: center; justify-content: center; gap: 18px;
+          margin-top: 0;
         }
-        .hero-featured .lbl {
-          font-family: 'Inter Tight', sans-serif;
-          font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
-          color: hsl(var(--muted-foreground));
-        }
+        .hero-featured .lbl { font-family: 'Inter Tight', sans-serif; font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
         .hero-featured .sp { color: hsl(var(--accent)); }
 
+        /* Mobile: stack, no crop */
         @media (max-width: 899px) {
-          .hero-right { display: none; }
-          .hero-left { text-align: center; }
+          .hero-watermark { font-size: clamp(5rem, 28vw, 10rem); bottom: auto; top: 40%; opacity: 0.7; }
+          .hero-left { text-align: center; max-width: 100%; padding-bottom: 32px; }
           .hero-left .hero-cta-wrap { justify-content: center; display: flex; }
           .hero-ornament { justify-content: center; }
+          .hero-portrait-anchor {
+            position: relative;
+            right: auto; bottom: auto;
+            width: min(360px, 88%);
+            margin: 0 auto 24px;
+          }
         }
       `}</style>
 
@@ -151,8 +170,11 @@ const HeroSection = () => {
           paddingRight: "clamp(20px, 5vw, 72px)",
         }}
       >
-        <div className="hero-grid">
-          {/* LEFT */}
+        <div className="hero-shell">
+          {/* Watermark name behind everything */}
+          <div className="hero-watermark" aria-hidden="true">Shristy</div>
+
+          {/* LEFT text */}
           <div className="hero-left">
             <motion.div {...fade(16, 0.1)} style={label} className="text-muted-foreground">
               PRODUCT MANAGEMENT
@@ -197,8 +219,6 @@ const HeroSection = () => {
               MBA (TECHNOLOGY MANAGEMENT) · INSTITUTE OF PRODUCT LEADERSHIP
             </motion.div>
 
-
-
             <motion.div {...fade(16, 0.6)} className="hero-cta-wrap" style={{ marginTop: 28 }}>
               <a
                 href="#case-studies"
@@ -224,10 +244,9 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* CENTER */}
-          <motion.div style={{ y: portraitY }} {...fade(28, 0.2)}>
+          {/* RIGHT-anchored portrait (bleeds off right, overlaps strip) */}
+          <motion.div className="hero-portrait-anchor" style={{ y: portraitY }} {...fade(28, 0.2)}>
             <div className="hero-arch-wrap">
-              {/* floral line art */}
               <svg
                 className="hero-floral"
                 viewBox="0 0 500 700"
@@ -247,46 +266,17 @@ const HeroSection = () => {
                 <circle cx="410" cy="365" r="5" />
                 <path d="M445 290 q 14 6 22 18" />
                 <path d="M412 375 q -16 4 -24 18" />
-                <path d="M30 600 q 60 -20 120 -8" />
-                <path d="M470 600 q -60 -20 -120 -8" />
               </svg>
               <div className="hero-arch">
                 <img src={portrait} alt="Shristy Kumari" />
               </div>
             </div>
           </motion.div>
-
-          {/* RIGHT */}
-          <div className="hero-right">
-
-
-
-            <motion.div {...fade(16, 0.55)} style={{ marginTop: 40, textAlign: "right" }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "hsl(var(--accent))", fontSize: 12 }}>
-                <span style={{ height: 1, width: 60, background: "hsl(var(--accent))", display: "inline-block" }} />
-                <span>✦</span>
-              </div>
-              <p
-                style={{
-                  marginTop: 24,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic",
-                  fontSize: 17,
-                  lineHeight: 1.5,
-                  color: "hsl(var(--foreground))",
-                  maxWidth: 220,
-                  marginLeft: "auto",
-                }}
-              >
-                "Great products begin with deep understanding."
-              </p>
-            </motion.div>
-          </div>
         </div>
       </div>
 
       {/* Featured strip */}
-      <div className="hero-featured" style={{ marginTop: 48 }}>
+      <div className="hero-featured">
         <span className="sp">✦</span>
         <span className="lbl">Featured Work</span>
         <span className="sp">✦</span>
