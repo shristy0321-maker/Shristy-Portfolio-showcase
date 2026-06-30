@@ -56,22 +56,8 @@ const HeroSection = () => {
         minHeight: "100vh",
       }}
     >
-      {/* Subtle dotted grid — desktop only, decorative anchor */}
       <div
-        aria-hidden
-        className="hidden md:block absolute pointer-events-none"
-        style={{
-          top: 132,
-          right: 48,
-          width: 140,
-          height: 180,
-          backgroundImage: "radial-gradient(#1F1F1F 1px, transparent 1px)",
-          backgroundSize: "14px 14px",
-          opacity: 0.07,
-        }}
-      />
 
-      <div
         className="mx-auto hero-wrap"
         style={{
           maxWidth: 1320,
