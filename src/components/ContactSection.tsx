@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin } from "lucide-react";
+import { Mail, Phone, Linkedin, BookOpen } from "lucide-react";
 
 const contacts = [
   {
@@ -9,17 +9,24 @@ const contacts = [
     href: "mailto:shristy1921@gmail.com",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+91-6203189245",
-    href: "tel:+916203189245",
-  },
-  {
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/shristy-kumari-42634221b",
     href: "https://www.linkedin.com/in/shristy-kumari-42634221b",
     external: true,
+  },
+  {
+    icon: BookOpen,
+    label: "Medium",
+    value: "medium.com/@shristy1921",
+    href: "https://medium.com/@shristy1921",
+    external: true,
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 6203189245",
+    href: "tel:+916203189245",
   },
 ];
 
@@ -42,7 +49,8 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+
           {contacts.map((item, i) => (
             <motion.a
               key={item.label}

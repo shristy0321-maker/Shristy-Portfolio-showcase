@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 
 const links = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/shristy-kumari-42634221b", external: true },
+  { label: "Medium", href: "https://medium.com/@shristy1921", external: true },
   {
     label: "Resume",
     href: "https://docs.google.com/document/d/1SVSClilP8Q2__iAloBsbxeZ7tBYRWhHrBNYgw_BV_C8/edit?usp=sharing",
     external: true,
   },
-  { label: "Email", href: "mailto:shristy0321@gmail.com", external: false },
+  { label: "Email", href: "mailto:shristy1921@gmail.com", external: false },
 ];
 
 const FinalCTASection = () => {
@@ -89,7 +90,7 @@ const FinalCTASection = () => {
             className="mt-10 flex justify-center"
           >
             <a
-              href="mailto:shristy0321@gmail.com"
+              href="mailto:shristy1921@gmail.com"
               className="group inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5"
               style={{
                 backgroundColor: "#F2ECE4",
