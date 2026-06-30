@@ -119,9 +119,8 @@ const RecognitionSection = () => {
 
         {/* Mobile horizontal swipe carousel */}
         <div
-          className="md:hidden mt-10 -mx-6"
+          className="flex md:hidden mt-10 -mx-6"
           style={{
-            display: "flex",
             gap: 16,
             overflowX: "auto",
             scrollSnapType: "x mandatory",
