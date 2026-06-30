@@ -6,7 +6,7 @@ import RecognitionSection from "@/components/RecognitionSection";
 import WhatIBringSection from "@/components/WhatIBringSection";
 import EducationSection from "@/components/EducationSection";
 import FinalCTASection from "@/components/FinalCTASection";
-import ContactSection from "@/components/ContactSection";
+
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,7 +20,6 @@ const Index = () => {
       <WhatIBringSection />
       <EducationSection />
       <FinalCTASection />
-      <ContactSection />
       <Footer />
     </>
   );
