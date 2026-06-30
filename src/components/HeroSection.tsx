@@ -45,8 +45,8 @@ const HeroSection = () => {
         .hero-watermark {
           position: absolute;
           left: 70%;
-          top: 78%;
-          transform: translate(-50%, -50%);
+          top: 0;
+          transform: translateX(-50%);
           font-family: var(--font-serif);
           font-weight: 500;
           font-size: clamp(7rem, 22vw, 22rem);
@@ -56,8 +56,9 @@ const HeroSection = () => {
           pointer-events: none;
           user-select: none;
           white-space: nowrap;
-          z-index: 0;
+          z-index: 1;
         }
+
 
         .hero-grid {
           position: relative;
