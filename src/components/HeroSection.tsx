@@ -245,10 +245,8 @@ const HeroSection = () => {
         <div className="hero-grid">
           {/* LEFT */}
           <div className="hero-left">
-            <motion.div {...fade(10, 0.05)} className="hero-eyebrow-row">
-              <span className="hero-eyebrow">Product Management</span>
-              <span className="hero-eyebrow-rule" />
-            </motion.div>
+
+
 
             <motion.h1 {...fade(20, 0.15)} className="hero-headline">
               Built from
