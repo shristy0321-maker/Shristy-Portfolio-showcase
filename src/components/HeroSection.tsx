@@ -83,10 +83,10 @@ const HeroSection = () => {
       <div
         className="absolute text-center"
         style={{
-          top: "14%",
+          top: "20%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "110vw",
+          width: "104vw",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -100,7 +100,7 @@ const HeroSection = () => {
             fontWeight: 400,
             fontStyle: "normal",
             textTransform: "uppercase",
-            fontSize: "clamp(5rem, 19vw, 22rem)",
+            fontSize: "clamp(3.75rem, 14.5vw, 16.5rem)",
             lineHeight: 0.88,
             letterSpacing: "-0.04em",
             whiteSpace: "nowrap",
