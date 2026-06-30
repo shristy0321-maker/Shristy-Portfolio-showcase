@@ -60,8 +60,8 @@ const CaseStudiesSection = () => {
           className="mb-10 max-w-3xl"
         >
           <div className="editorial-rule mb-6" />
-          <p className="eyebrow mb-3">Case Studies</p>
-          <h2 className="text-4xl leading-tight md:text-6xl">Product Case Studies</h2>
+          <p className="eyebrow mb-3">Projects</p>
+          <h2 className="text-4xl leading-tight md:text-6xl">Projects</h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
             Real product problems explored through research, framing, execution, and outcomes.
           </p>
