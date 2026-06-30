@@ -117,51 +117,59 @@ const FinalCTASection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Contact columns */}
+        {/* Contact icons */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }}
-          className="mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-y-12 gap-x-8 text-center sm:grid-cols-2 md:mt-24 md:grid-cols-4"
+          className="mx-auto mt-20 flex max-w-2xl items-start justify-center gap-12 md:mt-24 md:gap-20"
         >
-          {contacts.map((item) => (
-            <motion.a
-              key={item.label}
-              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
-              className="group flex flex-col items-center"
-              style={{ color: MUTED }}
-            >
-              <item.icon
-                size={20}
-                strokeWidth={1.4}
-                className="transition-colors duration-300"
-                style={{ color: CREAM }}
-                onMouseEnter={(e) => ((e.currentTarget as SVGSVGElement).style.color = GOLD)}
-              />
-              <p
-                className="mt-5 text-[0.7rem] uppercase transition-colors duration-300 group-hover:text-[color:var(--gold)]"
-                style={{ letterSpacing: "0.28em", color: CREAM, ["--gold" as never]: GOLD }}
+          {contacts.map((item) => {
+            const isPhone = item.label === "Phone";
+            return (
+              <motion.div
+                key={item.label}
+                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col items-center"
               >
-                {item.label}
-              </p>
-              <p
-                className="mt-3 text-sm leading-6 transition-colors duration-300 group-hover:text-[color:var(--gold)]"
-                style={{ color: MUTED, ["--gold" as never]: GOLD }}
-              >
-                {item.value}
-              </p>
-
-              <style>{`
-                .group:hover svg { color: ${GOLD} !important; }
-              `}</style>
-            </motion.a>
-          ))}
+                <a
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  aria-label={item.label}
+                  className="contact-icon-link"
+                >
+                  <item.icon size={22} strokeWidth={1.4} />
+                </a>
+                {isPhone && (
+                  <a
+                    href={item.href}
+                    className="contact-icon-link mt-3 text-sm leading-6"
+                    style={{ color: MUTED }}
+                  >
+                    {item.value}
+                  </a>
+                )}
+              </motion.div>
+            );
+          })}
         </motion.div>
+
+        <style>{`
+          .contact-icon-link {
+            color: ${CREAM};
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            transition: color 250ms ease, transform 250ms ease;
+          }
+          .contact-icon-link:hover {
+            color: ${GOLD};
+            transform: translateY(-2px);
+          }
+        `}</style>
 
         {/* Footer */}
         <div
