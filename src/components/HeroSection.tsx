@@ -258,21 +258,8 @@ const HeroSection = () => {
 
           {/* RIGHT */}
           <div className="hero-right">
-            <motion.div {...fade(16, 0.4)} style={{ textAlign: "right" }}>
-              <div
-                className="text-muted-foreground"
-                style={{
-                  ...label,
-                  writingMode: "vertical-rl" as const,
-                  transform: "rotate(180deg)",
-                  display: "inline-block",
-                  fontSize: 11,
-                  letterSpacing: "0.4em",
-                }}
-              >
-                BUILDING IMPACTFUL PRODUCTS
-              </div>
-            </motion.div>
+
+
 
             <motion.div {...fade(16, 0.55)} style={{ marginTop: 40, textAlign: "right" }}>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "hsl(var(--accent))", fontSize: 12 }}>
