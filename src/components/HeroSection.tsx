@@ -107,8 +107,8 @@ const HeroSection = () => {
                 marginTop: 18,
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 700,
-                fontSize: "clamp(1.8rem, 3.2vw, 2.6rem)",
-                lineHeight: 1.25,
+                fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)",
+                lineHeight: 1.3,
                 color: "#1a1208",
               }}
             >
