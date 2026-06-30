@@ -49,7 +49,7 @@ const HeroSection = () => {
       ref={ref}
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ minHeight: "100vh", backgroundColor: "#F8F5EF", paddingTop: 80 }}
+      style={{ minHeight: "92vh", backgroundColor: "#F8F5EF", paddingTop: 80 }}
     >
       {/* Subtle dotted grid on right */}
       <div
@@ -95,7 +95,7 @@ const HeroSection = () => {
           <motion.div
             id="hero-center"
             className="flex justify-center items-center relative"
-            style={{ order: 0, minHeight: "80vh", opacity: portraitOpacity, y: portraitY }}
+            style={{ order: 0, opacity: portraitOpacity, y: portraitY }}
             {...fadeIn(0.1)}
           >
             <img
@@ -103,9 +103,9 @@ const HeroSection = () => {
               alt="Shristy Kumari"
               style={{
                 width: "auto",
-                height: "100%",
-                maxHeight: "80vh",
-                minHeight: "500px",
+                height: "62vh",
+                maxHeight: "62vh",
+                maxWidth: "100%",
                 objectFit: "contain",
                 display: "block",
                 margin: "0 auto",
