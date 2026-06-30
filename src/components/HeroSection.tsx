@@ -78,8 +78,8 @@ const HeroSection = () => {
         }}
       >
         <style>{`
-          @media (min-width: 900px) {
-            #hero-grid { grid-template-columns: 28% 44% 28% !important; gap: 48px !important; align-items: center !important; }
+          @media (min-width: 768px) {
+            #hero-grid { grid-template-columns: 1fr 1.2fr 1fr !important; gap: 32px !important; align-items: center !important; }
             #hero-left { order: 1 !important; text-align: left; }
             #hero-center { order: 2 !important; }
             #hero-right { order: 3 !important; }
