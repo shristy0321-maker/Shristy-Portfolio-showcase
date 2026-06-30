@@ -37,6 +37,7 @@ const ESPRESSO = "#2B211B";
 
 const FinalCTASection = () => {
   return (
+    <>
     <section className="relative pt-20 pb-24 md:pt-24 md:pb-32" style={{ backgroundColor: ESPRESSO }}>
       {/* Soft editorial transition from ivory above */}
       <div
@@ -146,19 +147,23 @@ const FinalCTASection = () => {
           }
         `}</style>
 
-        {/* Footer */}
-        <div
-          className="mx-auto mt-24 flex max-w-5xl flex-col gap-2 text-xs md:mt-28 md:flex-row md:items-center md:justify-between"
-          style={{ color: MUTED }}
-        >
+      </div>
+    </section>
+
+    {/* White footer */}
+    <footer style={{ backgroundColor: "#FAF8F5", color: "#1F1F1F" }}>
+      <div className="section-container">
+        <div className="mx-auto flex max-w-5xl flex-col gap-2 py-8 text-xs md:flex-row md:items-center md:justify-between md:py-10">
           <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", fontSize: "0.95rem" }}>
             Built with a story-first product lens.
           </p>
           <p style={{ letterSpacing: "0.12em" }}>© 2026 Shristy Kumari</p>
         </div>
       </div>
-    </section>
+    </footer>
+    </>
   );
 };
 
 export default FinalCTASection;
+
