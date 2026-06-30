@@ -63,7 +63,7 @@ const HeroSection = () => {
       >
         <style>{`
           @media (min-width: 900px) {
-            #hero-grid { grid-template-columns: 1fr 1.1fr 1fr !important; gap: 56px !important; }
+            #hero-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 56px !important; align-items: center !important; }
             #hero-left { order: 1; }
             #hero-center { order: 2; }
             #hero-right { order: 3; }
@@ -72,13 +72,13 @@ const HeroSection = () => {
 
         <div
           id="hero-grid"
-          className="grid items-end md:items-center w-full"
+          className="grid items-center w-full"
           style={{ gridTemplateColumns: "1fr", gap: 40 }}
         >
           {/* Center photo first on mobile */}
           <motion.div
             id="hero-center"
-            className="flex justify-center items-end"
+            className="flex justify-center items-center"
             style={{ order: 0 }}
             {...fade(20, 0.05)}
           >
