@@ -44,8 +44,8 @@ const HeroSection = () => {
         /* Giant background wordmark — sits behind portrait, never behind heading */
         .hero-watermark {
           position: absolute;
-          left: 0;
-          right: 0;
+          left: 100px;
+          right: -100px;
           top: 100px;
           width: 100%;
           text-align: center;
@@ -239,7 +239,7 @@ const HeroSection = () => {
           .hero-right { min-height: 0; margin-top: 8px; }
           .hero-arch-wrap { height: clamp(420px, 70vh, 560px); width: min(420px, 92%); }
           .hero-vertical { right: -4px; font-size: 9.5px; letter-spacing: 0.4em; }
-          .hero-watermark { font-size: clamp(5rem, 28vw, 9rem); top: 0; left: 50%; transform: translateX(-50%); }
+          .hero-watermark { font-size: clamp(5rem, 28vw, 9rem); top: 0; left: calc(50% + 100px); transform: translateX(-50%); }
           .hero-cta .btn-full { width: 100%; }
         }
       `}</style>
