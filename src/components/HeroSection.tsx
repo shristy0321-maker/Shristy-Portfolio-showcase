@@ -28,89 +28,118 @@ const HeroSection = () => {
     }
   };
 
-  const label: React.CSSProperties = {
-    fontFamily: "'Inter Tight', sans-serif",
-    textTransform: "uppercase",
-    fontSize: 11,
-    letterSpacing: "0.32em",
-    fontWeight: 500,
-  };
-
   return (
     <section
       ref={ref}
       id="home"
       className="relative w-full overflow-hidden bg-background text-foreground"
-      style={{ minHeight: "100vh", paddingTop: 88 }}
+      style={{ minHeight: "100vh", paddingTop: 96 }}
     >
       <style>{`
-        .hero-cta { transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease, background-color .3s ease; }
+        .hero-cta { transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease; }
         .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -18px hsl(var(--foreground) / .35); }
         .hero-cta:hover .hero-arrow { transform: translateX(6px); }
         .hero-arrow { transition: transform .35s ease; display: inline-block; }
 
-        .hero-shell {
+        .hero-grid {
           position: relative;
-          min-height: calc(100vh - 160px);
-          z-index: 2;
+          display: grid;
+          grid-template-columns: 55% 45%;
+          gap: 32px;
+          align-items: start;
+          min-height: calc(100vh - 200px);
         }
 
-        /* Watermark name */
-        .hero-watermark {
+        .hero-toplabel {
           position: absolute;
-          left: -2vw;
-          bottom: 8%;
-          font-family: 'Cormorant Garamond', serif;
-          font-style: italic;
-          font-weight: 500;
-          font-size: clamp(8rem, 22vw, 22rem);
-          line-height: 0.85;
-          letter-spacing: -0.04em;
-          color: hsl(var(--foreground) / 0.04);
-          pointer-events: none;
-          user-select: none;
-          white-space: nowrap;
-          z-index: 0;
+          top: 0;
+          right: 0;
+          text-align: right;
+          font-family: 'Inter Tight', sans-serif;
+          font-size: 10.5px;
+          letter-spacing: 0.42em;
+          text-transform: uppercase;
+          color: hsl(var(--muted-foreground));
+          line-height: 1.7;
+          z-index: 4;
         }
+
+        .hero-left { position: relative; z-index: 3; padding-top: 56px; max-width: 640px; }
 
         .hero-display {
           font-family: 'Cormorant Garamond', serif;
           font-weight: 500;
-          font-size: clamp(4.5rem, 11vw, 9.5rem);
-          line-height: 0.92;
-          letter-spacing: -0.025em;
+          font-size: clamp(5rem, 13vw, 11rem);
+          line-height: 0.9;
+          letter-spacing: -0.03em;
           color: hsl(var(--foreground));
           margin: 0;
+          position: relative;
+          display: inline-block;
         }
-        .hero-sub {
+        .hero-display .spark {
+          position: absolute;
+          top: 0.15em;
+          right: -0.35em;
+          font-size: 0.18em;
+          color: hsl(var(--accent));
+        }
+
+        .hero-tagline {
+          margin-top: 28px;
           font-family: 'Cormorant Garamond', serif;
-          font-style: italic;
-          font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-          letter-spacing: 0.32em;
+          font-size: 12.5px;
+          letter-spacing: 0.34em;
           text-transform: uppercase;
           color: hsl(var(--muted-foreground));
         }
-        .hero-ornament { display: inline-flex; align-items: center; gap: 10px; color: hsl(var(--border)); margin-top: 14px; }
-        .hero-ornament .line { width: 36px; height: 1px; background: hsl(var(--border)); display: inline-block; }
-        .hero-ornament .dot { width: 4px; height: 4px; transform: rotate(45deg); background: hsl(var(--accent)); }
-        .hero-divider { display:inline-block; width: clamp(40px, 10vw, 110px); height:1px; background: hsl(var(--accent)); vertical-align:middle; margin-left:14px; margin-right: 10px; }
-        .hero-spark { color: hsl(var(--accent)); font-size: 11px; }
-
-        /* LEFT text column */
-        .hero-left {
-          position: relative;
-          z-index: 3;
-          max-width: 640px;
-          padding-top: 24px;
-          padding-bottom: 80px;
+        .hero-rule {
+          margin-top: 18px;
+          width: 64px;
+          height: 1px;
+          background: hsl(var(--accent));
         }
 
-        /* RIGHT-anchored portrait */
+        .hero-paragraph {
+          margin-top: 36px;
+          padding-left: 20px;
+          border-left: 1px solid hsl(var(--accent) / 0.5);
+          font-family: 'Inter Tight', sans-serif;
+          font-size: 15.5px;
+          line-height: 1.75;
+          color: hsl(var(--muted-foreground));
+          max-width: 480px;
+        }
+
+        .hero-signature {
+          margin-top: 36px;
+          font-family: 'Caveat', cursive;
+          font-size: clamp(2.4rem, 4vw, 3.2rem);
+          line-height: 1;
+          color: hsl(var(--foreground));
+        }
+        .hero-credential {
+          margin-top: 10px;
+          font-family: 'Inter Tight', sans-serif;
+          font-size: 10.5px;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
+          color: hsl(var(--muted-foreground));
+        }
+
+        .hero-cta-wrap { margin-top: 36px; }
+
+        /* RIGHT arch */
+        .hero-right {
+          position: relative;
+          align-self: stretch;
+          min-height: 560px;
+        }
         .hero-portrait-anchor {
           position: absolute;
-          right: -6%;
-          bottom: -32px;
-          width: clamp(360px, 42vw, 560px);
+          top: -40px;
+          right: -8%;
+          width: clamp(360px, 44vw, 580px);
           z-index: 2;
         }
         .hero-arch-wrap { position: relative; width: 100%; }
@@ -118,10 +147,8 @@ const HeroSection = () => {
           position: relative;
           width: 100%;
           aspect-ratio: 3/4;
-          border-radius: 999px 999px 18px 18px;
+          border-radius: 999px 999px 14px 14px;
           background: hsl(var(--foreground));
-          border: 1px solid hsl(var(--border));
-          box-shadow: 0 40px 80px -40px hsl(var(--foreground) / 0.45);
           overflow: hidden;
         }
         .hero-arch img {
@@ -132,33 +159,38 @@ const HeroSection = () => {
           object-fit: contain;
           object-position: bottom center;
         }
-        .hero-floral { position: absolute; inset: -24px; pointer-events: none; z-index: 1; }
+        .hero-floral { position: absolute; inset: -20px; pointer-events: none; z-index: 1; opacity: 0.14; }
 
         /* Featured strip */
         .hero-featured {
           position: relative;
           z-index: 1;
-          border-top: 1px solid hsl(var(--border));
-          background: hsl(var(--secondary));
-          padding: 14px 16px;
-          display: flex; align-items: center; justify-content: center; gap: 18px;
-          margin-top: 0;
+          background: hsl(var(--foreground));
+          padding: 16px;
+          display: flex; align-items: center; justify-content: center; gap: 16px;
+          margin-top: 56px;
         }
-        .hero-featured .lbl { font-family: 'Inter Tight', sans-serif; font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
-        .hero-featured .sp { color: hsl(var(--accent)); }
+        .hero-featured .lbl {
+          font-family: 'Inter Tight', sans-serif;
+          font-size: 11px;
+          letter-spacing: 0.5em;
+          text-transform: uppercase;
+          color: hsl(var(--background));
+        }
+        .hero-featured .sp { color: hsl(var(--accent)); font-size: 12px; }
+        .hero-featured .rule { flex: 0 0 80px; height: 1px; background: hsl(var(--accent) / 0.5); }
 
-        /* Mobile: stack, no crop */
         @media (max-width: 899px) {
-          .hero-watermark { font-size: clamp(5rem, 28vw, 10rem); bottom: auto; top: 40%; opacity: 0.7; }
-          .hero-left { text-align: center; max-width: 100%; padding-bottom: 32px; }
-          .hero-left .hero-cta-wrap { justify-content: center; display: flex; }
-          .hero-ornament { justify-content: center; }
-          .hero-portrait-anchor {
-            position: relative;
-            right: auto; bottom: auto;
-            width: min(360px, 88%);
-            margin: 0 auto 24px;
-          }
+          .hero-grid { grid-template-columns: 1fr; gap: 0; }
+          .hero-toplabel { position: relative; text-align: center; margin-bottom: 24px; }
+          .hero-left { padding-top: 16px; text-align: center; max-width: 100%; }
+          .hero-display { font-size: clamp(4rem, 18vw, 7rem); }
+          .hero-display .spark { right: -0.3em; }
+          .hero-rule { margin-left: auto; margin-right: auto; }
+          .hero-paragraph { margin-left: auto; margin-right: auto; padding-left: 0; border-left: 0; border-top: 1px solid hsl(var(--accent) / 0.5); padding-top: 18px; text-align: center; }
+          .hero-right { min-height: 0; margin-top: 40px; }
+          .hero-portrait-anchor { position: relative; top: 0; right: 0; width: min(360px, 88%); margin: 0 auto; }
+          .hero-featured .rule { flex: 0 0 32px; }
         }
       `}</style>
 
@@ -170,56 +202,40 @@ const HeroSection = () => {
           paddingRight: "clamp(20px, 5vw, 72px)",
         }}
       >
-        <div className="hero-shell">
-          {/* Watermark name behind everything */}
-          <div className="hero-watermark" aria-hidden="true">Shristy</div>
+        <div className="hero-grid">
+          {/* Top-right small stacked label */}
+          <motion.div {...fade(12, 0.1)} className="hero-toplabel" aria-hidden="false">
+            BUILDING
+            <br />
+            IMPACTFUL PRODUCTS
+          </motion.div>
 
-          {/* LEFT text */}
+          {/* LEFT */}
           <div className="hero-left">
-            <motion.div {...fade(16, 0.1)} style={label} className="text-muted-foreground">
-              PRODUCT MANAGEMENT
-              <span className="hero-divider" />
-              <span className="hero-spark">✦</span>
-            </motion.div>
-
-            <motion.h1 {...fade(20, 0.2)} className="hero-display" style={{ marginTop: 20 }}>
-              Shristy
+            <motion.h1 {...fade(20, 0.15)} className="hero-display">
+              shristy
+              <span className="spark" aria-hidden="true">✦</span>
             </motion.h1>
 
-            <motion.div {...fade(16, 0.3)} className="hero-sub" style={{ marginTop: 16 }}>
-              Product Thinker &amp; Problem Solver
+            <motion.div {...fade(14, 0.25)} className="hero-tagline">
+              I don&apos;t guess. I validate, build, and ship.
             </motion.div>
-            <div className="hero-ornament">
-              <span className="line" />
-              <span className="dot" />
-              <span className="line" />
-            </div>
+            <motion.div {...fade(10, 0.3)} className="hero-rule" />
 
-            <motion.p
-              {...fade(20, 0.4)}
-              className="text-muted-foreground"
-              style={{
-                marginTop: 24,
-                fontFamily: "'Inter Tight', sans-serif",
-                fontSize: 15.5,
-                lineHeight: 1.7,
-                maxWidth: 440,
-              }}
-            >
-              I transform user research into meaningful digital experiences — discovering real
-              problems, validating ideas, prioritizing opportunities, and building products that
-              create measurable impact.
+            <motion.p {...fade(18, 0.35)} className="hero-paragraph">
+              My product education started in client calls and stakeholder rooms. Long before
+              roadmaps or sprint planning. Just real people, real problems, and the gap between
+              what was promised and what was delivered.
             </motion.p>
 
-            <motion.div
-              {...fade(16, 0.5)}
-              className="text-muted-foreground"
-              style={{ marginTop: 24, ...label, fontSize: 10, letterSpacing: "0.28em" }}
-            >
-              MBA (TECHNOLOGY MANAGEMENT) · INSTITUTE OF PRODUCT LEADERSHIP
+            <motion.div {...fade(16, 0.45)} className="hero-signature">
+              Shristy Kumari
+            </motion.div>
+            <motion.div {...fade(12, 0.5)} className="hero-credential">
+              MBA (Technology Management) · Institute of Product Leadership
             </motion.div>
 
-            <motion.div {...fade(16, 0.6)} className="hero-cta-wrap" style={{ marginTop: 28 }}>
+            <motion.div {...fade(16, 0.55)} className="hero-cta-wrap">
               <a
                 href="#case-studies"
                 onClick={onView}
@@ -244,42 +260,39 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT-anchored portrait (bleeds off right, overlaps strip) */}
-          <motion.div className="hero-portrait-anchor" style={{ y: portraitY }} {...fade(28, 0.2)}>
-            <div className="hero-arch-wrap">
-              <svg
-                className="hero-floral"
-                viewBox="0 0 500 700"
-                fill="none"
-                stroke="hsl(var(--accent))"
-                strokeWidth="0.8"
-                style={{ opacity: 0.18 }}
-                aria-hidden="true"
-              >
-                <path d="M40 200 C 70 240, 60 300, 90 340 C 120 380, 110 440, 80 500" />
-                <circle cx="60" cy="260" r="6" />
-                <circle cx="92" cy="345" r="5" />
-                <path d="M55 270 q -14 6 -22 18" />
-                <path d="M88 355 q 16 4 24 18" />
-                <path d="M460 220 C 430 260, 440 320, 410 360 C 380 400, 390 460, 420 520" />
-                <circle cx="442" cy="280" r="6" />
-                <circle cx="410" cy="365" r="5" />
-                <path d="M445 290 q 14 6 22 18" />
-                <path d="M412 375 q -16 4 -24 18" />
-              </svg>
-              <div className="hero-arch">
-                <img src={portrait} alt="Shristy Kumari" />
+          {/* RIGHT arch portrait */}
+          <div className="hero-right">
+            <motion.div className="hero-portrait-anchor" style={{ y: portraitY }} {...fade(28, 0.2)}>
+              <div className="hero-arch-wrap">
+                <svg
+                  className="hero-floral"
+                  viewBox="0 0 500 700"
+                  fill="none"
+                  stroke="hsl(var(--accent))"
+                  strokeWidth="0.8"
+                  aria-hidden="true"
+                >
+                  <path d="M30 240 C 60 280, 55 340, 80 380" />
+                  <circle cx="55" cy="295" r="4" />
+                  <path d="M470 240 C 440 280, 445 340, 420 380" />
+                  <circle cx="445" cy="295" r="4" />
+                </svg>
+                <div className="hero-arch">
+                  <img src={portrait} alt="Shristy Kumari" />
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Featured strip */}
       <div className="hero-featured">
+        <span className="rule" />
         <span className="sp">✦</span>
         <span className="lbl">Featured Work</span>
         <span className="sp">✦</span>
+        <span className="rule" />
       </div>
     </section>
   );
