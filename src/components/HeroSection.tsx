@@ -129,9 +129,11 @@ const HeroSection = () => {
           position: relative;
           display: flex;
           align-items: flex-end;
-          justify-content: center;
+          justify-content: flex-end;
           min-height: 700px;
+          padding-right: clamp(0px, 2vw, 24px);
         }
+
 
         .hero-arch-wrap {
           position: relative;
