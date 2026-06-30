@@ -123,7 +123,7 @@ const HeroSection = () => {
       >
         <motion.img
           {...fade(20, 0)}
-          src={portrait.url}
+          src={portrait}
           alt="Shristy Kumari"
           style={{
             height: "100%",
