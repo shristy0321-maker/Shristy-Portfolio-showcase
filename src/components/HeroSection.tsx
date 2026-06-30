@@ -83,24 +83,27 @@ const HeroSection = () => {
       <div
         className="absolute text-center"
         style={{
-          top: "12%",
+          top: "14%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "85%",
+          width: "110vw",
           zIndex: 2,
+          pointerEvents: "none",
         }}
       >
         <motion.h1
           {...fade(15, 0.2)}
           style={{
             margin: 0,
-            color: "#6D5D57",
-            fontFamily: "'Anton', 'Bebas Neue', Impact, sans-serif",
-            fontWeight: 900,
+            color: "#6B5A52",
+            fontFamily: "'Editorial New', 'Bodoni Moda', 'Didot', 'Bodoni 72', serif",
+            fontWeight: 400,
+            fontStyle: "normal",
             textTransform: "uppercase",
-            fontSize: "clamp(5rem, 17vw, 18rem)",
-            lineHeight: 0.9,
-            letterSpacing: "0.01em",
+            fontSize: "clamp(5rem, 19vw, 22rem)",
+            lineHeight: 0.88,
+            letterSpacing: "-0.04em",
+            whiteSpace: "nowrap",
           }}
         >
           PORTFOLIO
