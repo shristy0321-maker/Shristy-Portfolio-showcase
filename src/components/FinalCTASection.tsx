@@ -125,36 +125,24 @@ const FinalCTASection = () => {
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }}
           className="mx-auto mt-20 flex max-w-2xl items-start justify-center gap-12 md:mt-24 md:gap-20"
         >
-          {contacts.map((item) => {
-            const isPhone = item.label === "Phone";
-            return (
-              <motion.div
-                key={item.label}
-                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col items-center"
+          {contacts.map((item) => (
+            <motion.div
+              key={item.label}
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col items-center"
+            >
+              <a
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                aria-label={item.label}
+                className="contact-icon-link"
               >
-                <a
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  aria-label={item.label}
-                  className="contact-icon-link"
-                >
-                  <item.icon size={22} strokeWidth={1.4} />
-                </a>
-                {isPhone && (
-                  <a
-                    href={item.href}
-                    className="contact-icon-link mt-3 text-sm leading-6"
-                    style={{ color: MUTED }}
-                  >
-                    {item.value}
-                  </a>
-                )}
-              </motion.div>
-            );
-          })}
+                <item.icon size={22} strokeWidth={1.4} />
+              </a>
+            </motion.div>
+          ))}
         </motion.div>
 
         <style>{`
