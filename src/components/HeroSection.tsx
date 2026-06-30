@@ -63,7 +63,7 @@ const HeroSection = () => {
       >
         <style>{`
           @media (min-width: 900px) {
-            #hero-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 56px !important; align-items: center !important; }
+            #hero-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 32px !important; align-items: center !important; }
             #hero-left { order: 1; }
             #hero-center { order: 2; }
             #hero-right { order: 3; }
@@ -86,8 +86,9 @@ const HeroSection = () => {
               src={portrait}
               alt="Shristy Kumari"
               style={{
-                maxHeight: "75vh",
+                maxHeight: "70vh",
                 width: "auto",
+                margin: "0 auto",
                 objectFit: "contain",
                 display: "block",
                 filter: "drop-shadow(0 30px 60px rgba(40,25,15,0.12))",
@@ -106,8 +107,8 @@ const HeroSection = () => {
                 marginTop: 18,
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 700,
-                fontSize: "clamp(1.8rem, 3.2vw, 2.6rem)",
-                lineHeight: 1.25,
+                fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)",
+                lineHeight: 1.3,
                 color: "#1a1208",
               }}
             >
@@ -167,7 +168,7 @@ const HeroSection = () => {
                 marginTop: 18,
                 color: "#6b5d4f",
                 fontFamily: "Inter, sans-serif",
-                fontSize: 14,
+                fontSize: 13,
                 lineHeight: 1.7,
                 maxWidth: 360,
               }}
