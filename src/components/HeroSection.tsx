@@ -41,18 +41,18 @@ const HeroSection = () => {
           padding: clamp(96px, 12vh, 140px) clamp(24px, 5vw, 72px) clamp(40px, 6vh, 80px);
         }
 
-        /* Giant background wordmark */
+        /* Giant background wordmark — sits behind portrait, never behind heading */
         .hero-watermark {
           position: absolute;
-          left: 50%;
-          top: 46%;
+          left: 62%;
+          top: 72%;
           transform: translate(-50%, -50%);
           font-family: var(--font-serif);
           font-weight: 500;
           font-size: clamp(7rem, 22vw, 22rem);
           line-height: 0.9;
           letter-spacing: -0.02em;
-          color: hsl(var(--foreground) / 0.08);
+          color: hsl(var(--foreground) / 0.06);
           pointer-events: none;
           user-select: none;
           white-space: nowrap;
@@ -70,7 +70,15 @@ const HeroSection = () => {
         }
 
         /* LEFT */
-        .hero-left { position: relative; max-width: 560px; }
+        .hero-left {
+          position: relative;
+          max-width: 560px;
+          z-index: 3;
+          padding-top: 8px;
+          padding-left: clamp(0px, 1vw, 12px);
+          background: linear-gradient(to right, hsl(var(--background)) 70%, transparent);
+        }
+
 
         .hero-eyebrow-row {
           display: flex; align-items: center; gap: 16px;
