@@ -114,6 +114,15 @@ const FinalCTASection = () => {
               key={item.label}
               href={item.href}
               {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              onClick={
+                item.external
+                  ? (e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(item.href, "_blank", "noopener,noreferrer");
+                    }
+                  : undefined
+              }
               aria-label={item.label}
               className="contact-icon-link"
             >
