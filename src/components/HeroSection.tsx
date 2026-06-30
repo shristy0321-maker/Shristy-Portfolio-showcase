@@ -44,20 +44,21 @@ const HeroSection = () => {
         /* Giant background wordmark — sits behind portrait, never behind heading */
         .hero-watermark {
           position: absolute;
-          left: calc(70% - 70px);
+          left: calc(50% - 40px);
           top: 0;
           transform: translateX(-50%);
           font-family: var(--font-serif);
           font-weight: 500;
-          font-size: clamp(7rem, 22vw, 22rem);
+          font-size: clamp(140px, 17vw, 260px);
           line-height: 0.9;
           letter-spacing: -0.02em;
-          color: hsl(var(--foreground) / 0.05);
+          color: hsl(var(--foreground) / 0.07);
           pointer-events: none;
           user-select: none;
           white-space: nowrap;
           z-index: 1;
         }
+
 
 
         .hero-grid {
