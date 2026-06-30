@@ -90,7 +90,7 @@ const FinalCTASection = () => {
             className="mt-10 flex justify-center"
           >
             <a
-              href="mailto:shristy0321@gmail.com"
+              href="mailto:shristy1921@gmail.com"
               className="group inline-flex items-center gap-2 rounded-full px-9 py-3.5 text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5"
               style={{
                 backgroundColor: "#F2ECE4",
