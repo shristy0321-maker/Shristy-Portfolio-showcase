@@ -94,13 +94,15 @@ const HeroSection = () => {
           {...fade(15, 0.2)}
           style={{
             margin: 0,
-            color: "#6D5D57",
-            fontFamily: "'Anton', 'Bebas Neue', Impact, sans-serif",
-            fontWeight: 900,
+            color: "#6B5A52",
+            fontFamily: "'Editorial New', 'Bodoni Moda', 'Didot', 'Bodoni 72', serif",
+            fontWeight: 400,
+            fontStyle: "normal",
             textTransform: "uppercase",
-            fontSize: "clamp(5rem, 17vw, 18rem)",
-            lineHeight: 0.9,
-            letterSpacing: "0.01em",
+            fontSize: "clamp(5rem, 19vw, 22rem)",
+            lineHeight: 0.88,
+            letterSpacing: "-0.04em",
+            whiteSpace: "nowrap",
           }}
         >
           PORTFOLIO
