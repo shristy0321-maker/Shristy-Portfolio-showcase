@@ -212,20 +212,23 @@ const HeroSection = () => {
           z-index: 2;
           margin-top: auto;
           width: 100%;
-          background: hsl(var(--primary));
-          color: hsl(var(--primary-foreground));
+          background: #2B211B;
+          color: #F7F3EE;
           height: 90px;
           display: flex; align-items: center; justify-content: center; gap: 22px;
           padding: 0 clamp(20px, 5vw, 60px);
+          border-top: 1px solid #45362D;
+          border-bottom: 1px solid #45362D;
+          box-shadow: none;
         }
         .hero-featured .lbl {
           font-family: var(--font-body);
           font-size: 11px;
           letter-spacing: 0.5em;
           text-transform: uppercase;
-          color: hsl(var(--primary-foreground));
+          color: #F7F3EE;
         }
-        .hero-featured .sp { color: hsl(var(--accent)); font-size: 12px; }
+        .hero-featured .sp { color: #C8A45A; font-size: 12px; }
         .hero-featured .rule {
           flex: 0 0 clamp(40px, 14vw, 200px);
           height: 1px;
