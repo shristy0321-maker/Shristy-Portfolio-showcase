@@ -177,40 +177,6 @@ const HeroSection = () => {
               was promised and what was delivered.
             </motion.p>
 
-            <motion.div
-              {...fade(14, 0.36)}
-              className="flex"
-              style={{ gap: 40, marginTop: 32 }}
-            >
-              <div>
-                <div
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: 22,
-                    fontWeight: 700,
-                    color: "#1a1208",
-                    lineHeight: 1,
-                  }}
-                >
-                  4+
-                </div>
-                <div style={{ ...label, marginTop: 8 }}>Products Built</div>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: 22,
-                    fontWeight: 700,
-                    color: "#1a1208",
-                    lineHeight: 1,
-                  }}
-                >
-                  2 Yrs
-                </div>
-                <div style={{ ...label, marginTop: 8 }}>B2B Experience</div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>
