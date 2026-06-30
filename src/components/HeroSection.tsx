@@ -83,11 +83,12 @@ const HeroSection = () => {
       <div
         className="absolute text-center"
         style={{
-          top: "12%",
+          top: "14%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "85%",
+          width: "110vw",
           zIndex: 2,
+          pointerEvents: "none",
         }}
       >
         <motion.h1
