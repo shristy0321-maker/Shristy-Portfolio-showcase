@@ -63,7 +63,7 @@ const HeroSection = () => {
       >
         <style>{`
           @media (min-width: 900px) {
-            #hero-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 56px !important; align-items: center !important; }
+            #hero-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 32px !important; align-items: center !important; }
             #hero-left { order: 1; }
             #hero-center { order: 2; }
             #hero-right { order: 3; }
