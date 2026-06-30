@@ -229,7 +229,7 @@ const HeroSection = () => {
           .hero-right { min-height: 0; margin-top: 8px; }
           .hero-arch-wrap { height: clamp(420px, 70vh, 560px); width: min(420px, 92%); }
           .hero-vertical { right: -4px; font-size: 9.5px; letter-spacing: 0.4em; }
-          .hero-watermark { font-size: clamp(5rem, 28vw, 9rem); top: 18%; }
+          .hero-watermark { font-size: clamp(5rem, 28vw, 9rem); top: auto; bottom: 4%; left: 50%; }
           .hero-cta .btn-full { width: 100%; }
         }
       `}</style>
