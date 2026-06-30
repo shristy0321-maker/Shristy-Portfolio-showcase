@@ -189,14 +189,15 @@ const HeroSection = () => {
               create measurable impact.
             </motion.p>
 
-            <motion.div {...fade(16, 0.5)} style={{ marginTop: 28 }}>
-              <div style={{ fontFamily: "'Caveat', cursive", fontSize: 32, color: "hsl(var(--foreground))", lineHeight: 1 }}>
-                Shristy Kumari
-              </div>
-              <div className="text-muted-foreground" style={{ marginTop: 8, ...label, fontSize: 10, letterSpacing: "0.28em" }}>
-                MBA (TECHNOLOGY MANAGEMENT) · INSTITUTE OF PRODUCT LEADERSHIP
-              </div>
+            <motion.div
+              {...fade(16, 0.5)}
+              className="text-muted-foreground"
+              style={{ marginTop: 24, ...label, fontSize: 10, letterSpacing: "0.28em" }}
+            >
+              MBA (TECHNOLOGY MANAGEMENT) · INSTITUTE OF PRODUCT LEADERSHIP
             </motion.div>
+
+
 
             <motion.div {...fade(16, 0.6)} className="hero-cta-wrap" style={{ marginTop: 28 }}>
               <a
