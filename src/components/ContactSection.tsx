@@ -49,7 +49,8 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+
           {contacts.map((item, i) => (
             <motion.a
               key={item.label}
