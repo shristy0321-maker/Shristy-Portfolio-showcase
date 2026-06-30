@@ -151,9 +151,10 @@ const HeroSection = () => {
         .hero-arch {
           position: absolute;
           inset: 0;
-          background: hsl(var(--foreground));
-          border: 1px solid hsl(var(--border));
+          background: #2B211B;
+          border: 1.5px solid #D9CDC0;
           border-radius: 280px 280px 6px 6px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
           overflow: visible;
         }
 
