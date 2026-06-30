@@ -54,21 +54,8 @@ const FinalCTASection = () => {
           className="mx-auto text-center"
           style={{ maxWidth: 760 }}
         >
-          <motion.div
-            aria-hidden
-            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 0.6, y: 0 } }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mb-7"
-            style={{ width: 64, height: 1, backgroundColor: GOLD }}
-          />
-          <motion.p
-            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="mb-6 text-[0.7rem] uppercase"
-            style={{ color: GOLD, letterSpacing: "0.32em", fontWeight: 500 }}
-          >
-            Contact
-          </motion.p>
+
+
 
           <motion.h2
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
