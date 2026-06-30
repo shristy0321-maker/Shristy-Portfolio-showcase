@@ -148,19 +148,20 @@ const FinalCTASection = () => {
         `}</style>
 
       </div>
-
-      {/* White footer */}
-      <footer style={{ backgroundColor: "#FAF8F5", color: "#1F1F1F" }}>
-        <div className="section-container">
-          <div className="mx-auto flex max-w-5xl flex-col gap-2 py-8 text-xs md:flex-row md:items-center md:justify-between md:py-10">
-            <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", fontSize: "0.95rem" }}>
-              Built with a story-first product lens.
-            </p>
-            <p style={{ letterSpacing: "0.12em" }}>© 2026 Shristy Kumari</p>
-          </div>
-        </div>
-      </footer>
     </section>
+
+    {/* White footer */}
+    <footer style={{ backgroundColor: "#FAF8F5", color: "#1F1F1F" }}>
+      <div className="section-container">
+        <div className="mx-auto flex max-w-5xl flex-col gap-2 py-8 text-xs md:flex-row md:items-center md:justify-between md:py-10">
+          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", fontSize: "0.95rem" }}>
+            Built with a story-first product lens.
+          </p>
+          <p style={{ letterSpacing: "0.12em" }}>© 2026 Shristy Kumari</p>
+        </div>
+      </div>
+    </footer>
+    </>
   );
 };
 
