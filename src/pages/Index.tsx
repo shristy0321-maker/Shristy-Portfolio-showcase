@@ -20,7 +20,6 @@ const Index = () => {
       <WhatIBringSection />
       <EducationSection />
       <FinalCTASection />
-      <ContactSection />
       <Footer />
     </>
   );
