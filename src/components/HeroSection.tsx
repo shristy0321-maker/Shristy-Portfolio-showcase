@@ -83,10 +83,10 @@ const HeroSection = () => {
       <div
         className="absolute text-center"
         style={{
-          top: "20%",
+          top: "24%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "104vw",
+          width: "102vw",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -100,9 +100,9 @@ const HeroSection = () => {
             fontWeight: 400,
             fontStyle: "normal",
             textTransform: "uppercase",
-            fontSize: "clamp(3.75rem, 14.5vw, 16.5rem)",
+            fontSize: "clamp(3rem, 11.6vw, 13.2rem)",
             lineHeight: 0.88,
-            letterSpacing: "-0.04em",
+            letterSpacing: "-0.02em",
             whiteSpace: "nowrap",
           }}
         >
@@ -114,9 +114,9 @@ const HeroSection = () => {
       <motion.div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-end"
         style={{
-          bottom: "6%",
+          bottom: "calc(6% + 18px)",
           zIndex: 3,
-          height: "70%",
+          height: "65%",
           width: "auto",
           opacity: reduce ? 1 : portraitOpacity,
         }}
