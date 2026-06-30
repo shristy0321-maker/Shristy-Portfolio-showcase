@@ -36,23 +36,23 @@ const HeroSection = () => {
           position: relative;
           flex: 1 1 auto;
           width: 100%;
-          max-width: 1360px;
+          max-width: 1600px;
           margin: 0 auto;
-          padding: clamp(96px, 12vh, 140px) clamp(24px, 5vw, 72px) clamp(40px, 6vh, 80px);
+          padding: clamp(96px, 12vh, 140px) clamp(32px, 6vw, 100px) clamp(40px, 6vh, 80px);
         }
 
         /* Giant background wordmark — sits behind portrait, never behind heading */
         .hero-watermark {
           position: absolute;
-          left: 62%;
-          top: 72%;
+          left: 70%;
+          top: 78%;
           transform: translate(-50%, -50%);
           font-family: var(--font-serif);
           font-weight: 500;
           font-size: clamp(7rem, 22vw, 22rem);
           line-height: 0.9;
           letter-spacing: -0.02em;
-          color: hsl(var(--foreground) / 0.06);
+          color: hsl(var(--foreground) / 0.05);
           pointer-events: none;
           user-select: none;
           white-space: nowrap;
@@ -63,8 +63,8 @@ const HeroSection = () => {
           position: relative;
           z-index: 2;
           display: grid;
-          grid-template-columns: 45% 55%;
-          gap: clamp(24px, 4vw, 56px);
+          grid-template-columns: 42% 58%;
+          gap: clamp(80px, 9vw, 120px);
           align-items: center;
           min-height: 70vh;
         }
@@ -72,12 +72,13 @@ const HeroSection = () => {
         /* LEFT */
         .hero-left {
           position: relative;
-          max-width: 560px;
+          max-width: 520px;
           z-index: 3;
           padding-top: 8px;
           padding-left: clamp(0px, 1vw, 12px);
-          background: linear-gradient(to right, hsl(var(--background)) 70%, transparent);
+          background: linear-gradient(to right, hsl(var(--background)) 75%, transparent);
         }
+
 
 
         .hero-eyebrow-row {
@@ -128,9 +129,11 @@ const HeroSection = () => {
           position: relative;
           display: flex;
           align-items: flex-end;
-          justify-content: center;
+          justify-content: flex-end;
           min-height: 700px;
+          padding-right: clamp(0px, 2vw, 24px);
         }
+
 
         .hero-arch-wrap {
           position: relative;
