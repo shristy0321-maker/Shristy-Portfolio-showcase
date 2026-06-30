@@ -121,8 +121,8 @@ const FinalCTASection = () => {
             >
               <a
                 href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={item.label}
                 className="contact-icon-link"
               >
