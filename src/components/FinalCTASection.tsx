@@ -108,7 +108,11 @@ const FinalCTASection = () => {
         </motion.div>
 
         {/* Contact icons */}
-        <div className="mx-auto mt-20 flex max-w-2xl items-start justify-center gap-12 md:mt-24 md:gap-20">
+        <div
+          id="contact"
+          className="mx-auto mt-14 flex max-w-2xl items-center justify-center md:mt-24"
+          style={{ gap: "clamp(28px, 8vw, 80px)", flexWrap: "nowrap" }}
+        >
           {contacts.map((item) => (
             <a
               key={item.label}
@@ -125,6 +129,7 @@ const FinalCTASection = () => {
               }
               aria-label={item.label}
               className="contact-icon-link"
+              style={{ minWidth: 44, minHeight: 44, justifyContent: "center" }}
             >
               <item.icon size={22} strokeWidth={1.4} />
             </a>

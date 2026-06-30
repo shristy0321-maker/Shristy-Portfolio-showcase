@@ -84,7 +84,8 @@ const RecognitionSection = () => {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        {/* Desktop / tablet grid */}
+        <div className="hidden md:grid mx-auto mt-16 max-w-6xl grid-cols-2 gap-6 lg:grid-cols-3 md:gap-8">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -105,29 +106,56 @@ const RecognitionSection = () => {
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#E6DED2")}
               >
                 <Icon size={24} strokeWidth={1.6} style={{ color: "#C9A227" }} />
-                <h3
-                  className="mt-6 text-2xl leading-tight"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    color: "#2B211B",
-                    fontWeight: 500,
-                  }}
-                >
+                <h3 className="mt-6 text-2xl leading-tight" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "#2B211B", fontWeight: 500 }}>
                   {item.title}
                 </h3>
-                <p className="mt-1 text-sm" style={{ color: "#6B5E52" }}>
-                  {item.org}
-                </p>
-                <p className="mt-5 text-base leading-7" style={{ color: "#4A3F36" }}>
-                  {item.description}
-                </p>
-                <p
-                  className="mt-auto pt-6 text-xs uppercase"
-                  style={{ color: "#8B7B6C", letterSpacing: "0.18em" }}
-                >
-                  {item.meta}
-                </p>
+                <p className="mt-1 text-sm" style={{ color: "#6B5E52" }}>{item.org}</p>
+                <p className="mt-5 text-base leading-7" style={{ color: "#4A3F36" }}>{item.description}</p>
+                <p className="mt-auto pt-6 text-xs uppercase" style={{ color: "#8B7B6C", letterSpacing: "0.18em" }}>{item.meta}</p>
               </motion.article>
+            );
+          })}
+        </div>
+
+        {/* Mobile horizontal swipe carousel */}
+        <div
+          className="md:hidden mt-10 -mx-6"
+          style={{
+            display: "flex",
+            gap: 16,
+            overflowX: "auto",
+            scrollSnapType: "x mandatory",
+            paddingLeft: 24,
+            paddingRight: 24,
+            paddingBottom: 8,
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+          }}
+        >
+          <style>{`#recognition .md\\:hidden::-webkit-scrollbar { display: none; }`}</style>
+          {items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article
+                key={item.title}
+                className="flex flex-col shrink-0"
+                style={{
+                  scrollSnapAlign: "start",
+                  width: "82%",
+                  backgroundColor: "#F2ECE4",
+                  borderRadius: 20,
+                  padding: 24,
+                  border: "1px solid #E6DED2",
+                }}
+              >
+                <Icon size={22} strokeWidth={1.6} style={{ color: "#C9A227" }} />
+                <h3 className="mt-5 text-xl leading-tight" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "#2B211B", fontWeight: 500 }}>
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-sm" style={{ color: "#6B5E52" }}>{item.org}</p>
+                <p className="mt-4 text-[15px] leading-7" style={{ color: "#4A3F36" }}>{item.description}</p>
+                <p className="mt-5 text-[11px] uppercase" style={{ color: "#8B7B6C", letterSpacing: "0.18em" }}>{item.meta}</p>
+              </article>
             );
           })}
         </div>
