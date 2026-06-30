@@ -79,7 +79,7 @@ const HeroSection = () => {
           position: relative;
           max-width: 520px;
           z-index: 3;
-          padding-top: 8px;
+          padding-top: 90px;
           padding-left: clamp(0px, 1vw, 12px);
           background: linear-gradient(to right, hsl(var(--background)) 75%, transparent);
         }
