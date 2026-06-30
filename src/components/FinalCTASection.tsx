@@ -108,31 +108,19 @@ const FinalCTASection = () => {
         </motion.div>
 
         {/* Contact icons */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }}
-          className="mx-auto mt-20 flex max-w-2xl items-start justify-center gap-12 md:mt-24 md:gap-20"
-        >
+        <div className="mx-auto mt-20 flex max-w-2xl items-start justify-center gap-12 md:mt-24 md:gap-20">
           {contacts.map((item) => (
-            <motion.div
+            <a
               key={item.label}
-              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center"
+              href={item.href}
+              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              aria-label={item.label}
+              className="contact-icon-link"
             >
-              <a
-                href={item.href}
-                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                aria-label={item.label}
-                className="contact-icon-link"
-              >
-                <item.icon size={22} strokeWidth={1.4} />
-              </a>
-            </motion.div>
+              <item.icon size={22} strokeWidth={1.4} />
+            </a>
           ))}
-        </motion.div>
+        </div>
 
         <style>{`
           .contact-icon-link {
