@@ -43,27 +43,6 @@ const EditorialTransition = () => {
         className="mx-auto flex flex-col items-center px-6 text-center"
         style={{ maxWidth: 650 }}
       >
-        {/* Top hairline with centered dot */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.7, ease: EASE }}
-          aria-hidden
-          className="flex items-center justify-center"
-          style={{ marginBottom: 28 }}
-        >
-          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
-          <span
-            style={{
-              width: 4,
-              height: 4,
-              borderRadius: "50%",
-              backgroundColor: "#B89A84",
-              margin: "0 10px",
-            }}
-          />
-          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
-        </motion.div>
-
         <motion.p
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
@@ -73,13 +52,11 @@ const EditorialTransition = () => {
             fontWeight: 600,
             color: "#1F1F1F",
             fontSize: "clamp(2.25rem, 5.2vw, 4rem)",
-            lineHeight: 0.98,
+            lineHeight: 1.05,
             letterSpacing: "-0.01em",
           }}
         >
-          I started
-          <br />
-          with people.
+          I started with people.
         </motion.p>
 
         <motion.p
@@ -95,33 +72,9 @@ const EditorialTransition = () => {
             letterSpacing: "0.005em",
           }}
         >
-          Then I learned
-          <br />
-          how to build
-          <br />
-          for them.
+          Then I learned how to build for them.
         </motion.p>
 
-        {/* Bottom hairline with centered dot */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.7, ease: EASE, delay: 0.32 }}
-          aria-hidden
-          className="flex items-center justify-center"
-          style={{ marginTop: 36 }}
-        >
-          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
-          <span
-            style={{
-              width: 4,
-              height: 4,
-              borderRadius: "50%",
-              backgroundColor: "#B89A84",
-              margin: "0 10px",
-            }}
-          />
-          <span style={{ width: 70, height: 1, backgroundColor: "#B89A84", opacity: 0.7 }} />
-        </motion.div>
       </motion.div>
 
       <div style={{ height: 56 }} />
