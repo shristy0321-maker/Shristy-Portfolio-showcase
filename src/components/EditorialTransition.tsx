@@ -11,7 +11,7 @@ const EditorialTransition = () => {
       style={{ backgroundColor: "#FAF7F3" }}
     >
       {/* Breathing room below hero */}
-      <div style={{ height: "clamp(64px, 9vw, 100px)" }} />
+      <div style={{ height: "clamp(24px, 3vw, 40px)" }} />
 
       {/* Soft organic wave divider */}
       <div className="w-full overflow-hidden" aria-hidden>
