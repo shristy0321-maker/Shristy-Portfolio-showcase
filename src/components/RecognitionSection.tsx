@@ -65,11 +65,12 @@ const RecognitionSection = () => {
           </p>
 
           <h2
-            className="text-4xl leading-[1.15] md:text-6xl"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               color: "#FAF8F5",
               fontWeight: 500,
+              lineHeight: 1.05,
+              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
             }}
           >
             Recognition Along the Way
