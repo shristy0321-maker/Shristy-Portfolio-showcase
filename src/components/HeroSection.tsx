@@ -86,8 +86,9 @@ const HeroSection = () => {
               src={portrait}
               alt="Shristy Kumari"
               style={{
-                maxHeight: "75vh",
+                maxHeight: "70vh",
                 width: "auto",
+                margin: "0 auto",
                 objectFit: "contain",
                 display: "block",
                 filter: "drop-shadow(0 30px 60px rgba(40,25,15,0.12))",
