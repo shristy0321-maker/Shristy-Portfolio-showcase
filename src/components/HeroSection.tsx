@@ -85,7 +85,8 @@ const HeroSection = () => {
         style={{
           top: "24%",
           left: "50%",
-          transform: "translateX(-50%)",
+          transform: "translateX(calc(-50% - 26px))",
+
           width: "92vw",
           zIndex: 2,
           pointerEvents: "none",
