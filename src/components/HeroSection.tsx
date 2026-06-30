@@ -229,7 +229,7 @@ const HeroSection = () => {
         .hero-featured .rule {
           flex: 0 0 clamp(40px, 14vw, 200px);
           height: 1px;
-          background: hsl(var(--primary-foreground) / 0.3);
+          background: #6C584B;
         }
 
         @media (max-width: 899px) {
