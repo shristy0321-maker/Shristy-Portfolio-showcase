@@ -1,11 +1,30 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/shristy-portrait-hero.png";
+
+const ROTATING_PHRASES = [
+  "experiences people remember.",
+  "brands people trust.",
+  "relationships that last.",
+  "value beyond the transaction.",
+];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
   const reduce = useReducedMotion();
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const isLast = phraseIndex === ROTATING_PHRASES.length - 1;
+    const hold = isLast ? 3000 : 2000;
+    const t = setTimeout(() => {
+      setPhraseIndex((i) => (i + 1) % ROTATING_PHRASES.length);
+    }, hold);
+    return () => clearTimeout(t);
+  }, [phraseIndex, reduce]);
 
   const fade = (y = 20, delay = 0) =>
     reduce
@@ -114,6 +133,25 @@ const HeroSection = () => {
           letter-spacing: -0.015em;
           color: #2F241D;
         }
+
+        .hero-rotator {
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+          vertical-align: bottom;
+          width: 100%;
+          height: 1.15em;
+          line-height: 1.05;
+        }
+        .hero-rotator-item {
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+
 
         .hero-divider {
           margin: 28px 0 22px;
@@ -261,11 +299,24 @@ const HeroSection = () => {
 
 
             <motion.h1 {...fade(20, 0.15)} className="hero-headline">
-              Built from
+              Designing products
               <br />
-              real conversations,
+              that create
               <br />
-              not assumptions.
+              <span className="hero-rotator" aria-live="polite">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={phraseIndex}
+                    className="hero-rotator-item"
+                    initial={reduce ? { opacity: 0 } : { y: "100%", opacity: 0 }}
+                    animate={reduce ? { opacity: 1 } : { y: "0%", opacity: 1 }}
+                    exit={reduce ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
+                    transition={{ duration: 0.65, ease: EASE }}
+                  >
+                    {ROTATING_PHRASES[phraseIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
             </motion.h1>
 
             <motion.div {...fade(8, 0.25)} className="hero-divider" />
