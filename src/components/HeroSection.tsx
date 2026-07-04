@@ -73,12 +73,14 @@ const HeroSection = () => {
           font-size: 10.5px;
           letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: #6C584B;
+          color: hsl(var(--muted-foreground));
           white-space: nowrap;
         }
         .ed-label-left { display: flex; align-items: center; gap: 18px; }
-        .ed-label-left .ed-rule { flex: 1; height: 1px; background: #C5A059; opacity: 0.55; }
-        .ed-label-left .ed-star { color: #C5A059; font-size: 12px; }
+        .ed-label-left .ed-rule {
+          flex: 1; height: 1px;
+          background: hsl(var(--border));
+        }
         .ed-label-right {
           display: flex; flex-direction: column; align-items: flex-end;
           line-height: 1.45;
@@ -95,7 +97,7 @@ const HeroSection = () => {
           font-size: clamp(90px, 15.5vw, 240px);
           line-height: 0.86;
           letter-spacing: -0.02em;
-          color: #2F241D;
+          color: hsl(var(--foreground));
           text-align: center;
           margin: 0;
           white-space: nowrap;
@@ -106,12 +108,10 @@ const HeroSection = () => {
         .ed-wordmark-rule {
           position: relative;
           z-index: 2;
-          display: flex; align-items: center; justify-content: center;
-          gap: 18px;
+          height: 1px;
+          background: hsl(var(--border));
           margin-top: clamp(14px, 2vh, 26px);
         }
-        .ed-wordmark-rule .line { flex: 1; height: 1px; background: #C5A059; opacity: 0.45; max-width: 46%; }
-        .ed-wordmark-rule .diamond { color: #C5A059; font-size: 10px; letter-spacing: 0.4em; }
 
         /* Main composition — portrait overlaps wordmark */
         .ed-composition {
@@ -136,7 +136,7 @@ const HeroSection = () => {
           font-size: 11px;
           letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: #6C584B;
+          color: hsl(var(--muted-foreground));
           margin-bottom: 24px;
         }
         .ed-headline {
@@ -145,7 +145,7 @@ const HeroSection = () => {
           font-size: clamp(1.7rem, 3.4vw, 2.85rem);
           line-height: 1.08;
           letter-spacing: -0.01em;
-          color: #2F241D;
+          color: hsl(var(--foreground));
           margin: 0;
         }
         .ed-rotator {
@@ -169,21 +169,20 @@ const HeroSection = () => {
         .ed-quote {
           margin-top: 28px;
           padding-left: 20px;
-          border-left: 1px solid #C5A059;
+          border-left: 1px solid hsl(var(--border));
           font-family: var(--font-body);
           font-size: 15px;
           line-height: 1.75;
-          color: #5C5148;
+          color: hsl(var(--muted-foreground));
           max-width: 440px;
         }
 
-        .ed-signature {
+        .ed-name {
           margin-top: 32px;
           font-family: var(--font-serif);
-          font-style: italic;
           font-weight: 500;
-          font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-          color: #C5A059;
+          font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+          color: hsl(var(--foreground));
           line-height: 1;
         }
         .ed-based {
@@ -192,12 +191,10 @@ const HeroSection = () => {
           font-size: 10.5px;
           letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: #6C584B;
+          color: hsl(var(--muted-foreground));
         }
 
         .ed-cta { margin-top: 30px; }
-        .ed-cta > * { background: #2B211B !important; color: #F7F3EE !important; border-color: #2B211B !important; }
-        .ed-cta > *:hover { background: #3A2C24 !important; color: #F7F3EE !important; }
 
         /* RIGHT column — portrait, no visible box */
         .ed-right {
@@ -216,32 +213,6 @@ const HeroSection = () => {
           align-items: flex-end;
           justify-content: center;
         }
-        /* soft circular tone behind portrait — no hard box */
-        .ed-portrait-wrap::before {
-          content: "";
-          position: absolute;
-          top: 6%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 88%;
-          aspect-ratio: 1 / 1;
-          border-radius: 9999px;
-          background: radial-gradient(circle at 50% 45%, #3A0F0F 0%, #2B0A0A 60%, transparent 72%);
-          z-index: 0;
-        }
-        .ed-portrait-wrap::after {
-          content: "";
-          position: absolute;
-          top: 5%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 90%;
-          aspect-ratio: 1 / 1;
-          border-radius: 9999px;
-          border: 1px solid rgba(197, 160, 89, 0.35);
-          z-index: 1;
-          pointer-events: none;
-        }
         .ed-portrait {
           position: relative;
           z-index: 2;
@@ -257,23 +228,22 @@ const HeroSection = () => {
           position: relative;
           z-index: 2;
           width: 100%;
-          background: #2B211B;
-          color: #F7F3EE;
-          height: 82px;
+          height: 72px;
           display: flex; align-items: center; justify-content: center; gap: 22px;
           padding: 0 clamp(20px, 5vw, 60px);
-          border-top: 1px solid #45362D;
-          border-bottom: 1px solid #45362D;
+          border-top: 1px solid hsl(var(--border));
+          border-bottom: 1px solid hsl(var(--border));
           margin-top: clamp(20px, 4vh, 40px);
+          background: hsl(var(--secondary));
         }
         .ed-featured .lbl {
           font-family: var(--font-body);
           font-size: 11px;
           letter-spacing: 0.5em;
           text-transform: uppercase;
+          color: hsl(var(--foreground));
         }
-        .ed-featured .sp { color: #C8A45A; font-size: 12px; }
-        .ed-featured .rule { flex: 0 0 clamp(40px, 14vw, 200px); height: 1px; background: #6C584B; }
+        .ed-featured .rule { flex: 0 0 clamp(40px, 14vw, 200px); height: 1px; background: hsl(var(--border)); }
 
         @media (max-width: 899px) {
           .ed-composition {
@@ -297,9 +267,8 @@ const HeroSection = () => {
           <div className="ed-label ed-label-left">
             <span>Product Portfolio</span>
             <span className="ed-rule" />
-            <span className="ed-star">✦</span>
           </div>
-          <div className="ed-label" style={{ color: "#C5A059" }}>2026 · Edition I</div>
+          <div className="ed-label">2026 · Edition I</div>
           <div className="ed-label ed-label-right">
             <span>Designing Products</span>
             <span>Building Trust</span>
@@ -311,11 +280,7 @@ const HeroSection = () => {
           SHRISTY
         </motion.h1>
 
-        <motion.div {...fade(6, 0.2)} className="ed-wordmark-rule" aria-hidden="true">
-          <span className="line" />
-          <span className="diamond">✦</span>
-          <span className="line" />
-        </motion.div>
+        <motion.div {...fade(6, 0.2)} className="ed-wordmark-rule" aria-hidden="true" />
 
         {/* Composition with portrait overlapping */}
         <div className="ed-composition">
@@ -357,7 +322,7 @@ const HeroSection = () => {
               what was promised and what was delivered.
             </motion.p>
 
-            <motion.div {...fade(12, 0.5)} className="ed-signature">
+            <motion.div {...fade(12, 0.5)} className="ed-name">
               Shristy Kumari
             </motion.div>
             <motion.div {...fade(8, 0.55)} className="ed-based">
@@ -386,9 +351,7 @@ const HeroSection = () => {
       {/* Bottom featured strip */}
       <motion.div {...fade(10, 0.5)} className="ed-featured">
         <span className="rule" />
-        <span className="sp">✦</span>
         <span className="lbl">Featured Work</span>
-        <span className="sp">✦</span>
         <span className="rule" />
       </motion.div>
     </section>
