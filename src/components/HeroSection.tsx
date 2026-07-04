@@ -134,6 +134,25 @@ const HeroSection = () => {
           color: #2F241D;
         }
 
+        .hero-rotator {
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+          vertical-align: bottom;
+          width: 100%;
+          height: 1.15em;
+          line-height: 1.05;
+        }
+        .hero-rotator-item {
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+
+
         .hero-divider {
           margin: 28px 0 22px;
           width: 64px; height: 1px;
