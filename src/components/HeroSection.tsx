@@ -144,10 +144,14 @@ const HeroSection = () => {
           white-space: nowrap;
         }
         .hero-rotator-sizer {
-          display: inline-block;
+          display: grid;
           visibility: hidden;
-          white-space: nowrap;
           pointer-events: none;
+        }
+        .hero-rotator-sizer-item {
+          grid-column: 1;
+          grid-row: 1;
+          white-space: nowrap;
         }
         .hero-rotator-item {
           display: inline-block;
@@ -312,7 +316,9 @@ const HeroSection = () => {
               <br />
               <span className="hero-rotator" aria-live="polite">
                 <span className="hero-rotator-sizer" aria-hidden="true">
-                  {ROTATING_PHRASES.reduce((a, b) => (a.length >= b.length ? a : b))}
+                  {ROTATING_PHRASES.map((p) => (
+                    <span key={p} className="hero-rotator-sizer-item">{p}</span>
+                  ))}
                 </span>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
