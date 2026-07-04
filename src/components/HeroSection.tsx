@@ -14,6 +14,17 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
   const reduce = useReducedMotion();
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const isLast = phraseIndex === ROTATING_PHRASES.length - 1;
+    const hold = isLast ? 3000 : 2000;
+    const t = setTimeout(() => {
+      setPhraseIndex((i) => (i + 1) % ROTATING_PHRASES.length);
+    }, hold);
+    return () => clearTimeout(t);
+  }, [phraseIndex, reduce]);
 
   const fade = (y = 20, delay = 0) =>
     reduce
