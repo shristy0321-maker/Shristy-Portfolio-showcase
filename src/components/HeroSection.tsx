@@ -29,7 +29,7 @@ const HeroSection = () => {
     <section
       id="home"
       className="relative w-full overflow-hidden bg-background text-foreground"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: "auto" }}
     >
       <style>{`
         .hero-shell {
@@ -37,29 +37,26 @@ const HeroSection = () => {
           width: 100%;
           max-width: 1440px;
           margin: 0 auto;
-          padding: clamp(90px, 12vh, 130px) clamp(28px, 5vw, 80px) clamp(40px, 6vh, 80px);
-          min-height: 100vh;
+          padding: clamp(110px, 14vh, 160px) clamp(28px, 5vw, 80px) clamp(60px, 8vh, 100px);
           display: flex;
           flex-direction: column;
-          justify-content: center;
         }
 
-        /* Faded background wordmark */
+        /* Faded background wordmark — top band, fully visible */
         .hero-watermark {
-          position: absolute;
-          left: 0; right: 0;
-          top: clamp(120px, 16vh, 200px);
+          position: relative;
+          z-index: 1;
           text-align: center;
           font-family: var(--font-serif);
           font-weight: 500;
-          font-size: clamp(120px, 17vw, 260px);
+          font-size: clamp(110px, 16vw, 240px);
           line-height: 0.9;
           letter-spacing: -0.02em;
-          color: hsl(var(--foreground) / 0.07);
+          color: hsl(var(--foreground) / 0.09);
           pointer-events: none;
           user-select: none;
           white-space: nowrap;
-          z-index: 1;
+          margin: 0 0 clamp(48px, 7vh, 90px);
         }
 
         .hero-grid {
@@ -70,6 +67,8 @@ const HeroSection = () => {
           gap: clamp(50px, 7vw, 100px);
           align-items: center;
         }
+
+
 
         /* LEFT */
         .hero-left {
@@ -136,7 +135,7 @@ const HeroSection = () => {
           .hero-left { max-width: 100%; }
           .hero-right { min-height: 0; }
           .hero-arch { max-width: 380px; }
-          .hero-watermark { font-size: clamp(72px, 22vw, 140px); top: 90px; }
+          .hero-watermark { font-size: clamp(72px, 22vw, 140px); margin-bottom: 32px; }
         }
       `}</style>
 
