@@ -280,11 +280,24 @@ const HeroSection = () => {
 
 
             <motion.h1 {...fade(20, 0.15)} className="hero-headline">
-              Built from
+              Designing products
               <br />
-              real conversations,
+              that create
               <br />
-              not assumptions.
+              <span className="hero-rotator" aria-live="polite">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={phraseIndex}
+                    className="hero-rotator-item"
+                    initial={reduce ? { opacity: 0 } : { y: "100%", opacity: 0 }}
+                    animate={reduce ? { opacity: 1 } : { y: "0%", opacity: 1 }}
+                    exit={reduce ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
+                    transition={{ duration: 0.65, ease: EASE }}
+                  >
+                    {ROTATING_PHRASES[phraseIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
             </motion.h1>
 
             <motion.div {...fade(8, 0.25)} className="hero-divider" />
