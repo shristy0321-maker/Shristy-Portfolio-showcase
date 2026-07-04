@@ -134,7 +134,7 @@ const HeroSection = () => {
         }
         .ed-cta { margin-top: 28px; }
 
-        /* CENTER portrait — arch backdrop */
+        /* CENTER portrait — no container, no frame */
         .ed-center {
           position: relative;
           z-index: 2;
@@ -142,25 +142,15 @@ const HeroSection = () => {
           align-items: flex-end;
           justify-content: center;
         }
-        .ed-arch {
-          position: relative;
-          width: 100%;
-          max-width: 520px;
-          aspect-ratio: 4 / 5;
-          background: #2F241D;
-          border-radius: 9999px 9999px 0 0;
-          overflow: hidden;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-        }
         .ed-portrait {
           display: block;
-          width: 108%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top center;
+          width: 100%;
+          max-width: 560px;
+          height: auto;
+          object-fit: contain;
+          object-position: bottom center;
         }
+
 
 
         /* RIGHT column — vertical about */
