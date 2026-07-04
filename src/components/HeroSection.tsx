@@ -415,11 +415,30 @@ const HeroSection = () => {
           {/* RIGHT */}
           <motion.div className="hero-right" {...fade(24, 0.2)}>
             <div className="hero-arch-wrap">
-              <div className="hero-arch" aria-hidden="true" />
-              <div className="hero-arch-clip">
+              <div className="hero-plate-frame-outer" aria-hidden="true" />
+              <div className="hero-plate-frame" aria-hidden="true" />
+              <div className="hero-plate" aria-hidden="true">
+                <svg className="hero-botanical br" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                  <path d="M100 190C100 190 85 150 125 110C165 70 145 30 145 30" stroke="currentColor" strokeWidth="0.75" />
+                  <path d="M115 150C115 150 145 140 155 120" stroke="currentColor" strokeWidth="0.75" />
+                  <path d="M90 170C90 170 55 165 45 140" stroke="currentColor" strokeWidth="0.75" />
+                  <circle cx="145" cy="30" r="2" fill="currentColor" />
+                  <path d="M130 60C130 60 160 70 175 60" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
+                </svg>
+                <svg className="hero-botanical tl" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                  <path d="M100 190C100 190 85 150 125 110" stroke="currentColor" strokeWidth="0.75" />
+                  <circle cx="125" cy="110" r="1.5" fill="currentColor" />
+                </svg>
                 <img src={portrait} alt="Shristy Kumari" className="hero-portrait" />
+                <svg className="hero-sparkle s1" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M6 0L7.2 4.8L12 6L7.2 7.2L6 12L4.8 7.2L0 6L4.8 4.8L6 0Z" fill="currentColor" />
+                </svg>
+                <svg className="hero-sparkle s2" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M6 0L7.2 4.8L12 6L7.2 7.2L6 12L4.8 7.2L0 6L4.8 4.8L6 0Z" fill="currentColor" />
+                </svg>
+                <span className="hero-dot d1" />
+                <span className="hero-dot d2" />
               </div>
-
             </div>
           </motion.div>
         </div>
