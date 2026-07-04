@@ -193,27 +193,84 @@ const HeroSection = () => {
         }
 
 
+        /* Circular burgundy portrait plate (v3) */
         .hero-arch-wrap {
           position: relative;
           width: min(560px, 100%);
           height: clamp(520px, 72vh, 700px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .hero-arch {
+        .hero-plate {
           position: absolute;
-          inset: 0;
-          background: #2B211B;
-          border: 1.5px solid #D9CDC0;
-          border-radius: 280px 280px 6px 6px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-          overflow: visible;
-        }
-
-        .hero-arch-clip {
-          position: absolute;
-          inset: 0;
-          border-radius: 280px 280px 6px 6px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: min(460px, 90%);
+          aspect-ratio: 1 / 1;
+          border-radius: 9999px;
+          background: #420D0D;
+          border: 1px solid rgba(197, 160, 89, 0.35);
+          box-shadow: 0 20px 50px rgba(66, 13, 13, 0.3);
           overflow: hidden;
+        }
+        .hero-plate-frame,
+        .hero-plate-frame-outer {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 9999px;
+          pointer-events: none;
+        }
+        .hero-plate-frame {
+          width: calc(min(460px, 90%) + 24px);
+          aspect-ratio: 1 / 1;
+          transform: translate(-50%, -50%);
+          border: 0.5px solid rgba(197, 160, 89, 0.5);
+        }
+        .hero-plate-frame-outer {
+          width: calc(min(460px, 90%) + 46px);
+          aspect-ratio: 1 / 1;
+          transform: translate(-50%, -50%);
+          border: 0.5px solid rgba(197, 160, 89, 0.22);
+        }
+        .hero-botanical {
+          position: absolute;
+          pointer-events: none;
+          color: #C5A059;
+        }
+        .hero-botanical.br {
+          bottom: -10px; right: -10px;
+          width: 260px; height: 260px;
+          opacity: 0.4;
+        }
+        .hero-botanical.tl {
+          top: -20px; left: -20px;
+          width: 220px; height: 220px;
+          opacity: 0.25;
+          transform: rotate(180deg);
+        }
+        .hero-sparkle {
+          position: absolute;
+          color: #C5A059;
+          pointer-events: none;
+          animation: heroTwinkle 3.2s ease-in-out infinite;
+        }
+        .hero-sparkle.s1 { top: 14%; right: 18%; width: 16px; height: 16px; }
+        .hero-sparkle.s2 { bottom: 22%; left: 14%; width: 12px; height: 12px; animation-delay: .6s; }
+        .hero-dot {
+          position: absolute;
+          border-radius: 9999px;
+          background: rgba(197, 160, 89, 0.55);
+          pointer-events: none;
+        }
+        .hero-dot.d1 { top: 32%; right: 12%; width: 6px; height: 6px; }
+        .hero-dot.d2 { bottom: 36%; left: 8%; width: 4px; height: 4px; opacity: 0.7; }
+        @keyframes heroTwinkle {
+          0%, 100% { opacity: 0.4; transform: scale(0.9); }
+          50% { opacity: 1; transform: scale(1.1); }
         }
 
         .hero-portrait {
@@ -227,9 +284,11 @@ const HeroSection = () => {
           object-fit: contain;
           object-position: bottom center;
           z-index: 2;
+          -webkit-mask-image: radial-gradient(circle at 50% 45%, black 45%, transparent 45.6%);
+                  mask-image: radial-gradient(circle at 50% 45%, black 45%, transparent 45.6%);
         }
 
-        /* Vertical label to the right of arch */
+        /* Vertical label */
         .hero-vertical {
           position: absolute;
           right: -8px;
