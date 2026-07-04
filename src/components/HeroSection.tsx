@@ -139,9 +139,15 @@ const HeroSection = () => {
           position: relative;
           overflow: hidden;
           vertical-align: bottom;
-          width: 100%;
           height: 1.15em;
           line-height: 1.05;
+          white-space: nowrap;
+        }
+        .hero-rotator-sizer {
+          display: inline-block;
+          visibility: hidden;
+          white-space: nowrap;
+          pointer-events: none;
         }
         .hero-rotator-item {
           display: inline-block;
@@ -151,6 +157,7 @@ const HeroSection = () => {
           white-space: nowrap;
           will-change: transform, opacity;
         }
+
 
 
         .hero-divider {
@@ -304,6 +311,9 @@ const HeroSection = () => {
               that create
               <br />
               <span className="hero-rotator" aria-live="polite">
+                <span className="hero-rotator-sizer" aria-hidden="true">
+                  {ROTATING_PHRASES.reduce((a, b) => (a.length >= b.length ? a : b))}
+                </span>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={phraseIndex}
