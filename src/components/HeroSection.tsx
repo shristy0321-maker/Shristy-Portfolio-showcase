@@ -48,341 +48,298 @@ const HeroSection = () => {
     <section
       id="home"
       className="relative w-full overflow-hidden bg-background text-foreground"
-      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
     >
       <style>{`
-        .hero-shell {
+        .ed-hero {
           position: relative;
-          flex: 1 1 auto;
           width: 100%;
-          max-width: 1600px;
+          max-width: 1440px;
           margin: 0 auto;
-          padding: clamp(96px, 12vh, 140px) clamp(32px, 6vw, 100px) clamp(40px, 6vh, 80px);
+          padding: clamp(90px, 11vh, 130px) clamp(28px, 5vw, 80px) 0;
         }
 
-        /* Giant background wordmark — sits behind portrait, never behind heading */
-        .hero-watermark {
-          position: absolute;
-          left: 100px;
-          right: -100px;
-          top: 100px;
-          width: 100%;
-          text-align: center;
-          transform: none;
+        /* Top editorial label bar */
+        .ed-toprow {
+          position: relative;
+          z-index: 4;
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          gap: 28px;
+          margin-bottom: clamp(18px, 3vh, 34px);
+        }
+        .ed-label {
+          font-family: var(--font-body);
+          font-size: 10.5px;
+          letter-spacing: 0.42em;
+          text-transform: uppercase;
+          color: #6C584B;
+          white-space: nowrap;
+        }
+        .ed-label-left { display: flex; align-items: center; gap: 18px; }
+        .ed-label-left .ed-rule { flex: 1; height: 1px; background: #C5A059; opacity: 0.55; }
+        .ed-label-left .ed-star { color: #C5A059; font-size: 12px; }
+        .ed-label-right {
+          display: flex; flex-direction: column; align-items: flex-end;
+          line-height: 1.45;
+          text-align: right;
+          gap: 2px;
+        }
+
+        /* Giant wordmark */
+        .ed-wordmark {
+          position: relative;
+          z-index: 1;
           font-family: var(--font-serif);
           font-weight: 500;
-          font-size: clamp(110px, 13vw, 220px);
-          line-height: 0.9;
+          font-size: clamp(90px, 15.5vw, 240px);
+          line-height: 0.86;
           letter-spacing: -0.02em;
-          color: hsl(var(--foreground) / 0.07);
-          pointer-events: none;
-          user-select: none;
+          color: #2F241D;
+          text-align: center;
+          margin: 0;
           white-space: nowrap;
-          overflow: visible;
-          z-index: 1;
+          user-select: none;
         }
 
-
-
-
-        .hero-grid {
+        /* rule under wordmark */
+        .ed-wordmark-rule {
           position: relative;
           z-index: 2;
-          display: grid;
-          grid-template-columns: 42% 58%;
-          gap: clamp(80px, 9vw, 120px);
-          align-items: center;
-          min-height: 70vh;
+          display: flex; align-items: center; justify-content: center;
+          gap: 18px;
+          margin-top: clamp(14px, 2vh, 26px);
         }
+        .ed-wordmark-rule .line { flex: 1; height: 1px; background: #C5A059; opacity: 0.45; max-width: 46%; }
+        .ed-wordmark-rule .diamond { color: #C5A059; font-size: 10px; letter-spacing: 0.4em; }
 
-        /* LEFT */
-        .hero-left {
+        /* Main composition — portrait overlaps wordmark */
+        .ed-composition {
           position: relative;
-          max-width: 520px;
+          margin-top: clamp(-140px, -14vw, -70px);
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(40px, 5vw, 70px);
+          align-items: end;
+          padding-bottom: clamp(30px, 5vh, 60px);
+        }
+
+        /* LEFT column */
+        .ed-left {
+          position: relative;
           z-index: 3;
-          padding-top: 90px;
-          padding-left: clamp(0px, 1vw, 12px);
-          background: linear-gradient(to right, hsl(var(--background)) 75%, transparent);
+          max-width: 520px;
+          padding-top: clamp(140px, 18vw, 240px);
         }
-
-
-
-        .hero-eyebrow-row {
-          display: flex; align-items: center; gap: 16px;
-          margin-bottom: 28px;
-        }
-        .hero-eyebrow {
+        .ed-eyebrow {
           font-family: var(--font-body);
           font-size: 11px;
-          letter-spacing: 0.34em;
+          letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: hsl(var(--accent));
-          white-space: nowrap;
+          color: #6C584B;
+          margin-bottom: 24px;
         }
-        .hero-eyebrow-rule {
-          flex: 1; height: 1px;
-          background: hsl(var(--accent) / 0.45);
-          max-width: 200px;
-        }
-
-        .hero-headline {
+        .ed-headline {
           font-family: var(--font-serif);
           font-weight: 500;
-          font-size: clamp(1.9rem, 4vw, 3.55rem);
-          line-height: 1.05;
-          letter-spacing: -0.015em;
+          font-size: clamp(1.7rem, 3.4vw, 2.85rem);
+          line-height: 1.08;
+          letter-spacing: -0.01em;
           color: #2F241D;
+          margin: 0;
         }
-
-        .hero-rotator {
+        .ed-rotator {
           display: inline-block;
           position: relative;
           overflow: hidden;
           vertical-align: bottom;
-          height: 1.15em;
-          line-height: 1.05;
+          height: 1.2em;
+          line-height: 1.08;
           white-space: nowrap;
         }
-        .hero-rotator-sizer {
-          display: grid;
-          visibility: hidden;
-          pointer-events: none;
-        }
-        .hero-rotator-sizer-item {
-          grid-column: 1;
-          grid-row: 1;
-          white-space: nowrap;
-        }
-        .hero-rotator-item {
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          top: 0;
-          white-space: nowrap;
+        .ed-rotator-sizer { display: grid; visibility: hidden; pointer-events: none; }
+        .ed-rotator-sizer > span { grid-column: 1; grid-row: 1; white-space: nowrap; }
+        .ed-rotator-item {
+          display: inline-block; position: absolute;
+          left: 0; top: 0; white-space: nowrap;
           will-change: transform, opacity;
         }
 
-
-
-        .hero-divider {
-          margin: 28px 0 22px;
-          width: 64px; height: 1px;
-          background: hsl(var(--accent));
-        }
-
-        .hero-body {
+        /* Quote-style body with left rule */
+        .ed-quote {
+          margin-top: 28px;
+          padding-left: 20px;
+          border-left: 1px solid #C5A059;
           font-family: var(--font-body);
-          font-size: 15.5px;
+          font-size: 15px;
           line-height: 1.75;
           color: #5C5148;
-          max-width: 430px;
+          max-width: 440px;
         }
 
-        .hero-cta { margin-top: 36px; }
-        .hero-cta > * { background: #2B211B !important; color: #F7F3EE !important; border-color: #2B211B !important; }
-        .hero-cta > *:hover { background: #3A2C24 !important; color: #F7F3EE !important; }
-
-        /* RIGHT */
-        .hero-right {
-          position: relative;
-          display: flex;
-          align-items: flex-end;
-          justify-content: flex-end;
-          min-height: 700px;
-          padding-right: clamp(0px, 2vw, 24px);
-        }
-
-
-        /* Circular burgundy portrait plate (v3) */
-        .hero-arch-wrap {
-          position: relative;
-          width: min(560px, 100%);
-          height: clamp(520px, 72vh, 700px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .hero-plate {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: min(460px, 90%);
-          aspect-ratio: 1 / 1;
-          border-radius: 9999px;
-          background: #420D0D;
-          border: 1px solid rgba(197, 160, 89, 0.35);
-          box-shadow: 0 20px 50px rgba(66, 13, 13, 0.3);
-          overflow: hidden;
-        }
-        .hero-plate-frame,
-        .hero-plate-frame-outer {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          border-radius: 9999px;
-          pointer-events: none;
-        }
-        .hero-plate-frame {
-          width: calc(min(460px, 90%) + 24px);
-          aspect-ratio: 1 / 1;
-          transform: translate(-50%, -50%);
-          border: 0.5px solid rgba(197, 160, 89, 0.5);
-        }
-        .hero-plate-frame-outer {
-          width: calc(min(460px, 90%) + 46px);
-          aspect-ratio: 1 / 1;
-          transform: translate(-50%, -50%);
-          border: 0.5px solid rgba(197, 160, 89, 0.22);
-        }
-        .hero-botanical {
-          position: absolute;
-          pointer-events: none;
+        .ed-signature {
+          margin-top: 32px;
+          font-family: var(--font-serif);
+          font-style: italic;
+          font-weight: 500;
+          font-size: clamp(1.6rem, 2.6vw, 2.1rem);
           color: #C5A059;
+          line-height: 1;
         }
-        .hero-botanical.br {
-          bottom: -10px; right: -10px;
-          width: 260px; height: 260px;
-          opacity: 0.4;
-        }
-        .hero-botanical.tl {
-          top: -20px; left: -20px;
-          width: 220px; height: 220px;
-          opacity: 0.25;
-          transform: rotate(180deg);
-        }
-        .hero-sparkle {
-          position: absolute;
-          color: #C5A059;
-          pointer-events: none;
-          animation: heroTwinkle 3.2s ease-in-out infinite;
-        }
-        .hero-sparkle.s1 { top: 14%; right: 18%; width: 16px; height: 16px; }
-        .hero-sparkle.s2 { bottom: 22%; left: 14%; width: 12px; height: 12px; animation-delay: .6s; }
-        .hero-dot {
-          position: absolute;
-          border-radius: 9999px;
-          background: rgba(197, 160, 89, 0.55);
-          pointer-events: none;
-        }
-        .hero-dot.d1 { top: 32%; right: 12%; width: 6px; height: 6px; }
-        .hero-dot.d2 { bottom: 36%; left: 8%; width: 4px; height: 4px; opacity: 0.7; }
-        @keyframes heroTwinkle {
-          0%, 100% { opacity: 0.4; transform: scale(0.9); }
-          50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        .hero-portrait {
-          position: absolute;
-          left: 50%;
-          bottom: 0;
-          transform: translateX(-50%);
-          height: 102%;
-          width: auto;
-          max-width: 130%;
-          object-fit: contain;
-          object-position: bottom center;
-          z-index: 2;
-          -webkit-mask-image: radial-gradient(circle at 50% 45%, black 45%, transparent 45.6%);
-                  mask-image: radial-gradient(circle at 50% 45%, black 45%, transparent 45.6%);
-        }
-
-        /* Vertical label */
-        .hero-vertical {
-          position: absolute;
-          right: -8px;
-          top: 8%;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
+        .ed-based {
+          margin-top: 10px;
           font-family: var(--font-body);
           font-size: 10.5px;
-          letter-spacing: 0.5em;
+          letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: hsl(var(--muted-foreground));
-          z-index: 3;
-        }
-        .hero-vertical .vrule {
-          margin: 14px auto 6px;
-          width: 1px; height: 56px;
-          background: hsl(var(--border));
-        }
-        .hero-vertical .vstar {
-          margin: 0 auto;
-          color: hsl(var(--accent));
-          font-size: 11px;
+          color: #6C584B;
         }
 
-        /* Bottom strip */
-        .hero-featured {
+        .ed-cta { margin-top: 30px; }
+        .ed-cta > * { background: #2B211B !important; color: #F7F3EE !important; border-color: #2B211B !important; }
+        .ed-cta > *:hover { background: #3A2C24 !important; color: #F7F3EE !important; }
+
+        /* RIGHT column — portrait, no visible box */
+        .ed-right {
           position: relative;
           z-index: 2;
-          margin-top: auto;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          min-height: clamp(460px, 62vh, 640px);
+        }
+        .ed-portrait-wrap {
+          position: relative;
+          width: min(520px, 100%);
+          aspect-ratio: 1 / 1.15;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+        }
+        /* soft circular tone behind portrait — no hard box */
+        .ed-portrait-wrap::before {
+          content: "";
+          position: absolute;
+          top: 6%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 88%;
+          aspect-ratio: 1 / 1;
+          border-radius: 9999px;
+          background: radial-gradient(circle at 50% 45%, #3A0F0F 0%, #2B0A0A 60%, transparent 72%);
+          z-index: 0;
+        }
+        .ed-portrait-wrap::after {
+          content: "";
+          position: absolute;
+          top: 5%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90%;
+          aspect-ratio: 1 / 1;
+          border-radius: 9999px;
+          border: 1px solid rgba(197, 160, 89, 0.35);
+          z-index: 1;
+          pointer-events: none;
+        }
+        .ed-portrait {
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          width: auto;
+          max-width: 100%;
+          object-fit: contain;
+          object-position: bottom center;
+        }
+
+        /* Bottom featured strip */
+        .ed-featured {
+          position: relative;
+          z-index: 2;
           width: 100%;
           background: #2B211B;
           color: #F7F3EE;
-          height: 90px;
+          height: 82px;
           display: flex; align-items: center; justify-content: center; gap: 22px;
           padding: 0 clamp(20px, 5vw, 60px);
           border-top: 1px solid #45362D;
           border-bottom: 1px solid #45362D;
-          box-shadow: none;
+          margin-top: clamp(20px, 4vh, 40px);
         }
-        .hero-featured .lbl {
+        .ed-featured .lbl {
           font-family: var(--font-body);
           font-size: 11px;
           letter-spacing: 0.5em;
           text-transform: uppercase;
-          color: #F7F3EE;
         }
-        .hero-featured .sp { color: #C8A45A; font-size: 12px; }
-        .hero-featured .rule {
-          flex: 0 0 clamp(40px, 14vw, 200px);
-          height: 1px;
-          background: #6C584B;
-        }
+        .ed-featured .sp { color: #C8A45A; font-size: 12px; }
+        .ed-featured .rule { flex: 0 0 clamp(40px, 14vw, 200px); height: 1px; background: #6C584B; }
 
         @media (max-width: 899px) {
-          .hero-grid {
+          .ed-composition {
             grid-template-columns: 1fr;
-            gap: 32px;
-            min-height: 0;
+            margin-top: -40px;
+            gap: 20px;
+            align-items: center;
           }
-          .hero-left { max-width: 100%; text-align: left; }
-          .hero-right { min-height: 0; margin-top: 8px; }
-          .hero-arch-wrap { height: clamp(420px, 70vh, 560px); width: min(420px, 92%); }
-          .hero-vertical { right: -4px; font-size: 9.5px; letter-spacing: 0.4em; }
-          .hero-watermark { font-size: clamp(5rem, 28vw, 9rem); top: 0; left: calc(50% + 100px); transform: translateX(-50%); }
-          .hero-cta .btn-full { width: 100%; }
+          .ed-left { padding-top: 20px; max-width: 100%; }
+          .ed-wordmark { font-size: clamp(70px, 18vw, 120px); }
+          .ed-toprow { grid-template-columns: 1fr; text-align: center; gap: 10px; }
+          .ed-label-right { align-items: center; text-align: center; }
+          .ed-label-left { justify-content: center; }
+          .ed-right { min-height: 0; }
         }
       `}</style>
 
-      <div className="hero-shell">
-        {/* Giant background wordmark */}
-        <div className="hero-watermark" aria-hidden="true">SHRISTY</div>
+      <div className="ed-hero">
+        {/* Top editorial labels */}
+        <motion.div {...fade(10, 0.05)} className="ed-toprow">
+          <div className="ed-label ed-label-left">
+            <span>Product Portfolio</span>
+            <span className="ed-rule" />
+            <span className="ed-star">✦</span>
+          </div>
+          <div className="ed-label" style={{ color: "#C5A059" }}>2026 · Edition I</div>
+          <div className="ed-label ed-label-right">
+            <span>Designing Products</span>
+            <span>Building Trust</span>
+          </div>
+        </motion.div>
 
-        <div className="hero-grid">
+        {/* Giant wordmark */}
+        <motion.h1 {...fade(20, 0.12)} className="ed-wordmark" aria-label="Shristy">
+          SHRISTY
+        </motion.h1>
+
+        <motion.div {...fade(6, 0.2)} className="ed-wordmark-rule" aria-hidden="true">
+          <span className="line" />
+          <span className="diamond">✦</span>
+          <span className="line" />
+        </motion.div>
+
+        {/* Composition with portrait overlapping */}
+        <div className="ed-composition">
           {/* LEFT */}
-          <div className="hero-left">
+          <div className="ed-left">
+            <motion.div {...fade(10, 0.28)} className="ed-eyebrow">
+              Product Manager &nbsp;·&nbsp; Operations
+            </motion.div>
 
-
-
-            <motion.h1 {...fade(20, 0.15)} className="hero-headline">
+            <motion.h2 {...fade(20, 0.32)} className="ed-headline">
               Designing products
               <br />
               that create
               <br />
-              <span className="hero-rotator" aria-live="polite">
-                <span className="hero-rotator-sizer" aria-hidden="true">
+              <span className="ed-rotator" aria-live="polite">
+                <span className="ed-rotator-sizer" aria-hidden="true">
                   {ROTATING_PHRASES.map((p) => (
-                    <span key={p} className="hero-rotator-sizer-item">{p}</span>
+                    <span key={p}>{p}</span>
                   ))}
                 </span>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={phraseIndex}
-                    className="hero-rotator-item"
+                    className="ed-rotator-item"
                     initial={reduce ? { opacity: 0 } : { y: "100%", opacity: 0 }}
                     animate={reduce ? { opacity: 1 } : { y: "0%", opacity: 1 }}
                     exit={reduce ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
@@ -392,18 +349,23 @@ const HeroSection = () => {
                   </motion.span>
                 </AnimatePresence>
               </span>
-            </motion.h1>
+            </motion.h2>
 
-            <motion.div {...fade(8, 0.25)} className="hero-divider" />
-
-            <motion.p {...fade(16, 0.3)} className="hero-body">
+            <motion.p {...fade(16, 0.4)} className="ed-quote">
               My product education started in client calls and stakeholder rooms. Long before
               roadmaps or sprint planning. Just real people, real problems, and the gap between
               what was promised and what was delivered.
             </motion.p>
 
-            <motion.div {...fade(14, 0.4)} className="hero-cta">
-              <Button asChild variant="hero" size="lg" className="btn-full">
+            <motion.div {...fade(12, 0.5)} className="ed-signature">
+              Shristy Kumari
+            </motion.div>
+            <motion.div {...fade(8, 0.55)} className="ed-based">
+              Based in India
+            </motion.div>
+
+            <motion.div {...fade(14, 0.6)} className="ed-cta">
+              <Button asChild variant="hero" size="lg">
                 <a href="#case-studies" onClick={onView}>
                   Explore My Work
                   <span aria-hidden="true">→</span>
@@ -413,39 +375,16 @@ const HeroSection = () => {
           </div>
 
           {/* RIGHT */}
-          <motion.div className="hero-right" {...fade(24, 0.2)}>
-            <div className="hero-arch-wrap">
-              <div className="hero-plate-frame-outer" aria-hidden="true" />
-              <div className="hero-plate-frame" aria-hidden="true" />
-              <div className="hero-plate" aria-hidden="true">
-                <svg className="hero-botanical br" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                  <path d="M100 190C100 190 85 150 125 110C165 70 145 30 145 30" stroke="currentColor" strokeWidth="0.75" />
-                  <path d="M115 150C115 150 145 140 155 120" stroke="currentColor" strokeWidth="0.75" />
-                  <path d="M90 170C90 170 55 165 45 140" stroke="currentColor" strokeWidth="0.75" />
-                  <circle cx="145" cy="30" r="2" fill="currentColor" />
-                  <path d="M130 60C130 60 160 70 175 60" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
-                </svg>
-                <svg className="hero-botanical tl" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                  <path d="M100 190C100 190 85 150 125 110" stroke="currentColor" strokeWidth="0.75" />
-                  <circle cx="125" cy="110" r="1.5" fill="currentColor" />
-                </svg>
-                <img src={portrait} alt="Shristy Kumari" className="hero-portrait" />
-                <svg className="hero-sparkle s1" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 0L7.2 4.8L12 6L7.2 7.2L6 12L4.8 7.2L0 6L4.8 4.8L6 0Z" fill="currentColor" />
-                </svg>
-                <svg className="hero-sparkle s2" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 0L7.2 4.8L12 6L7.2 7.2L6 12L4.8 7.2L0 6L4.8 4.8L6 0Z" fill="currentColor" />
-                </svg>
-                <span className="hero-dot d1" />
-                <span className="hero-dot d2" />
-              </div>
+          <motion.div className="ed-right" {...fade(24, 0.2)}>
+            <div className="ed-portrait-wrap">
+              <img src={portrait} alt="Shristy Kumari" className="ed-portrait" />
             </div>
           </motion.div>
         </div>
       </div>
 
       {/* Bottom featured strip */}
-      <motion.div {...fade(10, 0.5)} className="hero-featured">
+      <motion.div {...fade(10, 0.5)} className="ed-featured">
         <span className="rule" />
         <span className="sp">✦</span>
         <span className="lbl">Featured Work</span>
