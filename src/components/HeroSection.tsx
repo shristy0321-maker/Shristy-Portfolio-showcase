@@ -275,7 +275,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          </motion.div>
+
 
           {/* RIGHT — vertical about */}
           <div className="ed-right">
