@@ -270,7 +270,11 @@ const HeroSection = () => {
 
           {/* CENTER — portrait overlaps wordmark, no frame/container */}
           <motion.div className="ed-center" {...fade(24, 0.18)}>
-            <img src={portrait} alt="Shristy Kumari" className="ed-portrait" />
+            <div className="ed-arch">
+              <img src={portrait} alt="Shristy Kumari" className="ed-portrait" />
+            </div>
+          </motion.div>
+
           </motion.div>
 
           {/* RIGHT — vertical about */}
