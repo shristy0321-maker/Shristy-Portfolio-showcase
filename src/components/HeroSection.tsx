@@ -1,6 +1,14 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/shristy-portrait-hero.png";
+
+const ROTATING_PHRASES = [
+  "experiences people remember.",
+  "brands people trust.",
+  "relationships that last.",
+  "value beyond the transaction.",
+];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
