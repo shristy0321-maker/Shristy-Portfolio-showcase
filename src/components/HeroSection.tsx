@@ -135,7 +135,7 @@ const HeroSection = () => {
           .hero-left { max-width: 100%; }
           .hero-right { min-height: 0; }
           .hero-arch { max-width: 380px; }
-          .hero-watermark { font-size: clamp(72px, 22vw, 140px); top: 90px; }
+          .hero-watermark { font-size: clamp(72px, 22vw, 140px); margin-bottom: 32px; }
         }
       `}</style>
 
