@@ -312,7 +312,9 @@ const HeroSection = () => {
               <br />
               <span className="hero-rotator" aria-live="polite">
                 <span className="hero-rotator-sizer" aria-hidden="true">
-                  {ROTATING_PHRASES.reduce((a, b) => (a.length >= b.length ? a : b))}
+                  {ROTATING_PHRASES.map((p) => (
+                    <span key={p} className="hero-rotator-sizer-item">{p}</span>
+                  ))}
                 </span>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
