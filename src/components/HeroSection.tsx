@@ -144,10 +144,14 @@ const HeroSection = () => {
           white-space: nowrap;
         }
         .hero-rotator-sizer {
-          display: inline-block;
+          display: grid;
           visibility: hidden;
-          white-space: nowrap;
           pointer-events: none;
+        }
+        .hero-rotator-sizer-item {
+          grid-column: 1;
+          grid-row: 1;
+          white-space: nowrap;
         }
         .hero-rotator-item {
           display: inline-block;
