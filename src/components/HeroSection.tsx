@@ -159,8 +159,8 @@ const HeroSection = () => {
           display: block;
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          object-position: bottom center;
+          object-fit: cover;
+          object-position: top center;
         }
 
         /* Bottom hairline caption row */
