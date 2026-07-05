@@ -156,10 +156,10 @@ const HeroSection = () => {
           content: "";
           position: absolute;
           left: 50%;
-          top: 18%;
+          top: 50%;
           transform: translate(-50%, -50%);
-          width: 680px;
-          max-width: 95%;
+          width: 560px;
+          max-width: 90%;
           aspect-ratio: 1 / 1;
           border: 2px solid #C8B8A6;
           opacity: 0.65;
@@ -202,11 +202,11 @@ const HeroSection = () => {
           .ivory-left { max-width: 100%; order: 2; }
           .ivory-right { order: 1; min-height: 0; }
           .ivory-portrait-wrap { max-width: 420px; }
-          .ivory-portrait-wrap::before { width: 360px; top: 15%; }
+          .ivory-portrait-wrap::before { width: 340px; top: 50%; }
           .ivory-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
         }
         @media (min-width: 900px) and (max-width: 1199px) {
-          .ivory-portrait-wrap::before { width: 520px; }
+          .ivory-portrait-wrap::before { width: 460px; top: 50%; }
         }
 
 
