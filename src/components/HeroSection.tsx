@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import portrait from "@/assets/shristy-portrait-hero.png";
+import portraitAsset from "@/assets/shristy-hero-new.png.asset.json";
+const portrait = portraitAsset.url;
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -172,8 +173,8 @@ const HeroSection = () => {
           display: block;
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          object-position: bottom center;
+          object-fit: cover;
+          object-position: top center;
         }
 
         /* Bottom hairline caption row */
