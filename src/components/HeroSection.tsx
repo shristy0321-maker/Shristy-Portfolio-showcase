@@ -156,16 +156,18 @@ const HeroSection = () => {
           content: "";
           position: absolute;
           left: 50%;
-          top: 38%;
+          top: 50%;
           transform: translate(-50%, -50%);
-          width: min(460px, 86%);
+          width: min(680px, 92%);
           aspect-ratio: 1 / 1;
-          border: 2px solid var(--border);
+          border: 2px solid #C8B8A6;
+          opacity: 0.65;
           background: transparent;
           border-radius: 9999px;
           pointer-events: none;
           z-index: 0;
         }
+
         .ivory-portrait {
           position: relative;
           z-index: 1;
