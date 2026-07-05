@@ -28,151 +28,215 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden bg-background text-foreground"
-      style={{ minHeight: "auto" }}
+      className="relative w-full overflow-hidden"
+      style={{ background: "#F8F4EC", color: "#2C231D" }}
     >
+      <link
+        rel="stylesheet"
+        href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap"
+      />
       <style>{`
-        .hero-shell {
+        .ivory-hero {
+          --ivory: #F8F4EC;
+          --ink: #2C231D;
+          --muted: #66584F;
+          --btn: #1F1A17;
+          --border: #D6CBBE;
+          --display: 'Cabinet Grotesk', 'General Sans', ui-sans-serif, system-ui, sans-serif;
+          --body: 'Satoshi', 'General Sans', ui-sans-serif, system-ui, sans-serif;
+        }
+        .ivory-shell {
           position: relative;
           width: 100%;
           max-width: 1440px;
           margin: 0 auto;
-          padding: clamp(110px, 14vh, 160px) clamp(28px, 5vw, 80px) clamp(60px, 8vh, 100px);
-          display: flex;
-          flex-direction: column;
+          padding: clamp(96px, 12vh, 140px) clamp(28px, 5vw, 80px) clamp(64px, 9vh, 110px);
         }
-
-        /* Faded background wordmark — top band, fully visible */
-        .hero-watermark {
+        .ivory-grid {
           position: relative;
-          z-index: 1;
-          text-align: center;
-          font-family: var(--font-serif);
-          font-weight: 500;
-          font-size: clamp(110px, 16vw, 240px);
-          line-height: 0.9;
-          letter-spacing: -0.02em;
-          color: hsl(var(--foreground) / 0.09);
-          pointer-events: none;
-          user-select: none;
-          white-space: nowrap;
-          margin: 0 0 clamp(48px, 7vh, 90px);
-        }
-
-        .hero-grid {
-          position: relative;
-          z-index: 2;
           display: grid;
-          grid-template-columns: 44% 56%;
-          gap: clamp(50px, 7vw, 100px);
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(40px, 6vw, 90px);
           align-items: center;
         }
 
-
-
         /* LEFT */
-        .hero-left {
-          position: relative;
-          z-index: 3;
-          max-width: 520px;
-        }
-        .hero-headline {
-          font-family: var(--font-serif);
+        .ivory-left { max-width: 560px; }
+        .ivory-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-family: var(--body);
+          font-size: 12px;
           font-weight: 500;
-          font-size: clamp(2rem, 4vw, 3.4rem);
-          line-height: 1.1;
-          letter-spacing: -0.015em;
-          color: hsl(var(--foreground));
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--muted);
+          margin-bottom: 28px;
+        }
+        .ivory-eyebrow::before {
+          content: "";
+          width: 28px; height: 1px;
+          background: var(--ink);
+          opacity: 0.5;
+        }
+        .ivory-headline {
+          font-family: var(--display);
+          font-weight: 700;
+          font-size: clamp(2.6rem, 5.2vw, 4.75rem);
+          line-height: 1.02;
+          letter-spacing: -0.025em;
+          color: var(--ink);
           margin: 0;
         }
-        .hero-divider {
-          margin: 26px 0 22px;
-          width: 64px; height: 1px;
-          background: hsl(var(--accent));
+        .ivory-body {
+          font-family: var(--body);
+          font-size: 16px;
+          line-height: 1.7;
+          color: var(--muted);
+          max-width: 480px;
+          margin: 32px 0 0;
         }
-        .hero-body {
-          font-family: var(--font-body);
-          font-size: 15.5px;
-          line-height: 1.75;
-          color: hsl(var(--muted-foreground));
-          max-width: 440px;
-          margin: 0;
-        }
-        .hero-cta { margin-top: 34px; }
-
-        /* RIGHT — portrait with arch backdrop */
-        .hero-right {
-          position: relative;
+        .ivory-actions {
+          margin-top: 40px;
           display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          min-height: clamp(500px, 70vh, 700px);
+          align-items: center;
+          gap: 24px;
+          flex-wrap: wrap;
         }
-        .hero-arch {
-          position: relative;
-          width: min(520px, 100%);
-          aspect-ratio: 4 / 5;
-          background: #2F241D;
-          border-radius: 9999px 9999px 0 0;
-          overflow: hidden;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
+        .ivory-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: var(--btn);
+          color: var(--ivory);
+          font-family: var(--body);
+          font-weight: 500;
+          font-size: 14.5px;
+          letter-spacing: 0.02em;
+          padding: 18px 32px;
+          border-radius: 9999px;
+          transition: transform .3s ease, background .3s ease;
         }
-        .hero-portrait {
+        .ivory-btn:hover { background: #000; transform: translateY(-1px); }
+        .ivory-meta {
+          font-family: var(--body);
+          font-size: 13px;
+          color: var(--muted);
+          letter-spacing: 0.02em;
+        }
+        .ivory-meta strong {
           display: block;
-          width: 108%;
+          font-family: var(--display);
+          font-weight: 700;
+          font-size: 16px;
+          color: var(--ink);
+          letter-spacing: -0.01em;
+          margin-bottom: 2px;
+        }
+
+        /* RIGHT — portrait naturally integrated, no frame */
+        .ivory-right {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: clamp(460px, 66vh, 640px);
+        }
+        .ivory-portrait-wrap {
+          position: relative;
+          width: min(560px, 100%);
+          aspect-ratio: 4 / 5;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+        }
+        /* Soft warm halo behind portrait — integrates it, no hard frame */
+        .ivory-portrait-wrap::before {
+          content: "";
+          position: absolute;
+          inset: 6% 8% 0 8%;
+          background: radial-gradient(60% 55% at 50% 45%, rgba(214,203,190,0.55), rgba(248,244,236,0) 70%);
+          pointer-events: none;
+        }
+        .ivory-portrait {
+          position: relative;
+          display: block;
+          width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: top center;
+          object-fit: contain;
+          object-position: bottom center;
+        }
+
+        /* Bottom hairline caption row */
+        .ivory-footline {
+          margin-top: clamp(60px, 8vh, 100px);
+          padding-top: 24px;
+          border-top: 1px solid var(--border);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 24px;
+          flex-wrap: wrap;
+          font-family: var(--body);
+          font-size: 12px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: var(--muted);
         }
 
         @media (max-width: 899px) {
-          .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 32px;
-          }
-          .hero-left { max-width: 100%; }
-          .hero-right { min-height: 0; }
-          .hero-arch { max-width: 380px; }
-          .hero-watermark { font-size: clamp(72px, 22vw, 140px); margin-bottom: 32px; }
+          .ivory-grid { grid-template-columns: 1fr; gap: 32px; }
+          .ivory-left { max-width: 100%; order: 2; }
+          .ivory-right { order: 1; min-height: 0; }
+          .ivory-portrait-wrap { max-width: 420px; }
+          .ivory-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
         }
       `}</style>
 
-      <div className="hero-shell">
-        <div className="hero-watermark" aria-hidden="true">SHRISTY</div>
+      <div className="ivory-hero">
+        <div className="ivory-shell">
+          <div className="ivory-grid">
+            {/* LEFT */}
+            <div className="ivory-left">
+              <motion.div {...fade(10, 0.05)} className="ivory-eyebrow">
+                Product Manager · Portfolio
+              </motion.div>
 
-        <div className="hero-grid">
-          {/* LEFT */}
-          <div className="hero-left">
-            <motion.h1 {...fade(20, 0.15)} className="hero-headline">
-              Built from real conversations, not assumptions.
-            </motion.h1>
+              <motion.h1 {...fade(20, 0.12)} className="ivory-headline">
+                Built from real conversations,<br />not assumptions.
+              </motion.h1>
 
-            <motion.div {...fade(8, 0.25)} className="hero-divider" />
+              <motion.p {...fade(16, 0.24)} className="ivory-body">
+                My product education started in client calls and stakeholder rooms. Long before
+                roadmaps or sprint planning. Just real people, real problems, and the gap between
+                what was promised and what was delivered.
+              </motion.p>
 
-            <motion.p {...fade(16, 0.3)} className="hero-body">
-              My product education started in client calls and stakeholder rooms. Long before
-              roadmaps or sprint planning. Just real people, real problems, and the gap between
-              what was promised and what was delivered.
-            </motion.p>
-
-            <motion.div {...fade(14, 0.4)} className="hero-cta">
-              <Button asChild variant="hero" size="lg">
-                <a href="#case-studies" onClick={onView}>
+              <motion.div {...fade(14, 0.34)} className="ivory-actions">
+                <a href="#case-studies" onClick={onView} className="ivory-btn">
                   Explore My Work
                   <span aria-hidden="true">→</span>
                 </a>
-              </Button>
+                <div className="ivory-meta">
+                  <strong>Shristy Kumari</strong>
+                  Building structured solutions
+                </div>
+              </motion.div>
+            </div>
+
+            {/* RIGHT */}
+            <motion.div className="ivory-right" {...fade(24, 0.18)}>
+              <div className="ivory-portrait-wrap">
+                <img src={portrait} alt="Shristy Kumari" className="ivory-portrait" />
+              </div>
             </motion.div>
           </div>
 
-          {/* RIGHT */}
-          <motion.div className="hero-right" {...fade(24, 0.2)}>
-            <div className="hero-arch">
-              <img src={portrait} alt="Shristy Kumari" className="hero-portrait" />
-            </div>
-          </motion.div>
+          <div className="ivory-footline">
+            <span>Operations · Discovery · Delivery</span>
+            <span>Available for select projects — 2026</span>
+          </div>
         </div>
       </div>
     </section>
