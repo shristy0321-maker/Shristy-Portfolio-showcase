@@ -135,32 +135,40 @@ const HeroSection = () => {
           margin-bottom: 2px;
         }
 
-        /* RIGHT — portrait naturally integrated, no frame */
+        /* RIGHT — portrait with single outlined circle behind */
         .ivory-right {
           position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: clamp(460px, 66vh, 640px);
+          min-height: clamp(540px, 74vh, 720px);
         }
         .ivory-portrait-wrap {
           position: relative;
-          width: min(560px, 100%);
-          aspect-ratio: 4 / 5;
+          width: min(640px, 100%);
+          aspect-ratio: 1 / 1.15;
           display: flex;
           align-items: flex-end;
           justify-content: center;
         }
-        /* Soft warm halo behind portrait — integrates it, no hard frame */
+        /* Single thin outlined circle behind portrait */
         .ivory-portrait-wrap::before {
           content: "";
           position: absolute;
-          inset: 6% 8% 0 8%;
-          background: radial-gradient(60% 55% at 50% 45%, rgba(214,203,190,0.55), rgba(248,244,236,0) 70%);
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: min(520px, 92%);
+          aspect-ratio: 1 / 1;
+          border: 2px solid var(--border);
+          background: var(--ivory);
+          border-radius: 9999px;
           pointer-events: none;
+          z-index: 0;
         }
         .ivory-portrait {
           position: relative;
+          z-index: 1;
           display: block;
           width: 100%;
           height: 100%;
