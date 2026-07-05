@@ -152,29 +152,15 @@ const HeroSection = () => {
           align-items: flex-end;
           justify-content: center;
         }
-        /* Single thin outlined circle behind portrait */
-        .ivory-portrait-wrap::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: 42%;
-          transform: translate(-50%, -50%);
-          width: min(360px, 68%);
-          aspect-ratio: 1 / 1;
-          border: 2px solid var(--border);
-          background: var(--ivory);
-          border-radius: 9999px;
-          pointer-events: none;
-          z-index: 0;
-        }
+        /* Circle removed per user request */
         .ivory-portrait {
           position: relative;
           z-index: 1;
           display: block;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: top center;
+          object-fit: contain;
+          object-position: bottom center;
         }
 
         /* Bottom hairline caption row */
