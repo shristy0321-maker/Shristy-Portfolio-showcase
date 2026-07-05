@@ -155,20 +155,7 @@ const HeroSection = () => {
           margin-top: -40px;
         }
         .ivory-portrait-wrap::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: 78%;
-          transform: translate(-50%, -50%);
-          width: 560px;
-          max-width: 90%;
-          aspect-ratio: 1 / 1;
-          border: 2px solid #C8B8A6;
-          opacity: 0.65;
-          background: transparent;
-          border-radius: 9999px;
-          pointer-events: none;
-          z-index: 0;
+          display: none;
         }
 
 
