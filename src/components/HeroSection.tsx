@@ -152,7 +152,20 @@ const HeroSection = () => {
           align-items: flex-end;
           justify-content: center;
         }
-        /* Circle removed per user request */
+        .ivory-portrait-wrap::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 58%;
+          transform: translate(-50%, -50%);
+          width: min(440px, 82%);
+          aspect-ratio: 1 / 1;
+          border: 2px solid var(--border);
+          background: transparent;
+          border-radius: 9999px;
+          pointer-events: none;
+          z-index: 0;
+        }
         .ivory-portrait {
           position: relative;
           z-index: 1;
