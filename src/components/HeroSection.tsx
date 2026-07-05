@@ -156,9 +156,9 @@ const HeroSection = () => {
           content: "";
           position: absolute;
           left: 50%;
-          top: 50%;
+          top: 38%;
           transform: translate(-50%, -50%);
-          width: min(420px, 78%);
+          width: min(460px, 86%);
           aspect-ratio: 1 / 1;
           border: 2px solid var(--border);
           background: transparent;
