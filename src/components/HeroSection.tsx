@@ -204,11 +204,11 @@ const HeroSection = () => {
           .ivory-left { max-width: 100%; order: 2; }
           .ivory-right { order: 1; min-height: 0; }
           .ivory-portrait-wrap { max-width: 420px; }
-          .ivory-portrait-wrap::before { width: 340px; top: 50%; }
+          .ivory-portrait-wrap::before { width: 340px; top: 62%; }
           .ivory-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
         }
         @media (min-width: 900px) and (max-width: 1199px) {
-          .ivory-portrait-wrap::before { width: 460px; top: 50%; }
+          .ivory-portrait-wrap::before { width: 460px; top: 62%; }
         }
 
 
