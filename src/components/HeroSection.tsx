@@ -156,7 +156,7 @@ const HeroSection = () => {
           content: "";
           position: absolute;
           left: 50%;
-          top: 32%;
+          top: 18%;
           transform: translate(-50%, -50%);
           width: 680px;
           max-width: 95%;
@@ -202,7 +202,7 @@ const HeroSection = () => {
           .ivory-left { max-width: 100%; order: 2; }
           .ivory-right { order: 1; min-height: 0; }
           .ivory-portrait-wrap { max-width: 420px; }
-          .ivory-portrait-wrap::before { width: 360px; top: 28%; }
+          .ivory-portrait-wrap::before { width: 360px; top: 15%; }
           .ivory-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
         }
         @media (min-width: 900px) and (max-width: 1199px) {
