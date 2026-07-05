@@ -146,13 +146,14 @@ const HeroSection = () => {
         }
         .ivory-portrait-wrap {
           position: relative;
-          width: min(820px, 115%);
-          aspect-ratio: 1 / 0.9;
+          width: min(720px, 110%);
+          height: clamp(560px, 78vh, 760px);
           display: flex;
           align-items: flex-start;
           justify-content: center;
           overflow: hidden;
-          margin-top: -60px;
+          margin-top: -80px;
+          margin-bottom: -60px;
         }
         .ivory-portrait-wrap::before {
           display: none;
