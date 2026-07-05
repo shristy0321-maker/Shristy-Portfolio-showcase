@@ -156,10 +156,10 @@ const HeroSection = () => {
           content: "";
           position: absolute;
           left: 50%;
-          top: 18%;
+          top: 50%;
           transform: translate(-50%, -50%);
-          width: 680px;
-          max-width: 95%;
+          width: 560px;
+          max-width: 90%;
           aspect-ratio: 1 / 1;
           border: 2px solid #C8B8A6;
           opacity: 0.65;
