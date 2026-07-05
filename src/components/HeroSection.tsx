@@ -147,7 +147,7 @@ const HeroSection = () => {
         .ivory-portrait-wrap {
           position: relative;
           width: min(640px, 100%);
-          aspect-ratio: 1 / 1.05;
+          aspect-ratio: 1 / 0.85;
           display: flex;
           align-items: flex-start;
           justify-content: center;
