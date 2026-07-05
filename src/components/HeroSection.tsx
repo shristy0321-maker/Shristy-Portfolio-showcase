@@ -158,7 +158,7 @@ const HeroSection = () => {
           content: "";
           position: absolute;
           left: 50%;
-          top: 50%;
+          top: 62%;
           transform: translate(-50%, -50%);
           width: 560px;
           max-width: 90%;
