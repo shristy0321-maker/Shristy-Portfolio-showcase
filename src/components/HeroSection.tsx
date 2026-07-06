@@ -225,10 +225,6 @@ const HeroSection = () => {
                   Explore My Work
                   <span aria-hidden="true">→</span>
                 </a>
-                <div className="ivory-meta">
-                  <strong>Shristy Kumari</strong>
-                  Building structured solutions
-                </div>
               </motion.div>
             </div>
 
