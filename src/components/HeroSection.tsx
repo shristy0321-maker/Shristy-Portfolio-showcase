@@ -147,13 +147,11 @@ const HeroSection = () => {
         .ivory-portrait-wrap {
           position: relative;
           width: min(720px, 110%);
-          height: clamp(560px, 78vh, 760px);
+          height: auto;
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
-          overflow: hidden;
-          margin-top: -80px;
-          margin-bottom: -60px;
+          overflow: visible;
         }
         .ivory-portrait-wrap::before {
           display: none;
@@ -165,9 +163,8 @@ const HeroSection = () => {
           z-index: 1;
           display: block;
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top center;
+          height: auto;
+          object-fit: contain;
         }
 
         /* Bottom hairline caption row */
