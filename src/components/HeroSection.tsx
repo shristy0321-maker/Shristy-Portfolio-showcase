@@ -209,11 +209,8 @@ const HeroSection = () => {
           <div className="ivory-grid">
             {/* LEFT */}
             <div className="ivory-left">
-              <motion.div {...fade(10, 0.05)} className="ivory-eyebrow">
-                Product Manager · Portfolio
-              </motion.div>
-
               <motion.h1 {...fade(20, 0.12)} className="ivory-headline">
+
                 Built from real conversations,<br />not assumptions.
               </motion.h1>
 
