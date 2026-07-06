@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeader from "@/components/SectionHeader";
 
 const rows = [
   {
@@ -115,52 +116,15 @@ const WhatIBringSection = () => {
   return (
     <section
       id="bring"
-      style={{ backgroundColor: "#eee8db", padding: "56px 0 64px" }}
+      style={{ backgroundColor: "#eee8db" }}
+      className="py-20 md:py-28"
     >
-      <div className="max-w-5xl mx-auto px-6 md:px-10">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center"
-          style={{ marginBottom: 40 }}
-        >
-          <div
-            style={{
-              width: 32,
-              height: 1,
-              backgroundColor: "#c9b896",
-              margin: "0 auto 12px",
-            }}
-          />
-          <div
-            style={{
-              fontSize: 10,
-              letterSpacing: "0.3em",
-              color: "#a89880",
-              marginBottom: 10,
-              textTransform: "uppercase",
-              fontWeight: 500,
-            }}
-          >
-            Skills
-          </div>
-          <h2
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(1.8rem, 3.2vw, 2.6rem)",
-              fontWeight: 500,
-              color: "#2a2218",
-              lineHeight: 1.2,
-              margin: 0,
-              letterSpacing: "-0.005em",
-            }}
-          >
-            What I Worked With
-          </h2>
-        </motion.div>
+      <div className="section-container">
+        <SectionHeader
+          index="04"
+          eyebrow="Skills"
+          title="What I Worked With"
+        />
 
         {/* Horizontal rows */}
         <div>
