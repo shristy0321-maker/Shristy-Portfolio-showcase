@@ -236,10 +236,6 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <div className="ivory-footline">
-            <span>Operations · Discovery · Delivery</span>
-            <span>Available for select projects — 2026</span>
-          </div>
         </div>
       </div>
     </section>
