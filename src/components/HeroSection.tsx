@@ -48,10 +48,15 @@ const HeroSection = () => {
         }
         .ivory-shell {
           position: relative;
-          width: 100%;
+          width: calc(100% - clamp(16px, 3vw, 48px));
           max-width: 1440px;
-          margin: 0 auto;
-          padding: clamp(96px, 12vh, 140px) clamp(28px, 5vw, 80px) clamp(64px, 9vh, 110px);
+          margin: clamp(16px, 2.5vw, 32px) auto;
+          padding: clamp(24px, 5vw, 64px);
+          background: var(--ivory);
+          border: 1.5px solid rgba(207, 199, 187, 0.8);
+          border-radius: clamp(20px, 3vw, 36px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+          overflow: hidden;
         }
         .ivory-grid {
           position: relative;
