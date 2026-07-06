@@ -1,132 +1,180 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
-import { Link } from "react-router-dom";
 
 import meetcraftCover from "@/assets/meetcraft-editorial.jpg";
 import globalMakhanaCover from "@/assets/global-makhana-editorial.jpg";
 import mailnitiCover from "@/assets/mailniti-editorial.jpg";
 import kalavanshCover from "@/assets/kalavansh-editorial.jpg";
 
-type CaseStudy = {
-  id: string;
-  slug: string;
+type Project = {
+  number: string;
   title: string;
+  category: string;
+  year: string;
   description: string;
   tags: string[];
-  thumbnail: string | null;
-  presentation_url: string | null;
-  report_url: string | null;
-  featured: boolean;
-  badge: string | null;
+  image: string;
+  href: string;
 };
 
-const coverBySlug: Record<string, string> = {
-  meetcraft: meetcraftCover,
-  "global-makhana": globalMakhanaCover,
-  mailniti: mailnitiCover,
-  kalavansh: kalavanshCover,
-};
-
-const coverByTitle: Record<string, string> = {
-  MeetCraft: meetcraftCover,
-  "Global Makhana": globalMakhanaCover,
-  MailNiti: mailnitiCover,
-  Kalavansh: kalavanshCover,
-};
-
-const STICKY_TOP_BASE = 96; // px
+const projects: Project[] = [
+  {
+    number: "01",
+    title: "Dharmik Vibes",
+    category: "Product · Community",
+    year: "2025",
+    description:
+      "A structured digital experience built around devotion, discovery, and community — reframing spiritual content as a modern product surface.",
+    tags: ["Product Strategy", "UX Research", "Case Study"],
+    image: meetcraftCover,
+    href: "#",
+  },
+  {
+    number: "02",
+    title: "MailNiti",
+    category: "SaaS · Growth",
+    year: "2024",
+    description:
+      "An email intelligence platform designed for founders — turning outbound into a measurable, structured workflow with clear operating principles.",
+    tags: ["SaaS", "Product Strategy", "Case Study"],
+    image: mailnitiCover,
+    href: "#",
+  },
+  {
+    number: "03",
+    title: "FUZO Product Strategy",
+    category: "AI · Corporate Gifting",
+    year: "2025",
+    description:
+      "A product framework for FUZO's corporate gifting intelligence engine — mapping intent, personalization, and fulfillment into one operating layer.",
+    tags: ["AI", "Product Strategy", "Case Study"],
+    image: globalMakhanaCover,
+    href: "#",
+  },
+  {
+    number: "04",
+    title: "Innovation Lab",
+    category: "Research · Systems",
+    year: "2024",
+    description:
+      "An internal innovation program shaped as a repeatable operating system — from problem discovery to prototype, framed for teams to actually ship.",
+    tags: ["Research", "Systems", "Case Study"],
+    image: kalavanshCover,
+    href: "#",
+  },
+];
 
 type StackedCardProps = {
-  cs: CaseStudy;
+  project: Project;
   index: number;
   total: number;
-  coverSrc: string;
-  containerRef: React.RefObject<HTMLDivElement>;
   scrollProgress: MotionValue<number>;
 };
 
-const StackedCard = ({ cs, index, total, coverSrc, scrollProgress }: StackedCardProps) => {
-  // Each card owns a slice of the parent scroll progress.
-  // As the NEXT card slides in, this card scales down slightly and dims.
+const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps) => {
   const start = index / total;
   const end = (index + 1) / total;
 
-  const scale = useTransform(scrollProgress, [start, end], [1, 1 - (total - index - 1) * 0.03 - 0.02]);
-  const opacity = useTransform(scrollProgress, [start, end], [1, index === total - 1 ? 1 : 0.85]);
+  // Previous cards scale down slightly and fade to 92% opacity as the next one covers them.
+  const isLast = index === total - 1;
+  const scale = useTransform(scrollProgress, [start, end], [1, isLast ? 1 : 0.98]);
+  const opacity = useTransform(scrollProgress, [start, end], [1, isLast ? 1 : 0.92]);
 
-  const top = STICKY_TOP_BASE + index * 14; // subtle staggered peek
+  // Stagger sticky tops so the stack peeks subtly.
+  const top = 80 + index * 18;
 
   return (
     <div className="sticky" style={{ top }}>
       <motion.article
-        style={{
-          scale,
-          opacity,
-          transformOrigin: "center top",
-        }}
-        className="mx-auto w-full"
+        style={{ scale, opacity, transformOrigin: "center top" }}
+        className="mx-auto"
       >
-        <Link
-          to={`/case-study/${cs.slug}`}
-          className="group block overflow-hidden rounded-[28px] border border-border bg-white transition-colors duration-300 hover:border-foreground/25"
-          style={{ boxShadow: "0 20px 50px -25px rgba(42,34,24,0.25), 0 8px 24px -12px rgba(42,34,24,0.12)" }}
+        <a
+          href={project.href}
+          className="group relative mx-auto block overflow-hidden bg-white"
+          style={{
+            width: "88vw",
+            maxWidth: "1450px",
+            height: "720px",
+            borderRadius: "36px",
+            boxShadow: "0px 40px 120px rgba(0,0,0,0.12)",
+          }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Image side */}
-            <div className="relative aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[420px]">
-              <img
-                src={coverSrc}
-                alt={`${cs.title} project cover`}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.03]"
-              />
-              <div
-                className="absolute left-5 top-5 inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground backdrop-blur"
-              >
-                {String(index + 1).padStart(2, "0")} · Case Study
-              </div>
-            </div>
-
-            {/* Content side */}
-            <div className="flex flex-col justify-center p-8 md:p-12">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div className="grid h-full grid-cols-12 gap-8 px-16 py-20">
+            {/* LEFT — 30% */}
+            <div className="col-span-12 flex flex-col justify-between md:col-span-4">
+              <div>
+                <p className="text-[14px] font-medium uppercase tracking-[0.28em] text-neutral-400">
+                  Project {project.number}
+                </p>
                 <h3
-                  className="text-[2rem] leading-tight text-foreground transition-colors group-hover:text-accent md:text-[2.5rem]"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500 }}
+                  className="mt-10 text-[64px] font-bold leading-[1.02] tracking-[-0.02em] text-neutral-900"
+                  style={{ fontFamily: "'Inter Tight', sans-serif" }}
                 >
-                  {cs.title}
+                  {project.title}
                 </h3>
-                {cs.badge && (
-                  <span
-                    className="inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em]"
-                    style={{ borderColor: "#C9A227", color: "#8a6f1c", backgroundColor: "rgba(201,162,39,0.08)" }}
-                  >
-                    {cs.badge}
-                  </span>
-                )}
+                <p className="mt-8 text-[28px] font-normal leading-tight text-neutral-700">
+                  {project.category}
+                </p>
+                <p className="mt-3 text-[18px] font-normal text-neutral-500">{project.year}</p>
+                <p className="mt-10 max-w-md text-[20px] leading-[1.55] text-neutral-600">
+                  {project.description}
+                </p>
               </div>
 
-              <p className="mt-5 text-base leading-8 text-muted-foreground">{cs.description}</p>
-
-              <div className="mt-7 flex flex-wrap gap-2">
-                {cs.tags?.map((t) => (
-                  <span key={t} className="editorial-chip">
-                    {t}
+              <div className="mt-10">
+                <span className="inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors group-hover:text-accent">
+                  View Case Study
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white">
+                    <ArrowRight size={16} />
                   </span>
-                ))}
-              </div>
-
-              <div className="mt-9">
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-accent">
-                  Read Case Study <ArrowRight size={15} />
                 </span>
               </div>
             </div>
+
+            {/* CENTER — 40% */}
+            <div className="relative col-span-12 flex items-center justify-center md:col-span-4">
+              <div
+                className="relative flex items-center justify-center rounded-full"
+                style={{
+                  width: "420px",
+                  height: "420px",
+                  border: "1px dashed rgba(0,0,0,0.28)",
+                  padding: "14px",
+                }}
+              >
+                <div className="h-full w-full overflow-hidden rounded-full">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project cover`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.04]"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT — 30% */}
+            <div className="col-span-12 flex flex-col items-start justify-center gap-4 md:col-span-4 md:items-end">
+              {project.tags.map((tag, i) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center justify-center whitespace-nowrap text-[15px] font-medium"
+                  style={{
+                    height: "44px",
+                    padding: "0 24px",
+                    borderRadius: "999px",
+                    background: i === 0 ? "hsl(var(--accent))" : "#F2F2F0",
+                    color: i === 0 ? "hsl(var(--accent-foreground))" : "#1a1a1a",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-        </Link>
+        </a>
       </motion.article>
     </div>
   );
@@ -139,19 +187,7 @@ const CaseStudiesSection = () => {
     offset: ["start start", "end end"],
   });
 
-  const { data: caseStudies, isLoading } = useQuery({
-    queryKey: ["case_studies"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("case_studies")
-        .select("*")
-        .order("sort_order", { ascending: true });
-      if (error) throw error;
-      return data as CaseStudy[];
-    },
-  });
-
-  const total = caseStudies?.length ?? 0;
+  const total = projects.length;
 
   return (
     <section id="case-studies" className="py-14 md:py-20">
@@ -161,7 +197,7 @@ const CaseStudiesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 max-w-3xl"
+          className="mb-14 max-w-3xl"
         >
           <div className="editorial-rule mb-6" />
           <p className="eyebrow mb-3">Projects</p>
@@ -170,39 +206,18 @@ const CaseStudiesSection = () => {
             Real product problems explored through research, framing, execution, and outcomes.
           </p>
         </motion.div>
+      </div>
 
-        {isLoading ? (
-          <div className="flex flex-col gap-5">
-            {[0, 1, 2, 3].map((i) => (
-              <div key={i} className="h-64 rounded-[28px] border border-border bg-white animate-pulse" />
-            ))}
+      <div ref={containerRef} className="relative">
+        {projects.map((project, i) => (
+          <div
+            key={project.number}
+            className="relative"
+            style={{ marginBottom: i === total - 1 ? 0 : "24vh" }}
+          >
+            <StackedCard project={project} index={i} total={total} scrollProgress={scrollYProgress} />
           </div>
-        ) : (
-          <div ref={containerRef} className="relative">
-            {caseStudies?.map((cs, i) => {
-              const coverSrc =
-                coverBySlug[cs.slug] ?? coverByTitle[cs.title] ?? cs.thumbnail ?? meetcraftCover;
-
-              return (
-                // Spacer wrapper — its height creates the scroll distance for the sticky card
-                <div
-                  key={cs.id}
-                  className="relative"
-                  style={{ marginBottom: i === total - 1 ? 0 : "22vh" }}
-                >
-                  <StackedCard
-                    cs={cs}
-                    index={i}
-                    total={total}
-                    coverSrc={coverSrc}
-                    containerRef={containerRef}
-                    scrollProgress={scrollYProgress}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        )}
+        ))}
       </div>
     </section>
   );
