@@ -68,82 +68,90 @@ const CaseStudiesSection = () => {
         </motion.div>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="flex flex-col gap-5">
             {[0, 1, 2, 3].map((i) => (
-              <div key={i} className="h-[31rem] rounded-lg border border-border bg-card animate-pulse" />
+              <div key={i} className="h-32 rounded-2xl border border-border bg-white animate-pulse" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="flex flex-col gap-5">
             {caseStudies?.map((cs, i) => {
               const coverSrc = coverBySlug[cs.slug] ?? coverByTitle[cs.title] ?? cs.thumbnail ?? meetcraftCover;
+              const displayTags = cs.tags?.slice(0, 2) ?? [];
 
               return (
                 <motion.article
                   key={cs.id}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="case-card card-elevated flex h-full flex-col overflow-hidden"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                  className="project-row group"
                 >
-                  <Link to={`/case-study/${cs.slug}`} className="block overflow-hidden">
-                    <img
-                      src={coverSrc}
-                      alt={`${cs.title} project cover`}
-                      loading="lazy"
-                      width={1536}
-                      height={896}
-                      className="case-card-img h-56 w-full object-cover transition-transform duration-[600ms] ease-out"
-                    />
-                  </Link>
-
-                  <div className="flex flex-1 flex-col p-7">
-                    <div className="mb-5">
-                      <Link to={`/case-study/${cs.slug}`}>
-                        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                          <h3 className="text-3xl leading-tight text-foreground transition-colors hover:text-accent">
-                            {cs.title}
-                          </h3>
-                          {cs.badge && (
-                            <span
-                              className="inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em]"
-                              style={{ borderColor: "#C9A227", color: "#8a6f1c", backgroundColor: "rgba(201,162,39,0.08)" }}
-                            >
-                              {cs.badge}
-                            </span>
-                          )}
+                  <Link
+                    to={`/case-study/${cs.slug}`}
+                    className="flex flex-col items-start gap-5 rounded-2xl border border-border bg-white p-5 transition-colors duration-300 hover:border-foreground/25 md:flex-row md:items-center md:gap-7 md:p-6"
+                  >
+                    {/* Circular framed image */}
+                    <div className="shrink-0">
+                      <div className="relative rounded-full p-[3px]" style={{ border: "1px dashed rgba(42,34,24,0.28)" }}>
+                        <div className="h-20 w-20 overflow-hidden rounded-full md:h-24 md:w-24">
+                          <img
+                            src={coverSrc}
+                            alt={`${cs.title} project cover`}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-105"
+                          />
                         </div>
-                      </Link>
-                      <p className="mt-4 text-base leading-8 text-muted-foreground">{cs.description}</p>
+                      </div>
                     </div>
 
-                    <div className="mb-7 flex flex-wrap gap-2">
-                      {cs.tags?.map((t) => (
-                        <span key={t} className="editorial-chip">
-                          {t}
-                        </span>
-                      ))}
+                    {/* Title + subtitle */}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                        <h3
+                          className="text-2xl leading-tight text-foreground transition-colors group-hover:text-accent md:text-[1.75rem]"
+                          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500 }}
+                        >
+                          {cs.title}
+                        </h3>
+                        {cs.badge && (
+                          <span
+                            className="inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em]"
+                            style={{ borderColor: "#C9A227", color: "#8a6f1c", backgroundColor: "rgba(201,162,39,0.08)" }}
+                          >
+                            {cs.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-2 text-sm leading-6 text-muted-foreground md:text-[15px] md:leading-7">
+                        {cs.description}
+                      </p>
                     </div>
 
-                    <div className="mt-auto border-t border-border pt-5">
-                      <Link to={`/case-study/${cs.slug}`} className="editorial-link">
-                        Read Case Study <ArrowRight size={15} />
-                      </Link>
+                    {/* Tags + arrow */}
+                    <div className="flex w-full items-center justify-between gap-4 md:w-auto md:flex-col md:items-end md:justify-center md:gap-3">
+                      <div className="flex flex-wrap gap-2 md:justify-end">
+                        {displayTags.map((t) => (
+                          <span
+                            key={t}
+                            className="inline-flex items-center rounded-full border border-border bg-secondary/60 px-3.5 py-1.5 text-xs font-medium text-foreground"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors group-hover:text-accent">
+                        Read Case Study <ArrowRight size={13} />
+                      </span>
                     </div>
-                  </div>
+                  </Link>
                 </motion.article>
               );
             })}
           </div>
         )}
       </div>
-      <style>{`
-        .case-card { transition: border-color 200ms ease-out, box-shadow 200ms ease-out; will-change: transform; }
-        .case-card:hover .case-card-img { transform: scale(1.02); }
-        .case-card:hover { border-color: hsl(var(--foreground) / 0.18); }
-      `}</style>
     </section>
   );
 };
