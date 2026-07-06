@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeader from "@/components/SectionHeader";
 
 const experiences = [
   {
@@ -27,47 +28,50 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-14 md:py-20">
+    <section id="experience" className="py-20 md:py-28">
       <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 max-w-2xl"
-        >
-          <div className="editorial-rule mb-6" />
-          <p className="eyebrow mb-3">Experience</p>
-          <h2 className="text-4xl leading-tight md:text-5xl">Professional Journey</h2>
-        </motion.div>
+        <SectionHeader
+          index="03"
+          eyebrow="Experience"
+          title="Professional Journey"
+        />
 
-        <div className="space-y-10 border-t border-border pt-8">
+        <div>
           {experiences.map((exp, i) => (
             <motion.article
               key={exp.company}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="grid gap-5 border-b border-border pb-10 md:grid-cols-[15rem_1fr]"
+              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10"
             >
-              <div>
-                <p className="text-sm uppercase tracking-[0.18em] text-muted-foreground">{exp.period}</p>
+              <div className="md:col-span-3">
+                <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                  {exp.period}
+                </p>
                 <p className="mt-3 text-sm text-muted-foreground">{exp.location}</p>
               </div>
-              <div>
-                <h3 className="text-2xl leading-tight text-foreground">
+              <div className="md:col-span-9">
+                <h3
+                  className="text-[1.75rem] leading-tight text-foreground md:text-[2rem]"
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500 }}
+                >
                   {exp.role}
                   <span className="serif-accent text-muted-foreground"> at {exp.company}</span>
                 </h3>
-                <ul className="mt-5 space-y-3 text-base leading-8 text-muted-foreground">
+                <ul className="mt-6 space-y-3 text-base leading-8 text-muted-foreground">
                   {exp.points.map((point) => (
-                    <li key={point}>{point}</li>
+                    <li key={point} className="flex gap-3">
+                      <span className="mt-[14px] h-px w-4 shrink-0 bg-border" />
+                      <span>{point}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
             </motion.article>
           ))}
+          <div className="border-t border-border" />
         </div>
       </div>
     </section>
