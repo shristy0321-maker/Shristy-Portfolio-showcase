@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import portraitAsset from "@/assets/Heropicture.png.asset.json";
+import portraitAsset from "@/assets/hero-portrait-v3.png.asset.json";
 const portrait = portraitAsset.url;
 
 const EASE = [0.22, 1, 0.36, 1] as const;
