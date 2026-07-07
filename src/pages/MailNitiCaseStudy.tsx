@@ -16,8 +16,6 @@ import {
   Zap,
   MessageCircle,
   Target,
-  Trophy,
-  ExternalLink,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -25,8 +23,6 @@ import mailnitiCover from "@/assets/mailniti-editorial.jpg";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const GOOGLE_DOC_URL = "#"; // Replace when link is provided
-const CERTIFICATE_URL = "#";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -344,58 +340,26 @@ const MailNitiCaseStudy = () => {
           </div>
         </Section>
 
-        {/* RECOGNITION */}
-        <div className="section-container flex justify-center py-8 md:py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: EASE }}
-            className="group w-[260px] rounded-[20px] border border-border bg-card p-5 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
-          >
-            <p className="mb-3 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Recognition</p>
-            <div className="mx-auto flex h-[140px] w-full items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 via-accent/10 to-background">
-              <Trophy size={54} className="text-accent" strokeWidth={1.4} />
-            </div>
-            <p className="mt-4 text-sm font-medium text-foreground">🏆 Skillathon Winner</p>
-            <p className="mt-1 text-xs text-muted-foreground">Institute of Product Leadership</p>
-            <p className="mt-2 text-[11px] leading-5 text-muted-foreground">
-              Recognized for Value Proposition &amp; Digital Business Models.
-            </p>
+        {/* BOTTOM CTA */}
+        <section className="section-container pb-24 pt-8 md:pt-12">
+          <div className="flex flex-col items-center justify-center gap-4">
             <a
-              href={CERTIFICATE_URL}
+              href="https://docs.google.com/document/d/1jHynLmZARJLMfyIIx8uz67pbDqB9P-hm/edit?usp=sharing&ouid=108846919668098328952&rtpof=true&sd=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-accent transition-opacity hover:opacity-80"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
-              View Certificate <ExternalLink size={11} />
+              View Full Case Study <ArrowRight size={15} />
             </a>
-          </motion.div>
-        </div>
-
-        {/* BOTTOM CTA */}
-        <section className="section-container pb-24">
-          <div className="flex justify-center">
             <Link
               to="/#case-studies"
-              className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-7 py-3 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-foreground hover:shadow-lg"
             >
               Explore Next — Global Makhana <ArrowRight size={15} />
             </Link>
           </div>
-          {GOOGLE_DOC_URL !== "#" && (
-            <div className="mt-6 flex justify-center">
-              <a
-                href={GOOGLE_DOC_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground underline-offset-4 hover:underline"
-              >
-                View full Google Doc
-              </a>
-            </div>
-          )}
         </section>
+
       </article>
 
       <Footer />
