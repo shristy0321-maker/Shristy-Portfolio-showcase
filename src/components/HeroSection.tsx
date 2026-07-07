@@ -28,20 +28,22 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative w-full" style={{ background: "#F8F6EE" }}>
+    <section id="home" className="relative w-full" style={{ background: "#9FB2AC" }}>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap"
       />
       <style>{`
         .agency-hero {
-          --cream: #F4EFCE;
-          --ink: #1E3A2A;
-          --ink-2: #2C4A38;
-          --muted: #4B6155;
-          --btn: #C6E870;
-          --btn-hover: #B5DB5C;
-          --accent: #CFE85F;
+          --cream: #FFF9EB;
+          --sage: #9FB2AC;
+          --blood: #5D0D18;
+          --ink: #5D0D18;
+          --ink-2: #7A1824;
+          --muted: #4A5854;
+          --btn: #5D0D18;
+          --btn-hover: #7A1824;
+          --accent: #FFF9EB;
           --display: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
           --body: 'Inter', ui-sans-serif, system-ui, sans-serif;
           padding: clamp(16px, 3vw, 40px);
@@ -101,7 +103,7 @@ const HeroSection = () => {
         .agency-btn {
           display: inline-flex; align-items: center; gap: 8px;
           background: var(--btn);
-          color: var(--ink);
+          color: #FFF9EB;
           font-family: var(--body);
           font-weight: 600;
           font-size: 15px;
@@ -113,7 +115,7 @@ const HeroSection = () => {
         .agency-btn:hover {
           background: var(--btn-hover);
           transform: translateY(-2px);
-          box-shadow: 0 12px 28px rgba(30,58,42,0.18);
+          box-shadow: 0 12px 28px rgba(93,13,24,0.28);
         }
         .agency-social { display: flex; align-items: center; gap: 14px; }
         .agency-avatars { display: flex; }
@@ -152,7 +154,7 @@ const HeroSection = () => {
           width: min(520px, 92%);
           aspect-ratio: 1;
           border-radius: 9999px;
-          background: radial-gradient(circle at 50% 55%, #FAF7E0 0%, #F0EAB8 55%, #E7DFA0 100%);
+          background: radial-gradient(circle at 50% 55%, #FFF9EB 0%, #F5EBCE 55%, #E8D9A8 100%);
         }
         .agency-portrait {
           position: relative;
@@ -164,12 +166,12 @@ const HeroSection = () => {
         }
 
         /* Decorative marks */
-        .mark { position: absolute; z-index: 3; color: var(--ink); }
+        .mark { position: absolute; z-index: 3; color: #5D0D18; }
         .mark-paperclip { top: 4%; left: 50%; transform: translateX(-50%); }
-        .mark-starburst { top: 12%; right: 4%; color: #C6E870; }
+        .mark-starburst { top: 12%; right: 4%; color: #5D0D18; }
         .mark-corner { bottom: 8%; left: 42%; }
         .mark-x { bottom: 4%; right: 6%; }
-        .mark-asterisk-left { bottom: 8%; left: 4%; color: #C6E870; }
+        .mark-asterisk-left { bottom: 8%; left: 4%; color: #5D0D18; }
 
         @media (max-width: 899px) {
           .agency-grid { grid-template-columns: 1fr; gap: 24px; }
