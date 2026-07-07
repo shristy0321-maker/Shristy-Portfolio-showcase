@@ -72,6 +72,84 @@ const projects: Project[] = [
   },
 ];
 
+type CardTheme = {
+  bg: string;
+  ink: string;
+  sub: string;
+  muted: string;
+  ring: string;
+  chipBg: string;
+  chipInk: string;
+  chipAltBg: string;
+  chipAltInk: string;
+  btnBorder: string;
+  btnHoverBg: string;
+  btnHoverInk: string;
+};
+
+const themes: CardTheme[] = [
+  // 01 — Blush cream on wine ink
+  {
+    bg: "#FBF1F1",
+    ink: "#3A0F16",
+    sub: "#8c323d",
+    muted: "#a66a66",
+    ring: "rgba(140,50,61,0.35)",
+    chipBg: "#8c323d",
+    chipInk: "#FBF1F1",
+    chipAltBg: "#F0D5D5",
+    chipAltInk: "#3A0F16",
+    btnBorder: "rgba(58,15,22,0.25)",
+    btnHoverBg: "#8c323d",
+    btnHoverInk: "#FBF1F1",
+  },
+  // 02 — Dusty rose surface
+  {
+    bg: "#c89494",
+    ink: "#3A0F16",
+    sub: "#5A1520",
+    muted: "#5A1520",
+    ring: "rgba(58,15,22,0.4)",
+    chipBg: "#3A0F16",
+    chipInk: "#FBF1F1",
+    chipAltBg: "#FBF1F1",
+    chipAltInk: "#3A0F16",
+    btnBorder: "rgba(58,15,22,0.35)",
+    btnHoverBg: "#3A0F16",
+    btnHoverInk: "#FBF1F1",
+  },
+  // 03 — Muted mauve surface
+  {
+    bg: "#a66a66",
+    ink: "#FBF1F1",
+    sub: "#F0D5D5",
+    muted: "#E8CACA",
+    ring: "rgba(251,241,241,0.45)",
+    chipBg: "#FBF1F1",
+    chipInk: "#3A0F16",
+    chipAltBg: "rgba(251,241,241,0.18)",
+    chipAltInk: "#FBF1F1",
+    btnBorder: "rgba(251,241,241,0.4)",
+    btnHoverBg: "#FBF1F1",
+    btnHoverInk: "#3A0F16",
+  },
+  // 04 — Deep wine drama
+  {
+    bg: "#8c323d",
+    ink: "#FBF1F1",
+    sub: "#F0D5D5",
+    muted: "#E8CACA",
+    ring: "rgba(251,241,241,0.4)",
+    chipBg: "#c89494",
+    chipInk: "#3A0F16",
+    chipAltBg: "rgba(251,241,241,0.14)",
+    chipAltInk: "#FBF1F1",
+    btnBorder: "rgba(251,241,241,0.4)",
+    btnHoverBg: "#FBF1F1",
+    btnHoverInk: "#3A0F16",
+  },
+];
+
 type StackedCardProps = {
   project: Project;
   index: number;
@@ -83,13 +161,12 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
   const start = index / total;
   const end = (index + 1) / total;
 
-  // Previous cards scale down slightly and fade to 92% opacity as the next one covers them.
   const isLast = index === total - 1;
   const scale = useTransform(scrollProgress, [start, end], [1, isLast ? 1 : 0.98]);
   const opacity = useTransform(scrollProgress, [start, end], [1, isLast ? 1 : 0.92]);
 
-  // Stagger sticky tops so the stack peeks subtly.
   const top = 80 + index * 18;
+  const t = themes[index % themes.length];
 
   return (
     <div className="sticky" style={{ top }}>
@@ -98,33 +175,59 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
         className="mx-auto"
       >
         <div
-          className="group relative mx-auto block overflow-hidden bg-white"
+          className="group relative mx-auto block overflow-hidden"
           style={{
             width: "88vw",
             maxWidth: "1450px",
             height: "720px",
             borderRadius: "36px",
-            boxShadow: "0px 40px 120px rgba(0,0,0,0.12)",
+            background: t.bg,
+            color: t.ink,
+            boxShadow: "0px 40px 120px rgba(58,15,22,0.22)",
           }}
         >
-          <div className="grid h-full grid-cols-12 gap-8 px-16 py-20">
+          {/* Decorative giant serif numeral */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute select-none"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: "clamp(320px, 42vw, 620px)",
+              fontWeight: 500,
+              lineHeight: 0.8,
+              color: t.ink,
+              opacity: 0.05,
+              top: "-40px",
+              right: "-30px",
+              letterSpacing: "-0.05em",
+            }}
+          >
+            {project.number}
+          </span>
+
+          <div className="relative grid h-full grid-cols-12 gap-8 px-16 py-20">
             {/* LEFT — 30% */}
             <div className="col-span-12 flex flex-col justify-between md:col-span-4">
               <div>
-                <p className="text-[14px] font-medium uppercase tracking-[0.28em] text-neutral-400">
+                <p
+                  className="text-[14px] font-medium uppercase tracking-[0.28em]"
+                  style={{ color: t.sub }}
+                >
                   Project {project.number}
                 </p>
                 <h3
-                  className="mt-10 text-[64px] font-bold leading-[1.02] tracking-[-0.02em] text-neutral-900"
-                  style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                  className="mt-10 text-[64px] font-bold leading-[1.02] tracking-[-0.02em]"
+                  style={{ fontFamily: "'Inter Tight', sans-serif", color: t.ink }}
                 >
                   {project.title}
                 </h3>
-                <p className="mt-8 text-[28px] font-normal leading-tight text-neutral-700">
+                <p className="mt-8 text-[28px] font-normal leading-tight" style={{ color: t.ink, opacity: 0.85 }}>
                   {project.category}
                 </p>
-                <p className="mt-3 text-[18px] font-normal text-neutral-500">{project.year}</p>
-                <p className="mt-10 max-w-md text-[20px] leading-[1.55] text-neutral-600">
+                <p className="mt-3 text-[18px] font-normal" style={{ color: t.muted }}>
+                  {project.year}
+                </p>
+                <p className="mt-10 max-w-md text-[20px] leading-[1.55]" style={{ color: t.ink, opacity: 0.78 }}>
                   {project.description}
                 </p>
               </div>
@@ -134,10 +237,14 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                   project.caseStudyUrl.startsWith("/") ? (
                     <Link
                       to={project.caseStudyUrl}
-                      className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
+                      className="group/btn inline-flex items-center gap-3 text-[16px] font-medium transition-colors"
+                      style={{ color: t.ink }}
                     >
                       Read Case Study
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
+                      <span
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full transition-all"
+                        style={{ border: `1px solid ${t.btnBorder}`, color: t.ink }}
+                      >
                         <ArrowRight size={16} />
                       </span>
                     </Link>
@@ -146,10 +253,14 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                       href={project.caseStudyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
+                      className="group/btn inline-flex items-center gap-3 text-[16px] font-medium transition-colors"
+                      style={{ color: t.ink }}
                     >
                       Read Case Study
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
+                      <span
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full"
+                        style={{ border: `1px solid ${t.btnBorder}`, color: t.ink }}
+                      >
                         <ArrowRight size={16} />
                       </span>
                     </a>
@@ -159,7 +270,16 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                   href={project.presentation}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-neutral-300 px-6 text-[14px] font-medium text-neutral-900 transition-all hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+                  className="inline-flex h-11 items-center justify-center rounded-full px-6 text-[14px] font-medium transition-all"
+                  style={{ border: `1px solid ${t.btnBorder}`, color: t.ink }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = t.btnHoverBg;
+                    e.currentTarget.style.color = t.btnHoverInk;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = t.ink;
+                  }}
                 >
                   View Presentation
                 </a>
@@ -173,7 +293,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                 style={{
                   width: "420px",
                   height: "420px",
-                  border: "1px dashed rgba(0,0,0,0.28)",
+                  border: `1px dashed ${t.ring}`,
                   padding: "14px",
                 }}
               >
@@ -198,8 +318,8 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                     height: "44px",
                     padding: "0 24px",
                     borderRadius: "999px",
-                    background: i === 0 ? "hsl(var(--accent))" : "#F2F2F0",
-                    color: i === 0 ? "hsl(var(--accent-foreground))" : "#1a1a1a",
+                    background: i === 0 ? t.chipBg : t.chipAltBg,
+                    color: i === 0 ? t.chipInk : t.chipAltInk,
                   }}
                 >
                   {tag}
@@ -212,6 +332,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
     </div>
   );
 };
+
 
 const CaseStudiesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
