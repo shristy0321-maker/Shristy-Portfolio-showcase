@@ -30,7 +30,7 @@ const projects: Project[] = [
       "Helping professionals build meaningful connections through intent-based networking.",
     tags: ["Product Discovery", "MVP", "User Research"],
     image: meetcraftCover,
-    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
+    caseStudyUrl: caseStudyLinks["MeetCraft"],
     presentation: "#",
   },
   {
