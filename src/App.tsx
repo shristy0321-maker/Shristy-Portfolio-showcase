@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
+import MeetCraftCaseStudy from "./pages/MeetCraftCaseStudy";
 
 const queryClient = new QueryClient();
 
