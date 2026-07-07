@@ -10,6 +10,7 @@ import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import MeetCraftCaseStudy from "./pages/MeetCraftCaseStudy";
 import MailNitiCaseStudy from "./pages/MailNitiCaseStudy";
+import GlobalMakhanaCaseStudy from "./pages/GlobalMakhanaCaseStudy";
 
 const queryClient = new QueryClient();
 
