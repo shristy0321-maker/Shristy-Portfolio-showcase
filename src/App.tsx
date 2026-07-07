@@ -9,6 +9,7 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import MeetCraftCaseStudy from "./pages/MeetCraftCaseStudy";
+import MailNitiCaseStudy from "./pages/MailNitiCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
           <Route path="/projects/meetcraft" element={<MeetCraftCaseStudy />} />
+          <Route path="/projects/mailniti" element={<MailNitiCaseStudy />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />

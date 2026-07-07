@@ -5,7 +5,7 @@
  */
 export const caseStudyLinks: Record<string, string> = {
   MeetCraft: "/projects/meetcraft",
-  MailNiti: "",
+  MailNiti: "/projects/mailniti",
   "Global Makhana": "",
   KalaVansh: "",
 };
