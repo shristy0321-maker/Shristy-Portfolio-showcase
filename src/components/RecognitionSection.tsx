@@ -42,7 +42,7 @@ const RecognitionSection = () => {
     <section
       id="recognition"
       className="relative py-20 md:py-28"
-      style={{ backgroundColor: "#2B211B" }}
+      style={{ backgroundColor: "#5D0D18" }}
     >
       <div className="section-container relative">
         <SectionHeader
@@ -64,13 +64,13 @@ const RecognitionSection = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="grid gap-6 py-10 md:grid-cols-12 md:gap-10"
-                style={{ borderTop: "1px solid rgba(201,162,39,0.22)" }}
+                style={{ borderTop: "1px solid rgba(255,249,235,0.18)" }}
               >
                 <div className="md:col-span-3 flex items-start gap-4">
-                  <Icon size={22} strokeWidth={1.6} style={{ color: "#C9A227" }} />
+                  <Icon size={22} strokeWidth={1.6} style={{ color: "#9FB2AC" }} />
                   <p
                     className="text-xs uppercase"
-                    style={{ color: "#C9A227", letterSpacing: "0.22em" }}
+                    style={{ color: "#9FB2AC", letterSpacing: "0.22em" }}
                   >
                     {item.meta}
                   </p>
@@ -80,21 +80,21 @@ const RecognitionSection = () => {
                     className="text-[1.75rem] leading-tight md:text-[2rem]"
                     style={{
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
-                      color: "#FAF8F5",
+                      color: "#FFF9EB",
                       fontWeight: 500,
                     }}
                   >
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm" style={{ color: "#B9AB9C" }}>{item.org}</p>
-                  <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: "#D8CDC1" }}>
+                  <p className="mt-2 text-sm" style={{ color: "#C9D3CF" }}>{item.org}</p>
+                  <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: "#F0E9D2" }}>
                     {item.description}
                   </p>
                 </div>
               </motion.article>
             );
           })}
-          <div style={{ borderTop: "1px solid rgba(201,162,39,0.22)" }} />
+          <div style={{ borderTop: "1px solid rgba(255,249,235,0.18)" }} />
         </div>
       </div>
     </section>
