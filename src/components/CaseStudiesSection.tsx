@@ -42,7 +42,7 @@ const projects: Project[] = [
       "AI-powered multilingual email assistant designed for Indian SMEs.",
     tags: ["AI Product", "SaaS", "Product Strategy"],
     image: mailnitiCover,
-    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
+    caseStudyUrl: caseStudyLinks["MailNiti"],
     presentation: "#",
   },
   {
