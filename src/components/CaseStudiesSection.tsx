@@ -16,6 +16,7 @@ type Project = {
   tags: string[];
   image: string;
   href: string;
+  presentation: string;
 };
 
 const projects: Project[] = [
