@@ -28,22 +28,22 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative w-full" style={{ background: "#9FB2AC" }}>
+    <section id="home" className="relative w-full" style={{ background: "#c89494" }}>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap"
       />
       <style>{`
         .agency-hero {
-          --cream: #FFF9EB;
-          --sage: #9FB2AC;
-          --blood: #5D0D18;
-          --ink: #5D0D18;
-          --ink-2: #7A1824;
-          --muted: #4A5854;
-          --btn: #5D0D18;
-          --btn-hover: #7A1824;
-          --accent: #FFF9EB;
+          --cream: #fbf1f1;
+          --sage: #c89494;
+          --blood: #8c323d;
+          --ink: #8c323d;
+          --ink-2: #a66a66;
+          --muted: #a66a66;
+          --btn: #8c323d;
+          --btn-hover: #a66a66;
+          --accent: #fbf1f1;
           --display: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
           --body: 'Inter', ui-sans-serif, system-ui, sans-serif;
           padding: clamp(16px, 3vw, 40px);
@@ -103,7 +103,7 @@ const HeroSection = () => {
         .agency-btn {
           display: inline-flex; align-items: center; gap: 8px;
           background: var(--btn);
-          color: #FFF9EB;
+          color: #fbf1f1;
           font-family: var(--body);
           font-weight: 600;
           font-size: 15px;
@@ -115,7 +115,7 @@ const HeroSection = () => {
         .agency-btn:hover {
           background: var(--btn-hover);
           transform: translateY(-2px);
-          box-shadow: 0 12px 28px rgba(93,13,24,0.28);
+          box-shadow: 0 12px 28px rgba(140,50,61,0.28);
         }
         .agency-social { display: flex; align-items: center; gap: 14px; }
         .agency-avatars { display: flex; }
@@ -154,7 +154,7 @@ const HeroSection = () => {
           width: min(520px, 92%);
           aspect-ratio: 1;
           border-radius: 9999px;
-          background: radial-gradient(circle at 50% 55%, #FFF9EB 0%, #F5EBCE 55%, #E8D9A8 100%);
+          background: radial-gradient(circle at 50% 55%, #fbf1f1 0%, #f0d5d5 55%, #c89494 100%);
         }
         .agency-portrait {
           position: relative;
@@ -166,12 +166,12 @@ const HeroSection = () => {
         }
 
         /* Decorative marks */
-        .mark { position: absolute; z-index: 3; color: #5D0D18; }
+        .mark { position: absolute; z-index: 3; color: #8c323d; }
         .mark-paperclip { top: 4%; left: 50%; transform: translateX(-50%); }
-        .mark-starburst { top: 12%; right: 4%; color: #5D0D18; }
+        .mark-starburst { top: 12%; right: 4%; color: #8c323d; }
         .mark-corner { bottom: 8%; left: 42%; }
         .mark-x { bottom: 4%; right: 6%; }
-        .mark-asterisk-left { bottom: 8%; left: 4%; color: #5D0D18; }
+        .mark-asterisk-left { bottom: 8%; left: 4%; color: #8c323d; }
 
         @media (max-width: 899px) {
           .agency-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -193,7 +193,7 @@ const HeroSection = () => {
               <motion.div {...fade(14, 0.05)} className="agency-eyebrow" aria-hidden>
                 {[0, 1, 2, 3].map((i) => (
                   <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M3 2 L11 7 L3 12 Z" fill="#5D0D18" opacity={0.35 + i * 0.2} />
+                    <path d="M3 2 L11 7 L3 12 Z" fill="#8c323d" opacity={0.35 + i * 0.2} />
                   </svg>
                 ))}
               </motion.div>
@@ -237,13 +237,13 @@ const HeroSection = () => {
               {/* Decorative marks */}
               <span className="mark mark-paperclip" aria-hidden>
                 <svg width="26" height="52" viewBox="0 0 26 52" fill="none">
-                  <rect x="1.5" y="1.5" width="23" height="49" rx="11.5" stroke="#5D0D18" strokeWidth="2" />
-                  <text x="13" y="20" textAnchor="middle" fontFamily="serif" fontSize="14" fill="#5D0D18">0</text>
+                  <rect x="1.5" y="1.5" width="23" height="49" rx="11.5" stroke="#8c323d" strokeWidth="2" />
+                  <text x="13" y="20" textAnchor="middle" fontFamily="serif" fontSize="14" fill="#8c323d">0</text>
                 </svg>
               </span>
               <span className="mark mark-starburst" aria-hidden>
                 <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-                  <g stroke="#5D0D18" strokeWidth="1.5">
+                  <g stroke="#8c323d" strokeWidth="1.5">
                     {Array.from({ length: 16 }).map((_, i) => {
                       const a = (i * Math.PI) / 8;
                       const x1 = 36 + Math.cos(a) * 10;
@@ -253,23 +253,23 @@ const HeroSection = () => {
                       return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
                     })}
                   </g>
-                  <circle cx="36" cy="36" r="6" fill="#FFF9EB" stroke="#5D0D18" strokeWidth="1.5" />
+                  <circle cx="36" cy="36" r="6" fill="#fbf1f1" stroke="#8c323d" strokeWidth="1.5" />
                 </svg>
               </span>
               <span className="mark mark-corner" aria-hidden>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <path d="M8 8 L8 40 L40 40" stroke="#5D0D18" strokeWidth="2" fill="none" />
-                  <path d="M12 12 L12 36 L36 36" stroke="#5D0D18" strokeWidth="2" fill="none" />
+                  <path d="M8 8 L8 40 L40 40" stroke="#8c323d" strokeWidth="2" fill="none" />
+                  <path d="M12 12 L12 36 L36 36" stroke="#8c323d" strokeWidth="2" fill="none" />
                 </svg>
               </span>
               <span className="mark mark-x" aria-hidden>
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path d="M6 6 L30 30 M30 6 L6 30" stroke="#5D0D18" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M6 6 L30 30 M30 6 L6 30" stroke="#8c323d" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </span>
               <span className="mark mark-asterisk-left" aria-hidden>
                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-                  <g stroke="#5D0D18" strokeWidth="1.5" strokeLinecap="round">
+                  <g stroke="#8c323d" strokeWidth="1.5" strokeLinecap="round">
                     {Array.from({ length: 8 }).map((_, i) => {
                       const a = (i * Math.PI) / 4;
                       const x1 = 17 + Math.cos(a) * 4;
