@@ -6,6 +6,7 @@ import meetcraftCover from "@/assets/meetcraft-editorial.jpg";
 import globalMakhanaCover from "@/assets/global-makhana-editorial.jpg";
 import mailnitiCover from "@/assets/mailniti-editorial.jpg";
 import kalavanshCover from "@/assets/kalavansh-editorial.jpg";
+import { caseStudyLinks } from "@/config/caseStudyLinks";
 
 type Project = {
   number: string;
@@ -15,7 +16,7 @@ type Project = {
   description: string;
   tags: string[];
   image: string;
-  href: string;
+  caseStudyUrl?: string;
   presentation: string;
 };
 
@@ -29,7 +30,7 @@ const projects: Project[] = [
       "Helping professionals build meaningful connections through intent-based networking.",
     tags: ["Product Discovery", "MVP", "User Research"],
     image: meetcraftCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks["MeetCraft"],
     presentation: "#",
   },
   {
@@ -41,7 +42,7 @@ const projects: Project[] = [
       "AI-powered multilingual email assistant designed for Indian SMEs.",
     tags: ["AI Product", "SaaS", "Product Strategy"],
     image: mailnitiCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks["MailNiti"],
     presentation: "#",
   },
   {
@@ -53,7 +54,7 @@ const projects: Project[] = [
       "Farm-to-pack premium makhana brand built around traceable sourcing and B2B distribution.",
     tags: ["Entrepreneurship", "GTM", "Supply Chain"],
     image: globalMakhanaCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks["Global Makhana"],
     presentation: "#",
   },
   {
@@ -65,7 +66,7 @@ const projects: Project[] = [
       "Digital platform preserving and promoting India's traditional arts, crafts, and cultural heritage.",
     tags: ["Culture", "Marketplace", "Product Strategy"],
     image: kalavanshCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks["KalaVansh"],
     presentation: "#",
   },
 ];
@@ -128,15 +129,19 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href={project.href}
-                  className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
-                >
-                  Read Case Study
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
-                    <ArrowRight size={16} />
-                  </span>
-                </a>
+                {project.caseStudyUrl ? (
+                  <a
+                    href={project.caseStudyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
+                  >
+                    Read Case Study
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
+                      <ArrowRight size={16} />
+                    </span>
+                  </a>
+                ) : null}
                 <a
                   href={project.presentation}
                   target="_blank"
