@@ -16,6 +16,7 @@ type Project = {
   tags: string[];
   image: string;
   href: string;
+  presentation: string;
 };
 
 const projects: Project[] = [
@@ -29,6 +30,7 @@ const projects: Project[] = [
     tags: ["Product Discovery", "MVP", "User Research"],
     image: meetcraftCover,
     href: "#",
+    presentation: "#",
   },
   {
     number: "02",
@@ -40,6 +42,7 @@ const projects: Project[] = [
     tags: ["AI Product", "SaaS", "Product Strategy"],
     image: mailnitiCover,
     href: "#",
+    presentation: "#",
   },
   {
     number: "03",
@@ -51,6 +54,7 @@ const projects: Project[] = [
     tags: ["Entrepreneurship", "GTM", "Supply Chain"],
     image: globalMakhanaCover,
     href: "#",
+    presentation: "#",
   },
   {
     number: "04",
@@ -62,6 +66,7 @@ const projects: Project[] = [
     tags: ["Culture", "Marketplace", "Product Strategy"],
     image: kalavanshCover,
     href: "#",
+    presentation: "#",
   },
 ];
 
@@ -90,8 +95,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
         style={{ scale, opacity, transformOrigin: "center top" }}
         className="mx-auto"
       >
-        <a
-          href={project.href}
+        <div
           className="group relative mx-auto block overflow-hidden bg-white"
           style={{
             width: "88vw",
@@ -123,13 +127,24 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                 </p>
               </div>
 
-              <div className="mt-10">
-                <span className="inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors group-hover:text-accent">
-                  View Case Study
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white">
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a
+                  href={project.href}
+                  className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
+                >
+                  Read Case Study
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
                     <ArrowRight size={16} />
                   </span>
-                </span>
+                </a>
+                <a
+                  href={project.presentation}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-neutral-300 px-6 text-[14px] font-medium text-neutral-900 transition-all hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+                >
+                  View Presentation
+                </a>
               </div>
             </div>
 
@@ -174,7 +189,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
               ))}
             </div>
           </div>
-        </a>
+        </div>
       </motion.article>
     </div>
   );
