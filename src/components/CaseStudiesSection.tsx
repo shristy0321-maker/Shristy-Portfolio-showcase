@@ -54,7 +54,7 @@ const projects: Project[] = [
       "Farm-to-pack premium makhana brand built around traceable sourcing and B2B distribution.",
     tags: ["Entrepreneurship", "GTM", "Supply Chain"],
     image: globalMakhanaCover,
-    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
+    caseStudyUrl: caseStudyLinks["Global Makhana"],
     presentation: "#",
   },
   {
