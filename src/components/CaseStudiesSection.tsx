@@ -66,7 +66,7 @@ const projects: Project[] = [
       "Digital platform preserving and promoting India's traditional arts, crafts, and cultural heritage.",
     tags: ["Culture", "Marketplace", "Product Strategy"],
     image: kalavanshCover,
-    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
+    caseStudyUrl: caseStudyLinks["KalaVansh"],
     presentation: "#",
   },
 ];
