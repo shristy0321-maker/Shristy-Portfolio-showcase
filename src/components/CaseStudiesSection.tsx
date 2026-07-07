@@ -129,15 +129,19 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href={project.href}
-                  className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
-                >
-                  Read Case Study
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
-                    <ArrowRight size={16} />
-                  </span>
-                </a>
+                {project.caseStudyUrl ? (
+                  <a
+                    href={project.caseStudyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
+                  >
+                    Read Case Study
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover/btn:border-neutral-900 group-hover/btn:bg-neutral-900 group-hover/btn:text-white">
+                      <ArrowRight size={16} />
+                    </span>
+                  </a>
+                ) : null}
                 <a
                   href={project.presentation}
                   target="_blank"
