@@ -99,8 +99,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
         style={{ scale, opacity, transformOrigin: "center top" }}
         className="mx-auto"
       >
-        <a
-          href={project.href}
+        <div
           className="group relative mx-auto block overflow-hidden bg-white"
           style={{
             width: "88vw",
@@ -132,13 +131,26 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                 </p>
               </div>
 
-              <div className="mt-10">
-                <span className="inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors group-hover:text-accent">
-                  View Case Study
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white">
+              <div className="mt-10 flex flex-wrap items-center gap-6">
+                <a
+                  href={project.href}
+                  className="inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
+                >
+                  Read Case Study
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all hover:border-neutral-900 hover:bg-neutral-900 hover:text-white">
                     <ArrowRight size={16} />
                   </span>
-                </span>
+                </a>
+                {project.presentationUrl && (
+                  <a
+                    href={project.presentationUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-neutral-300 px-5 py-2.5 text-[14px] font-medium text-neutral-900 transition-all hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+                  >
+                    View Presentation
+                  </a>
+                )}
               </div>
             </div>
 
