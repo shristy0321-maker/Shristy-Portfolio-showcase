@@ -25,6 +25,7 @@ const App = () => (
           <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
           <Route path="/projects/meetcraft" element={<MeetCraftCaseStudy />} />
           <Route path="/projects/mailniti" element={<MailNitiCaseStudy />} />
+          <Route path="/projects/global-makhana" element={<GlobalMakhanaCaseStudy />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
