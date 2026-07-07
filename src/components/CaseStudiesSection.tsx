@@ -6,6 +6,7 @@ import meetcraftCover from "@/assets/meetcraft-editorial.jpg";
 import globalMakhanaCover from "@/assets/global-makhana-editorial.jpg";
 import mailnitiCover from "@/assets/mailniti-editorial.jpg";
 import kalavanshCover from "@/assets/kalavansh-editorial.jpg";
+import { caseStudyLinks } from "@/config/caseStudyLinks";
 
 type Project = {
   number: string;
@@ -15,7 +16,7 @@ type Project = {
   description: string;
   tags: string[];
   image: string;
-  href: string;
+  caseStudyUrl?: string;
   presentation: string;
 };
 
