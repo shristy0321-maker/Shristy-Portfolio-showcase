@@ -16,8 +16,6 @@ import {
   Zap,
   MessageCircle,
   Target,
-  Trophy,
-  ExternalLink,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -25,8 +23,6 @@ import mailnitiCover from "@/assets/mailniti-editorial.jpg";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const GOOGLE_DOC_URL = "#"; // Replace when link is provided
-const CERTIFICATE_URL = "#";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
