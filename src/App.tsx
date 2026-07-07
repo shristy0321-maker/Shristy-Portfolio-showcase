@@ -11,6 +11,7 @@ import Admin from "./pages/Admin";
 import MeetCraftCaseStudy from "./pages/MeetCraftCaseStudy";
 import MailNitiCaseStudy from "./pages/MailNitiCaseStudy";
 import GlobalMakhanaCaseStudy from "./pages/GlobalMakhanaCaseStudy";
+import KalaVanshCaseStudy from "./pages/KalaVanshCaseStudy";
 
 const queryClient = new QueryClient();
 
