@@ -193,7 +193,7 @@ const HeroSection = () => {
               <motion.div {...fade(14, 0.05)} className="agency-eyebrow" aria-hidden>
                 {[0, 1, 2, 3].map((i) => (
                   <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M3 2 L11 7 L3 12 Z" fill="#1E3A2A" opacity={0.35 + i * 0.2} />
+                    <path d="M3 2 L11 7 L3 12 Z" fill="#5D0D18" opacity={0.35 + i * 0.2} />
                   </svg>
                 ))}
               </motion.div>
@@ -237,13 +237,13 @@ const HeroSection = () => {
               {/* Decorative marks */}
               <span className="mark mark-paperclip" aria-hidden>
                 <svg width="26" height="52" viewBox="0 0 26 52" fill="none">
-                  <rect x="1.5" y="1.5" width="23" height="49" rx="11.5" stroke="#1E3A2A" strokeWidth="2" />
-                  <text x="13" y="20" textAnchor="middle" fontFamily="serif" fontSize="14" fill="#1E3A2A">0</text>
+                  <rect x="1.5" y="1.5" width="23" height="49" rx="11.5" stroke="#5D0D18" strokeWidth="2" />
+                  <text x="13" y="20" textAnchor="middle" fontFamily="serif" fontSize="14" fill="#5D0D18">0</text>
                 </svg>
               </span>
               <span className="mark mark-starburst" aria-hidden>
                 <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-                  <g stroke="#1E3A2A" strokeWidth="1.5">
+                  <g stroke="#5D0D18" strokeWidth="1.5">
                     {Array.from({ length: 16 }).map((_, i) => {
                       const a = (i * Math.PI) / 8;
                       const x1 = 36 + Math.cos(a) * 10;
@@ -253,23 +253,23 @@ const HeroSection = () => {
                       return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
                     })}
                   </g>
-                  <circle cx="36" cy="36" r="6" fill="#C6E870" stroke="#1E3A2A" strokeWidth="1.5" />
+                  <circle cx="36" cy="36" r="6" fill="#FFF9EB" stroke="#5D0D18" strokeWidth="1.5" />
                 </svg>
               </span>
               <span className="mark mark-corner" aria-hidden>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <path d="M8 8 L8 40 L40 40" stroke="#1E3A2A" strokeWidth="2" fill="none" />
-                  <path d="M12 12 L12 36 L36 36" stroke="#1E3A2A" strokeWidth="2" fill="none" />
+                  <path d="M8 8 L8 40 L40 40" stroke="#5D0D18" strokeWidth="2" fill="none" />
+                  <path d="M12 12 L12 36 L36 36" stroke="#5D0D18" strokeWidth="2" fill="none" />
                 </svg>
               </span>
               <span className="mark mark-x" aria-hidden>
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path d="M6 6 L30 30 M30 6 L6 30" stroke="#1E3A2A" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M6 6 L30 30 M30 6 L6 30" stroke="#5D0D18" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </span>
               <span className="mark mark-asterisk-left" aria-hidden>
                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-                  <g stroke="#1E3A2A" strokeWidth="1.5" strokeLinecap="round">
+                  <g stroke="#5D0D18" strokeWidth="1.5" strokeLinecap="round">
                     {Array.from({ length: 8 }).map((_, i) => {
                       const a = (i * Math.PI) / 4;
                       const x1 = 17 + Math.cos(a) * 4;
