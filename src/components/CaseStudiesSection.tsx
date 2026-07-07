@@ -30,7 +30,7 @@ const projects: Project[] = [
       "Helping professionals build meaningful connections through intent-based networking.",
     tags: ["Product Discovery", "MVP", "User Research"],
     image: meetcraftCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
     presentation: "#",
   },
   {
@@ -42,7 +42,7 @@ const projects: Project[] = [
       "AI-powered multilingual email assistant designed for Indian SMEs.",
     tags: ["AI Product", "SaaS", "Product Strategy"],
     image: mailnitiCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
     presentation: "#",
   },
   {
@@ -54,7 +54,7 @@ const projects: Project[] = [
       "Farm-to-pack premium makhana brand built around traceable sourcing and B2B distribution.",
     tags: ["Entrepreneurship", "GTM", "Supply Chain"],
     image: globalMakhanaCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
     presentation: "#",
   },
   {
@@ -66,7 +66,7 @@ const projects: Project[] = [
       "Digital platform preserving and promoting India's traditional arts, crafts, and cultural heritage.",
     tags: ["Culture", "Marketplace", "Product Strategy"],
     image: kalavanshCover,
-    href: "#",
+    caseStudyUrl: caseStudyLinks[/*TITLE*/""],
     presentation: "#",
   },
 ];
