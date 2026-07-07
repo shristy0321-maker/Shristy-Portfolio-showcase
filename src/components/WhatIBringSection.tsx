@@ -116,51 +116,108 @@ const WhatIBringSection = () => {
   return (
     <section
       id="bring"
-      style={{ backgroundColor: "#eee8db" }}
-      className="py-20 md:py-28"
+      style={{ background: "linear-gradient(180deg, #FBF1F1 0%, #f5dcdc 100%)" }}
+      className="relative overflow-hidden py-24 md:py-32"
     >
-      <div className="section-container">
-        <SectionHeader
-          index="04"
-          eyebrow="Skills"
-          title="What I Worked With"
-        />
+      {/* Decorative rotating asterisk */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute animate-[spin_28s_linear_infinite]"
+        style={{ top: "8%", right: "6%", width: 120, height: 120, opacity: 0.4 }}
+        viewBox="0 0 100 100"
+      >
+        <g stroke="#8c323d" strokeWidth="2" strokeLinecap="round">
+          {Array.from({ length: 12 }).map((_, i) => {
+            const a = (i * Math.PI) / 6;
+            return (
+              <line
+                key={i}
+                x1={50 + Math.cos(a) * 15}
+                y1={50 + Math.sin(a) * 15}
+                x2={50 + Math.cos(a) * 42}
+                y2={50 + Math.sin(a) * 42}
+              />
+            );
+          })}
+        </g>
+        <circle cx="50" cy="50" r="8" fill="#8c323d" />
+      </svg>
 
-        {/* Horizontal rows */}
-        <div>
+      {/* Corner dashed circle */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute rounded-full"
+        style={{
+          bottom: "-80px",
+          left: "-80px",
+          width: 260,
+          height: 260,
+          border: "1px dashed rgba(140,50,61,0.35)",
+        }}
+      />
+
+      <div className="section-container relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-16 max-w-3xl md:mb-24"
+        >
+          <div className="mb-5 flex items-center gap-3">
+            <span className="inline-block h-px w-10" style={{ background: "#8c323d" }} />
+            <p className="text-[11px] font-medium uppercase" style={{ letterSpacing: "0.32em", color: "#8c323d" }}>
+              Chapter 04 · Toolkit
+            </p>
+          </div>
+          <h2
+            className="text-5xl leading-[0.98] md:text-7xl"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: "-0.015em", color: "#3A0F16" }}
+          >
+            The kit I <span style={{ fontStyle: "italic", color: "#8c323d" }}>reach for</span>
+            <br />
+            through the product lifecycle.
+          </h2>
+        </motion.div>
+
+        {/* Rows */}
+        <div className="grid gap-4 md:gap-6">
           {rows.map((row, i) => (
             <motion.div
               key={row.label}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="relative rounded-3xl p-6 md:p-8"
+              style={{
+                background: "rgba(255,255,255,0.65)",
+                border: "1px solid rgba(140,50,61,0.15)",
+                backdropFilter: "blur(6px)",
+              }}
             >
-              {/* Divider above each row */}
-              <div
-                style={{
-                  height: 1,
-                  width: "100%",
-                  backgroundColor: "#d8c9ad",
-                  opacity: 0.55,
-                }}
-              />
-
-              <div
-                className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
-                style={{ padding: "28px 0" }}
-              >
-                {/* Label */}
-                <div className="md:col-span-4">
+              <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-10">
+                {/* Step number + label */}
+                <div className="md:col-span-4 flex items-center gap-4">
+                  <span
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full text-xs font-semibold"
+                    style={{
+                      background: "#8c323d",
+                      color: "#FBF1F1",
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
+                      fontStyle: "italic",
+                      fontSize: 18,
+                    }}
+                  >
+                    0{i + 1}
+                  </span>
                   <div
-                    className="mb-5 md:mb-0"
                     style={{
                       fontSize: 13,
-                      letterSpacing: "0.18em",
-                      color: "#5a4a36",
+                      letterSpacing: "0.22em",
+                      color: "#3A0F16",
                       textTransform: "uppercase",
                       fontWeight: 600,
-                      fontFamily: "'Inter Tight', sans-serif",
                     }}
                   >
                     {row.label}
@@ -182,17 +239,16 @@ const WhatIBringSection = () => {
                           key={pill}
                           className="editorial-chip-soft"
                           style={{
-                            backgroundColor: "#faf6ec",
-                            color: "#2a2218",
-                            border: "1px solid #cdbf9f",
+                            backgroundColor: "#FBF1F1",
+                            color: "#3A0F16",
+                            border: "1px solid rgba(140,50,61,0.25)",
                             fontSize: 13,
                             padding: "9px 20px",
                             borderRadius: 999,
                             fontWeight: 500,
                             letterSpacing: "0.01em",
                             display: "inline-block",
-                            transition:
-                              "background-color 0.25s ease, border-color 0.25s ease",
+                            transition: "background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease",
                             fontFamily: "'Inter Tight', sans-serif",
                           }}
                         >
@@ -205,23 +261,15 @@ const WhatIBringSection = () => {
               </div>
             </motion.div>
           ))}
-
-          {/* Final divider */}
-          <div
-            style={{
-              height: 1,
-              width: "100%",
-              backgroundColor: "#d8c9ad",
-              opacity: 0.55,
-            }}
-          />
         </div>
       </div>
 
       <style>{`
         .editorial-chip-soft:hover {
-          background-color: #f3ecdb !important;
-          border-color: #a89262 !important;
+          background-color: #8c323d !important;
+          color: #FBF1F1 !important;
+          border-color: #8c323d !important;
+          transform: translateY(-2px);
         }
         .tool-icon svg { height: 100%; width: auto; display: block; }
         .tool-icon:hover {
