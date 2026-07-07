@@ -30,6 +30,7 @@ const projects: Project[] = [
     tags: ["Product Discovery", "MVP", "User Research"],
     image: meetcraftCover,
     href: "#",
+    presentation: "#",
   },
   {
     number: "02",
@@ -41,6 +42,7 @@ const projects: Project[] = [
     tags: ["AI Product", "SaaS", "Product Strategy"],
     image: mailnitiCover,
     href: "#",
+    presentation: "#",
   },
   {
     number: "03",
@@ -52,6 +54,7 @@ const projects: Project[] = [
     tags: ["Entrepreneurship", "GTM", "Supply Chain"],
     image: globalMakhanaCover,
     href: "#",
+    presentation: "#",
   },
   {
     number: "04",
@@ -63,6 +66,7 @@ const projects: Project[] = [
     tags: ["Culture", "Marketplace", "Product Strategy"],
     image: kalavanshCover,
     href: "#",
+    presentation: "#",
   },
 ];
 
