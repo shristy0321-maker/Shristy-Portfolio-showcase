@@ -18,7 +18,7 @@ const HeroSection = () => {
 
   const onView = (e: React.MouseEvent) => {
     e.preventDefault();
-    const el = document.getElementById("project");
+    const el = document.getElementById("case-studies");
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: "smooth" });
@@ -216,8 +216,8 @@ const HeroSection = () => {
               </motion.p>
 
               <motion.div {...fade(14, 0.34)} className="ivory-actions">
-                <a href="#project" onClick={onView} className="ivory-btn">
-                  View Project
+                <a href="#case-studies" onClick={onView} className="ivory-btn">
+                  Explore My Work
                   <span aria-hidden="true">→</span>
                 </a>
               </motion.div>

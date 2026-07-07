@@ -16,22 +16,19 @@ type Project = {
   tags: string[];
   image: string;
   href: string;
-  presentationUrl?: string;
 };
 
 const projects: Project[] = [
   {
     number: "01",
-    title: "MeetCraft",
-    category: "Product · Networking",
+    title: "Dharmik Vibes",
+    category: "Product · Community",
     year: "2025",
     description:
-      "Structured networking for professionals — an MVP that turns unstructured event mingling into intent-matched conversations and closed-loop follow-ups.",
-    tags: ["Product Discovery", "User Research", "MVP"],
+      "A structured digital experience built around devotion, discovery, and community — reframing spiritual content as a modern product surface.",
+    tags: ["Product Strategy", "UX Research", "Case Study"],
     image: meetcraftCover,
-    href: "/case-study/meetcraft",
-    presentationUrl:
-      "https://docs.google.com/document/d/1jHynLmZARJLMfyIIx8uz67pbDqB9P-hm/edit?usp=sharing&ouid=108846919668098328952&rtpof=true&sd=true",
+    href: "#",
   },
   {
     number: "02",
@@ -39,38 +36,32 @@ const projects: Project[] = [
     category: "SaaS · Growth",
     year: "2024",
     description:
-      "AI-powered email automation for Indian SMEs — a GTM and product framework that turns outbound into a structured, measurable workflow.",
-    tags: ["SaaS", "GTM Strategy", "Product"],
+      "An email intelligence platform designed for founders — turning outbound into a measurable, structured workflow with clear operating principles.",
+    tags: ["SaaS", "Product Strategy", "Case Study"],
     image: mailnitiCover,
-    href: "/case-study/mailniti",
-    presentationUrl:
-      "https://docs.google.com/document/d/1jHynLmZARJLMfyIIx8uz67pbDqB9P-hm/edit?usp=sharing&ouid=108846919668098328952&rtpof=true&sd=true",
+    href: "#",
   },
   {
     number: "03",
-    title: "Global Makhana",
-    category: "Entrepreneurship · B2B",
-    year: "2024",
+    title: "FUZO Product Strategy",
+    category: "AI · Corporate Gifting",
+    year: "2025",
     description:
-      "A premium farm-to-pack makhana brand — vertically integrated sourcing, export-ready packaging, and a go-to-market plan across global B2B marketplaces.",
-    tags: ["Entrepreneurship", "B2B", "Go-To-Market"],
+      "A product framework for FUZO's corporate gifting intelligence engine — mapping intent, personalization, and fulfillment into one operating layer.",
+    tags: ["AI", "Product Strategy", "Case Study"],
     image: globalMakhanaCover,
-    href: "/case-study/global-makhana",
-    presentationUrl:
-      "https://docs.google.com/document/d/1P8T-7mcWWwQYeDC9fh1Px7-ja3XrjHDZ/edit?usp=sharing&ouid=108846919668098328952&rtpof=true&sd=true",
+    href: "#",
   },
   {
     number: "04",
-    title: "KalaVansh",
-    category: "Heritage · Commerce",
+    title: "Innovation Lab",
+    category: "Research · Systems",
     year: "2024",
     description:
-      "A digital-first heritage commerce concept — bringing traditional Indian craft to modern buyers through curated storytelling and a scalable product operating model.",
-    tags: ["Brand", "Product Strategy", "Commerce"],
+      "An internal innovation program shaped as a repeatable operating system — from problem discovery to prototype, framed for teams to actually ship.",
+    tags: ["Research", "Systems", "Case Study"],
     image: kalavanshCover,
-    href: "/case-study/kalavansh",
-    presentationUrl:
-      "https://docs.google.com/document/d/14FDe1AvnBQFtGJ15QVGi-_jS7-TjdIfd/edit?usp=sharing&ouid=108846919668098328952&rtpof=true&sd=true",
+    href: "#",
   },
 ];
 
@@ -99,7 +90,8 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
         style={{ scale, opacity, transformOrigin: "center top" }}
         className="mx-auto"
       >
-        <div
+        <a
+          href={project.href}
           className="group relative mx-auto block overflow-hidden bg-white"
           style={{
             width: "88vw",
@@ -131,26 +123,13 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
                 </p>
               </div>
 
-              <div className="mt-10 flex flex-wrap items-center gap-6">
-                <a
-                  href={project.href}
-                  className="inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors hover:text-accent"
-                >
-                  Read Case Study
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all hover:border-neutral-900 hover:bg-neutral-900 hover:text-white">
+              <div className="mt-10">
+                <span className="inline-flex items-center gap-3 text-[16px] font-medium text-neutral-900 transition-colors group-hover:text-accent">
+                  View Case Study
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 transition-all group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white">
                     <ArrowRight size={16} />
                   </span>
-                </a>
-                {project.presentationUrl && (
-                  <a
-                    href={project.presentationUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-neutral-300 px-5 py-2.5 text-[14px] font-medium text-neutral-900 transition-all hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
-                  >
-                    View Presentation
-                  </a>
-                )}
+                </span>
               </div>
             </div>
 
@@ -195,7 +174,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
               ))}
             </div>
           </div>
-        </div>
+        </a>
       </motion.article>
     </div>
   );

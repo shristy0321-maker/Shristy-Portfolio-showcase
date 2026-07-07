@@ -79,8 +79,8 @@ const CaseStudyDetail = () => {
       <Navbar />
       <article className="pt-24 md:pt-28">
         <div className="section-container">
-          <Link to="/#project" className="editorial-link mb-8">
-            <ArrowLeft size={15} /> Back to Project
+          <Link to="/#case-studies" className="editorial-link mb-8">
+            <ArrowLeft size={15} /> Back to Case Studies
           </Link>
 
           <motion.header
@@ -176,8 +176,8 @@ const CaseStudyDetail = () => {
 
           <div className="mb-16 flex justify-end">
             <Button asChild size="lg" variant="hero">
-              <Link to="/#project">
-                Back to Project <ArrowRight size={15} />
+              <Link to="/#case-studies">
+                More Projects <ArrowRight size={15} />
               </Link>
             </Button>
           </div>
