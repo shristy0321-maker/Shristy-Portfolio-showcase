@@ -4,7 +4,7 @@
  * Leave a value as an empty string to automatically hide the "Read Case Study" button.
  */
 export const caseStudyLinks: Record<string, string> = {
-  MeetCraft: "",
+  MeetCraft: "/projects/meetcraft",
   MailNiti: "",
   "Global Makhana": "",
   KalaVansh: "",

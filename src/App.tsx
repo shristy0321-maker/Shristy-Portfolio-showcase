@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
+import MeetCraftCaseStudy from "./pages/MeetCraftCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
+          <Route path="/projects/meetcraft" element={<MeetCraftCaseStudy />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
