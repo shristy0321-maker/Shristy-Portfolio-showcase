@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import portraitAsset from "@/assets/shristy-portrait-hero.png.asset.json";
-const portrait = portraitAsset.url;
+import portrait from "@/assets/shristy-portrait-hero.png";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -27,11 +26,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section
-      id="home"
-      className="relative w-full overflow-hidden"
-      style={{ background: "#F8F4EC", color: "#2C231D" }}
-    >
+    <section id="home" className="relative w-full overflow-hidden" style={{ background: "#F8F4EC", color: "#2C231D" }}>
       <link
         rel="stylesheet"
         href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap"
@@ -210,14 +205,14 @@ const HeroSection = () => {
             {/* LEFT */}
             <div className="ivory-left">
               <motion.h1 {...fade(20, 0.12)} className="ivory-headline">
-
-                Built from real conversations,<br />not assumptions.
+                Built from real conversations,
+                <br />
+                not assumptions.
               </motion.h1>
 
               <motion.p {...fade(16, 0.24)} className="ivory-body">
-                My product education started in client calls and stakeholder rooms. Long before
-                roadmaps or sprint planning. Just real people, real problems, and the gap between
-                what was promised and what was delivered.
+                My product education started in client calls and stakeholder rooms. Long before roadmaps or sprint
+                planning. Just real people, real problems, and the gap between what was promised and what was delivered.
               </motion.p>
 
               <motion.div {...fade(14, 0.34)} className="ivory-actions">
@@ -235,7 +230,6 @@ const HeroSection = () => {
               </div>
             </motion.div>
           </div>
-
         </div>
       </div>
     </section>
