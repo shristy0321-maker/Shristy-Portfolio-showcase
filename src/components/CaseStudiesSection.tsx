@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import MarqueeTicker from "@/components/MarqueeTicker";
+
 
 import meetcraftCover from "@/assets/meetcraft-editorial.jpg";
 import globalMakhanaCover from "@/assets/global-makhana-editorial.jpg";
@@ -344,21 +346,94 @@ const CaseStudiesSection = () => {
   const total = projects.length;
 
   return (
-    <section id="case-studies" className="py-14 md:py-20">
-      <div className="section-container">
+    <section id="case-studies" className="relative pt-4 pb-14 md:pb-20">
+      <MarqueeTicker
+        variant="wine"
+        items={[
+          "Selected Work 2024 — 2026",
+          "Product Discovery",
+          "MVP · Research · Validation",
+          "Currently Building",
+          "Ops-Focused Product Manager",
+          "From Insight to Shipped",
+        ]}
+        speed={42}
+      />
+
+      <div className="section-container pt-16 md:pt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14 max-w-3xl"
+          className="relative mb-14 grid gap-6 md:mb-20 md:grid-cols-12 md:gap-10"
         >
-          <div className="editorial-rule mb-6" />
-          <p className="eyebrow mb-3">Projects</p>
-          <h2 className="text-4xl leading-tight md:text-6xl">Projects</h2>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
-            Real product problems explored through research, framing, execution, and outcomes.
-          </p>
+          {/* Oversized index numeral */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-10 right-0 select-none md:-top-16"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontStyle: "italic",
+              fontSize: "clamp(120px, 18vw, 260px)",
+              lineHeight: 0.85,
+              color: "#8c323d",
+              opacity: 0.08,
+              letterSpacing: "-0.04em",
+            }}
+          >
+            04
+          </div>
+
+          <div className="md:col-span-5">
+            <div className="mb-6 flex items-center gap-3">
+              <span
+                className="inline-block h-px w-10"
+                style={{ background: "#8c323d" }}
+              />
+              <p
+                className="text-[11px] font-medium uppercase"
+                style={{ letterSpacing: "0.32em", color: "#8c323d" }}
+              >
+                Selected Work · 04
+              </p>
+            </div>
+            <h2
+              className="text-5xl leading-[0.98] md:text-7xl"
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: 500,
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Projects that
+              <br />
+              <span style={{ fontStyle: "italic", color: "#8c323d" }}>shipped</span> &amp;
+              <br />
+              stories that
+              <br />
+              <span style={{ fontStyle: "italic", color: "#a66a66" }}>stuck.</span>
+            </h2>
+          </div>
+
+          <div className="flex flex-col justify-end md:col-span-6 md:col-start-7">
+            <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+              Real product problems explored through research, framing, execution, and outcomes —
+              four case studies spanning networking, AI, D2C entrepreneurship, and culture-tech.
+            </p>
+            <div className="mt-8 flex items-center gap-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#a66a66" }}>
+              <span>Scroll</span>
+              <motion.span
+                aria-hidden
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                style={{ display: "inline-block" }}
+              >
+                ↓
+              </motion.span>
+              <span className="opacity-60">Cards stack as you go</span>
+            </div>
+          </div>
         </motion.div>
       </div>
 
@@ -376,5 +451,6 @@ const CaseStudiesSection = () => {
     </section>
   );
 };
+
 
 export default CaseStudiesSection;
