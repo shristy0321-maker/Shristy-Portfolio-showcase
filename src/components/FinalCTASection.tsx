@@ -12,11 +12,11 @@ const contacts = [
   { icon: Phone, label: "Phone", value: "+91 6203189245", href: "tel:+916203189245" },
 ];
 
-const BLUSH = "#FBF1F1";
-const ROSE = "#c89494";
-const MAUVE = "#a66a66";
-const WINE = "#8c323d";
-const INK = "#3A0F16";
+const BLUSH = "#F7F4D5";
+const ROSE = "#839958";
+const MAUVE = "#105666";
+const WINE = "#0a3323";
+const INK = "#0A3323";
 
 const FinalCTASection = () => {
   return (
@@ -105,11 +105,11 @@ const FinalCTASection = () => {
               variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
               className="mb-6 inline-flex items-center gap-3 rounded-full px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.32em]"
-              style={{ background: "rgba(251,241,241,0.14)", color: BLUSH, border: `1px solid rgba(251,241,241,0.25)` }}
+              style={{ background: "rgba(247,244,213,0.14)", color: BLUSH, border: `1px solid rgba(247,244,213,0.25)` }}
             >
               <span
                 className="inline-block h-1.5 w-1.5 rounded-full"
-                style={{ background: BLUSH, boxShadow: `0 0 0 4px rgba(251,241,241,0.18)` }}
+                style={{ background: BLUSH, boxShadow: `0 0 0 4px rgba(247,244,213,0.18)` }}
               />
               Currently open to work
             </motion.p>
@@ -150,7 +150,7 @@ const FinalCTASection = () => {
               <a
                 href="mailto:shristy1921@gmail.com"
                 className="group inline-flex items-center gap-2 rounded-full px-9 py-4 text-sm font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5"
-                style={{ backgroundColor: BLUSH, color: INK, boxShadow: "0 18px 40px rgba(58,15,22,0.25)" }}
+                style={{ backgroundColor: BLUSH, color: INK, boxShadow: "0 18px 40px rgba(10,51,35,0.25)" }}
               >
                 <span>Start a Conversation</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -160,7 +160,7 @@ const FinalCTASection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5"
-                style={{ border: `1px solid rgba(251,241,241,0.5)`, color: BLUSH }}
+                style={{ border: `1px solid rgba(247,244,213,0.5)`, color: BLUSH }}
               >
                 Connect on LinkedIn
               </a>
@@ -184,18 +184,18 @@ const FinalCTASection = () => {
                 aria-label={item.label}
                 className="group flex items-center gap-3 rounded-2xl px-4 py-4 transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: "rgba(251,241,241,0.08)",
-                  border: `1px solid rgba(251,241,241,0.18)`,
+                  background: "rgba(247,244,213,0.08)",
+                  border: `1px solid rgba(247,244,213,0.18)`,
                   color: BLUSH,
                   backdropFilter: "blur(6px)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(251,241,241,0.16)";
-                  e.currentTarget.style.borderColor = "rgba(251,241,241,0.4)";
+                  e.currentTarget.style.background = "rgba(247,244,213,0.16)";
+                  e.currentTarget.style.borderColor = "rgba(247,244,213,0.4)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(251,241,241,0.08)";
-                  e.currentTarget.style.borderColor = "rgba(251,241,241,0.18)";
+                  e.currentTarget.style.background = "rgba(247,244,213,0.08)";
+                  e.currentTarget.style.borderColor = "rgba(247,244,213,0.18)";
                 }}
               >
                 <span

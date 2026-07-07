@@ -20,21 +20,21 @@ const education = [
   },
 ];
 
-const WINE = "#8c323d";
-const ROSE = "#c89494";
-const MAUVE = "#a66a66";
-const BLUSH = "#FBF1F1";
+const WINE = "#0a3323";
+const ROSE = "#839958";
+const MAUVE = "#105666";
+const BLUSH = "#F7F4D5";
 
 const EducationSection = () => {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32" style={{ background: "#3A0F16", color: BLUSH }}>
+    <section className="relative overflow-hidden py-24 md:py-32" style={{ background: "#0A3323", color: BLUSH }}>
       {/* Soft radial glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 15% 30%, rgba(200,148,148,0.18) 0%, transparent 50%), radial-gradient(ellipse at 85% 80%, rgba(140,50,61,0.35) 0%, transparent 55%)",
+            "radial-gradient(ellipse at 15% 30%, rgba(200,148,148,0.18) 0%, transparent 50%), radial-gradient(ellipse at 85% 80%, rgba(10,51,35,0.35) 0%, transparent 55%)",
         }}
       />
 
@@ -98,7 +98,7 @@ const EducationSection = () => {
                 className="group relative overflow-hidden rounded-3xl"
                 style={{
                   background: BLUSH,
-                  color: "#3A0F16",
+                  color: "#0A3323",
                   border: `1px solid ${accent}`,
                   boxShadow: "0 40px 80px rgba(0,0,0,0.35)",
                 }}
@@ -107,12 +107,12 @@ const EducationSection = () => {
                 <span
                   aria-hidden
                   className="absolute rounded-full"
-                  style={{ top: "50%", left: -14, width: 28, height: 28, background: "#3A0F16", transform: "translateY(-50%)" }}
+                  style={{ top: "50%", left: -14, width: 28, height: 28, background: "#0A3323", transform: "translateY(-50%)" }}
                 />
                 <span
                   aria-hidden
                   className="absolute rounded-full"
-                  style={{ top: "50%", right: -14, width: 28, height: 28, background: "#3A0F16", transform: "translateY(-50%)" }}
+                  style={{ top: "50%", right: -14, width: 28, height: 28, background: "#0A3323", transform: "translateY(-50%)" }}
                 />
 
                 {/* Dashed vertical divider */}
@@ -155,7 +155,7 @@ const EducationSection = () => {
                   <div className="col-span-8 pl-6">
                     <h3
                       className="text-[1.55rem] leading-tight md:text-[1.9rem]"
-                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, color: "#3A0F16" }}
+                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, color: "#0A3323" }}
                     >
                       {edu.degree}
                     </h3>

@@ -92,63 +92,63 @@ type CardTheme = {
 const themes: CardTheme[] = [
   // 01 — Blush cream on wine ink
   {
-    bg: "#FBF1F1",
-    ink: "#3A0F16",
-    sub: "#8c323d",
-    muted: "#a66a66",
-    ring: "rgba(140,50,61,0.35)",
-    chipBg: "#8c323d",
-    chipInk: "#FBF1F1",
-    chipAltBg: "#F0D5D5",
-    chipAltInk: "#3A0F16",
-    btnBorder: "rgba(58,15,22,0.25)",
-    btnHoverBg: "#8c323d",
-    btnHoverInk: "#FBF1F1",
+    bg: "#F7F4D5",
+    ink: "#0A3323",
+    sub: "#0a3323",
+    muted: "#105666",
+    ring: "rgba(10,51,35,0.35)",
+    chipBg: "#0a3323",
+    chipInk: "#F7F4D5",
+    chipAltBg: "#E8E5B8",
+    chipAltInk: "#0A3323",
+    btnBorder: "rgba(10,51,35,0.25)",
+    btnHoverBg: "#0a3323",
+    btnHoverInk: "#F7F4D5",
   },
   // 02 — Dusty rose surface
   {
-    bg: "#c89494",
-    ink: "#3A0F16",
-    sub: "#5A1520",
-    muted: "#5A1520",
-    ring: "rgba(58,15,22,0.4)",
-    chipBg: "#3A0F16",
-    chipInk: "#FBF1F1",
-    chipAltBg: "#FBF1F1",
-    chipAltInk: "#3A0F16",
-    btnBorder: "rgba(58,15,22,0.35)",
-    btnHoverBg: "#3A0F16",
-    btnHoverInk: "#FBF1F1",
+    bg: "#839958",
+    ink: "#0A3323",
+    sub: "#0A3323",
+    muted: "#0A3323",
+    ring: "rgba(10,51,35,0.4)",
+    chipBg: "#0A3323",
+    chipInk: "#F7F4D5",
+    chipAltBg: "#F7F4D5",
+    chipAltInk: "#0A3323",
+    btnBorder: "rgba(10,51,35,0.35)",
+    btnHoverBg: "#0A3323",
+    btnHoverInk: "#F7F4D5",
   },
   // 03 — Muted mauve surface
   {
-    bg: "#a66a66",
-    ink: "#FBF1F1",
-    sub: "#F0D5D5",
-    muted: "#E8CACA",
-    ring: "rgba(251,241,241,0.45)",
-    chipBg: "#FBF1F1",
-    chipInk: "#3A0F16",
-    chipAltBg: "rgba(251,241,241,0.18)",
-    chipAltInk: "#FBF1F1",
-    btnBorder: "rgba(251,241,241,0.4)",
-    btnHoverBg: "#FBF1F1",
-    btnHoverInk: "#3A0F16",
+    bg: "#105666",
+    ink: "#F7F4D5",
+    sub: "#E8E5B8",
+    muted: "#D3968C",
+    ring: "rgba(247,244,213,0.45)",
+    chipBg: "#F7F4D5",
+    chipInk: "#0A3323",
+    chipAltBg: "rgba(247,244,213,0.18)",
+    chipAltInk: "#F7F4D5",
+    btnBorder: "rgba(247,244,213,0.4)",
+    btnHoverBg: "#F7F4D5",
+    btnHoverInk: "#0A3323",
   },
   // 04 — Deep wine drama
   {
-    bg: "#8c323d",
-    ink: "#FBF1F1",
-    sub: "#F0D5D5",
-    muted: "#E8CACA",
-    ring: "rgba(251,241,241,0.4)",
-    chipBg: "#c89494",
-    chipInk: "#3A0F16",
-    chipAltBg: "rgba(251,241,241,0.14)",
-    chipAltInk: "#FBF1F1",
-    btnBorder: "rgba(251,241,241,0.4)",
-    btnHoverBg: "#FBF1F1",
-    btnHoverInk: "#3A0F16",
+    bg: "#0a3323",
+    ink: "#F7F4D5",
+    sub: "#E8E5B8",
+    muted: "#D3968C",
+    ring: "rgba(247,244,213,0.4)",
+    chipBg: "#839958",
+    chipInk: "#0A3323",
+    chipAltBg: "rgba(247,244,213,0.14)",
+    chipAltInk: "#F7F4D5",
+    btnBorder: "rgba(247,244,213,0.4)",
+    btnHoverBg: "#F7F4D5",
+    btnHoverInk: "#0A3323",
   },
 ];
 
@@ -185,7 +185,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
             borderRadius: "36px",
             background: t.bg,
             color: t.ink,
-            boxShadow: "0px 40px 120px rgba(58,15,22,0.22)",
+            boxShadow: "0px 40px 120px rgba(10,51,35,0.22)",
           }}
         >
           {/* Decorative giant serif numeral */}
@@ -377,7 +377,7 @@ const CaseStudiesSection = () => {
               fontStyle: "italic",
               fontSize: "clamp(120px, 18vw, 260px)",
               lineHeight: 0.85,
-              color: "#8c323d",
+              color: "#0a3323",
               opacity: 0.08,
               letterSpacing: "-0.04em",
             }}
@@ -389,11 +389,11 @@ const CaseStudiesSection = () => {
             <div className="mb-6 flex items-center gap-3">
               <span
                 className="inline-block h-px w-10"
-                style={{ background: "#8c323d" }}
+                style={{ background: "#0a3323" }}
               />
               <p
                 className="text-[11px] font-medium uppercase"
-                style={{ letterSpacing: "0.32em", color: "#8c323d" }}
+                style={{ letterSpacing: "0.32em", color: "#0a3323" }}
               >
                 Selected Work · 04
               </p>
@@ -408,11 +408,11 @@ const CaseStudiesSection = () => {
             >
               Projects that
               <br />
-              <span style={{ fontStyle: "italic", color: "#8c323d" }}>shipped</span> &amp;
+              <span style={{ fontStyle: "italic", color: "#0a3323" }}>shipped</span> &amp;
               <br />
               stories that
               <br />
-              <span style={{ fontStyle: "italic", color: "#a66a66" }}>stuck.</span>
+              <span style={{ fontStyle: "italic", color: "#105666" }}>stuck.</span>
             </h2>
           </div>
 
@@ -421,7 +421,7 @@ const CaseStudiesSection = () => {
               Real product problems explored through research, framing, execution, and outcomes —
               four case studies spanning networking, AI, D2C entrepreneurship, and culture-tech.
             </p>
-            <div className="mt-8 flex items-center gap-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#a66a66" }}>
+            <div className="mt-8 flex items-center gap-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#105666" }}>
               <span>Scroll</span>
               <motion.span
                 aria-hidden
