@@ -9,6 +9,7 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import MeetCraftCaseStudy from "./pages/MeetCraftCaseStudy";
+import MailNitiCaseStudy from "./pages/MailNitiCaseStudy";
 
 const queryClient = new QueryClient();
 
