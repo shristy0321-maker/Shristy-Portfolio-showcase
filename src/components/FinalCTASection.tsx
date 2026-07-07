@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, BookOpen, Phone } from "lucide-react";
+import MarqueeTicker from "@/components/MarqueeTicker";
+
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/shristy-kumari-42634221b";
 
@@ -19,6 +21,19 @@ const INK = "#3A0F16";
 const FinalCTASection = () => {
   return (
     <>
+      <MarqueeTicker
+        variant="blush"
+        italic
+        speed={46}
+        items={[
+          "Let's build something",
+          "Say hello",
+          "Open to PM roles",
+          "Ideas · Feedback · Coffee",
+          "Currently in India",
+        ]}
+      />
+
       <section
         className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32"
         style={{
