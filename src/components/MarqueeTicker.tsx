@@ -8,9 +8,9 @@ type MarqueeTickerProps = {
 };
 
 const palettes: Record<NonNullable<MarqueeTickerProps["variant"]>, { bg: string; ink: string; dot: string }> = {
-  wine: { bg: "#8c323d", ink: "#FBF1F1", dot: "#c89494" },
-  blush: { bg: "#FBF1F1", ink: "#3A0F16", dot: "#8c323d" },
-  rose: { bg: "#c89494", ink: "#3A0F16", dot: "#8c323d" },
+  wine: { bg: "#0a3323", ink: "#F7F4D5", dot: "#839958" },
+  blush: { bg: "#F7F4D5", ink: "#0A3323", dot: "#0a3323" },
+  rose: { bg: "#839958", ink: "#0A3323", dot: "#0a3323" },
 };
 
 const StarMark = ({ color }: { color: string }) => (

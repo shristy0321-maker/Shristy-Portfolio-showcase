@@ -42,7 +42,7 @@ const RecognitionSection = () => {
     <section
       id="recognition"
       className="relative py-20 md:py-28"
-      style={{ backgroundColor: "#8c323d" }}
+      style={{ backgroundColor: "#0a3323" }}
     >
       <div className="section-container relative">
         <SectionHeader
@@ -67,10 +67,10 @@ const RecognitionSection = () => {
                 style={{ borderTop: "1px solid rgba(200,148,148,0.30)" }}
               >
                 <div className="md:col-span-3 flex items-start gap-4">
-                  <Icon size={22} strokeWidth={1.6} style={{ color: "#c89494" }} />
+                  <Icon size={22} strokeWidth={1.6} style={{ color: "#839958" }} />
                   <p
                     className="text-xs uppercase"
-                    style={{ color: "#c89494", letterSpacing: "0.22em" }}
+                    style={{ color: "#839958", letterSpacing: "0.22em" }}
                   >
                     {item.meta}
                   </p>
@@ -80,14 +80,14 @@ const RecognitionSection = () => {
                     className="text-[1.75rem] leading-tight md:text-[2rem]"
                     style={{
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
-                      color: "#fbf1f1",
+                      color: "#f7f4d5",
                       fontWeight: 500,
                     }}
                   >
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm" style={{ color: "#e8caca" }}>{item.org}</p>
-                  <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: "#f5dcdc" }}>
+                  <p className="mt-2 text-sm" style={{ color: "#d3968c" }}>{item.org}</p>
+                  <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: "#ece9c0" }}>
                     {item.description}
                   </p>
                 </div>

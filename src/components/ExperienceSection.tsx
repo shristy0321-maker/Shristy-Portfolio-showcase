@@ -27,10 +27,10 @@ const experiences = [
   },
 ];
 
-const WINE = "#8c323d";
-const ROSE = "#c89494";
-const MAUVE = "#a66a66";
-const BLUSH = "#FBF1F1";
+const WINE = "#0a3323";
+const ROSE = "#839958";
+const MAUVE = "#105666";
+const BLUSH = "#F7F4D5";
 
 const ExperienceSection = () => {
   return (
@@ -85,7 +85,7 @@ const ExperienceSection = () => {
             </div>
             <h2
               className="text-5xl leading-[0.98] md:text-7xl"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: "-0.015em", color: "#3A0F16" }}
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: "-0.015em", color: "#0A3323" }}
             >
               A working <span style={{ fontStyle: "italic", color: WINE }}>journey</span>
               <br />
@@ -164,7 +164,7 @@ const ExperienceSection = () => {
                   style={{
                     background: "#FFFFFF",
                     border: `1px solid ${ROSE}55`,
-                    boxShadow: `0 24px 60px rgba(140,50,61,0.08)`,
+                    boxShadow: `0 24px 60px rgba(10,51,35,0.08)`,
                   }}
                 >
                   {/* Giant year in the corner */}
@@ -188,13 +188,13 @@ const ExperienceSection = () => {
 
                   <h3
                     className="relative text-[1.75rem] leading-tight md:text-[2.15rem]"
-                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, color: "#3A0F16" }}
+                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, color: "#0A3323" }}
                   >
                     {exp.role}
                     <span style={{ fontStyle: "italic", color: WINE }}> at {exp.company}</span>
                   </h3>
 
-                  <ul className="relative mt-6 space-y-4 text-[15px] leading-7 md:text-base md:leading-8" style={{ color: "#5A3A40" }}>
+                  <ul className="relative mt-6 space-y-4 text-[15px] leading-7 md:text-base md:leading-8" style={{ color: "#2d5240" }}>
                     {exp.points.map((point) => (
                       <li key={point} className="flex gap-4">
                         <span

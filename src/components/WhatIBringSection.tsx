@@ -116,7 +116,7 @@ const WhatIBringSection = () => {
   return (
     <section
       id="bring"
-      style={{ background: "linear-gradient(180deg, #FBF1F1 0%, #f5dcdc 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F7F4D5 0%, #ece9c0 100%)" }}
       className="relative overflow-hidden py-24 md:py-32"
     >
       {/* Decorative rotating asterisk */}
@@ -126,7 +126,7 @@ const WhatIBringSection = () => {
         style={{ top: "8%", right: "6%", width: 120, height: 120, opacity: 0.4 }}
         viewBox="0 0 100 100"
       >
-        <g stroke="#8c323d" strokeWidth="2" strokeLinecap="round">
+        <g stroke="#0a3323" strokeWidth="2" strokeLinecap="round">
           {Array.from({ length: 12 }).map((_, i) => {
             const a = (i * Math.PI) / 6;
             return (
@@ -140,7 +140,7 @@ const WhatIBringSection = () => {
             );
           })}
         </g>
-        <circle cx="50" cy="50" r="8" fill="#8c323d" />
+        <circle cx="50" cy="50" r="8" fill="#0a3323" />
       </svg>
 
       {/* Corner dashed circle */}
@@ -152,7 +152,7 @@ const WhatIBringSection = () => {
           left: "-80px",
           width: 260,
           height: 260,
-          border: "1px dashed rgba(140,50,61,0.35)",
+          border: "1px dashed rgba(10,51,35,0.35)",
         }}
       />
 
@@ -165,16 +165,16 @@ const WhatIBringSection = () => {
           className="mb-16 max-w-3xl md:mb-24"
         >
           <div className="mb-5 flex items-center gap-3">
-            <span className="inline-block h-px w-10" style={{ background: "#8c323d" }} />
-            <p className="text-[11px] font-medium uppercase" style={{ letterSpacing: "0.32em", color: "#8c323d" }}>
+            <span className="inline-block h-px w-10" style={{ background: "#0a3323" }} />
+            <p className="text-[11px] font-medium uppercase" style={{ letterSpacing: "0.32em", color: "#0a3323" }}>
               Chapter 04 · Toolkit
             </p>
           </div>
           <h2
             className="text-5xl leading-[0.98] md:text-7xl"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: "-0.015em", color: "#3A0F16" }}
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: "-0.015em", color: "#0A3323" }}
           >
-            The kit I <span style={{ fontStyle: "italic", color: "#8c323d" }}>reach for</span>
+            The kit I <span style={{ fontStyle: "italic", color: "#0a3323" }}>reach for</span>
             <br />
             through the product lifecycle.
           </h2>
@@ -192,7 +192,7 @@ const WhatIBringSection = () => {
               className="relative rounded-3xl p-6 md:p-8"
               style={{
                 background: "rgba(255,255,255,0.65)",
-                border: "1px solid rgba(140,50,61,0.15)",
+                border: "1px solid rgba(10,51,35,0.15)",
                 backdropFilter: "blur(6px)",
               }}
             >
@@ -202,8 +202,8 @@ const WhatIBringSection = () => {
                   <span
                     className="inline-flex h-11 w-11 items-center justify-center rounded-full text-xs font-semibold"
                     style={{
-                      background: "#8c323d",
-                      color: "#FBF1F1",
+                      background: "#0a3323",
+                      color: "#F7F4D5",
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
                       fontStyle: "italic",
                       fontSize: 18,
@@ -215,7 +215,7 @@ const WhatIBringSection = () => {
                     style={{
                       fontSize: 13,
                       letterSpacing: "0.22em",
-                      color: "#3A0F16",
+                      color: "#0A3323",
                       textTransform: "uppercase",
                       fontWeight: 600,
                     }}
@@ -239,9 +239,9 @@ const WhatIBringSection = () => {
                           key={pill}
                           className="editorial-chip-soft"
                           style={{
-                            backgroundColor: "#FBF1F1",
-                            color: "#3A0F16",
-                            border: "1px solid rgba(140,50,61,0.25)",
+                            backgroundColor: "#F7F4D5",
+                            color: "#0A3323",
+                            border: "1px solid rgba(10,51,35,0.25)",
                             fontSize: 13,
                             padding: "9px 20px",
                             borderRadius: 999,
@@ -266,9 +266,9 @@ const WhatIBringSection = () => {
 
       <style>{`
         .editorial-chip-soft:hover {
-          background-color: #8c323d !important;
-          color: #FBF1F1 !important;
-          border-color: #8c323d !important;
+          background-color: #0a3323 !important;
+          color: #F7F4D5 !important;
+          border-color: #0a3323 !important;
           transform: translateY(-2px);
         }
         .tool-icon svg { height: 100%; width: auto; display: block; }
