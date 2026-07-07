@@ -195,7 +195,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
               ))}
             </div>
           </div>
-        </a>
+        </div>
       </motion.article>
     </div>
   );
