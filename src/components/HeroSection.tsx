@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import portrait from "@/assets/shristy-portrait-hero.png";
+import avatar1 from "@/assets/meetcraft-editorial.jpg";
+import avatar2 from "@/assets/mailniti-editorial.jpg";
+import avatar3 from "@/assets/global-makhana-editorial.jpg";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -16,9 +18,9 @@ const HeroSection = () => {
           transition: { duration: 0.9, delay, ease: EASE },
         };
 
-  const onView = (e: React.MouseEvent) => {
+  const scrollTo = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    const el = document.getElementById("case-studies");
+    const el = document.getElementById(id);
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: "smooth" });
@@ -26,208 +28,259 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative w-full overflow-hidden" style={{ background: "#F8F4EC", color: "#2C231D" }}>
+    <section id="home" className="relative w-full" style={{ background: "#F8F6EE" }}>
       <link
         rel="stylesheet"
-        href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap"
       />
       <style>{`
-        .ivory-hero {
-          --ivory: #F8F4EC;
-          --ink: #2C231D;
-          --muted: #66584F;
-          --btn: #1F1A17;
-          --border: #D6CBBE;
-          --display: 'Cabinet Grotesk', 'General Sans', ui-sans-serif, system-ui, sans-serif;
-          --body: 'Satoshi', 'General Sans', ui-sans-serif, system-ui, sans-serif;
+        .agency-hero {
+          --cream: #F4EFCE;
+          --ink: #1E3A2A;
+          --ink-2: #2C4A38;
+          --muted: #4B6155;
+          --btn: #C6E870;
+          --btn-hover: #B5DB5C;
+          --accent: #CFE85F;
+          --display: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
+          --body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+          padding: clamp(16px, 3vw, 40px);
         }
-        .ivory-shell {
+        .agency-shell {
           position: relative;
-          width: calc(100% - clamp(16px, 3vw, 48px));
+          width: 100%;
           max-width: 1440px;
-          margin: clamp(16px, 2.5vw, 32px) auto;
-          padding: clamp(24px, 5vw, 64px);
-          background: var(--ivory);
-          border: 1.5px solid rgba(207, 199, 187, 0.8);
-          border-radius: clamp(20px, 3vw, 36px);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+          margin: 0 auto;
+          background: var(--cream);
+          border-radius: clamp(24px, 3vw, 40px);
+          padding: clamp(32px, 5vw, 80px);
           overflow: hidden;
+          min-height: clamp(560px, 78vh, 780px);
         }
-        .ivory-grid {
+        .agency-grid {
           position: relative;
+          z-index: 2;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: clamp(40px, 6vw, 90px);
+          grid-template-columns: 1.05fr 1fr;
+          gap: clamp(32px, 6vw, 80px);
           align-items: center;
+          height: 100%;
         }
 
         /* LEFT */
-        .ivory-left { max-width: 560px; }
-        .ivory-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-family: var(--body);
-          font-size: 12px;
-          font-weight: 500;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: var(--muted);
-          margin-bottom: 28px;
+        .agency-left { max-width: 620px; }
+        .agency-eyebrow {
+          display: inline-flex; align-items: center; gap: 4px;
+          color: var(--ink); margin-bottom: 28px;
         }
-        .ivory-eyebrow::before {
-          content: "";
-          width: 28px; height: 1px;
-          background: var(--ink);
-          opacity: 0.5;
-        }
-        .ivory-headline {
+        .agency-eyebrow svg { display: block; }
+        .agency-headline {
           font-family: var(--display);
-          font-weight: 700;
-          font-size: clamp(2.6rem, 5.2vw, 4.75rem);
+          font-weight: 400;
+          font-size: clamp(2.6rem, 6vw, 5rem);
           line-height: 1.02;
-          letter-spacing: -0.025em;
+          letter-spacing: -0.015em;
           color: var(--ink);
           margin: 0;
         }
-        .ivory-body {
+        .agency-body {
           font-family: var(--body);
           font-size: 16px;
-          line-height: 1.7;
+          line-height: 1.65;
           color: var(--muted);
-          max-width: 480px;
-          margin: 32px 0 0;
+          max-width: 460px;
+          margin: 28px 0 0;
         }
-        .ivory-actions {
+        .agency-actions {
           margin-top: 40px;
           display: flex;
           align-items: center;
-          gap: 24px;
+          gap: 28px;
           flex-wrap: wrap;
         }
-        .ivory-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
+        .agency-btn {
+          display: inline-flex; align-items: center; gap: 8px;
           background: var(--btn);
-          color: var(--ivory);
+          color: var(--ink);
           font-family: var(--body);
-          font-weight: 500;
-          font-size: 14.5px;
-          letter-spacing: 0.02em;
-          padding: 18px 32px;
+          font-weight: 600;
+          font-size: 15px;
+          padding: 16px 32px;
           border-radius: 9999px;
-          transition: transform .3s ease, background .3s ease;
+          border: 1.5px solid var(--ink);
+          transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
         }
-        .ivory-btn:hover { background: #000; transform: translateY(-1px); }
-        .ivory-meta {
-          font-family: var(--body);
-          font-size: 13px;
-          color: var(--muted);
-          letter-spacing: 0.02em;
+        .agency-btn:hover {
+          background: var(--btn-hover);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 28px rgba(30,58,42,0.18);
         }
-        .ivory-meta strong {
+        .agency-social { display: flex; align-items: center; gap: 14px; }
+        .agency-avatars { display: flex; }
+        .agency-avatars img {
+          width: 44px; height: 44px;
+          border-radius: 9999px;
+          border: 2.5px solid var(--cream);
+          object-fit: cover;
+          margin-left: -12px;
+        }
+        .agency-avatars img:first-child { margin-left: 0; }
+        .agency-social-text { font-family: var(--body); line-height: 1.2; }
+        .agency-social-text strong {
           display: block;
           font-family: var(--display);
-          font-weight: 700;
-          font-size: 16px;
+          font-size: 20px;
           color: var(--ink);
-          letter-spacing: -0.01em;
-          margin-bottom: 2px;
+          font-weight: 400;
+        }
+        .agency-social-text span {
+          font-size: 13px; color: var(--muted);
         }
 
-        /* RIGHT — portrait with single outlined circle behind */
-        .ivory-right {
+        /* RIGHT — portrait with circular halo + decorative marks */
+        .agency-right {
           position: relative;
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           justify-content: center;
-          min-height: clamp(540px, 74vh, 720px);
+          min-height: clamp(460px, 68vh, 640px);
         }
-        .ivory-portrait-wrap {
+        .agency-halo {
+          position: absolute;
+          left: 50%; bottom: 0;
+          transform: translateX(-50%);
+          width: min(520px, 92%);
+          aspect-ratio: 1;
+          border-radius: 9999px;
+          background: radial-gradient(circle at 50% 55%, #FAF7E0 0%, #F0EAB8 55%, #E7DFA0 100%);
+        }
+        .agency-portrait {
           position: relative;
-          width: min(720px, 110%);
-          height: auto;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: visible;
-        }
-        .ivory-portrait-wrap::before {
-          display: none;
-        }
-
-
-        .ivory-portrait {
-          position: relative;
-          z-index: 1;
-          display: block;
-          width: 100%;
+          z-index: 2;
+          width: min(560px, 100%);
           height: auto;
           object-fit: contain;
+          object-position: bottom center;
         }
 
-        /* Bottom hairline caption row */
-        .ivory-footline {
-          margin-top: clamp(60px, 8vh, 100px);
-          padding-top: 24px;
-          border-top: 1px solid var(--border);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 24px;
-          flex-wrap: wrap;
-          font-family: var(--body);
-          font-size: 12px;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: var(--muted);
-        }
+        /* Decorative marks */
+        .mark { position: absolute; z-index: 3; color: var(--ink); }
+        .mark-paperclip { top: 4%; left: 50%; transform: translateX(-50%); }
+        .mark-starburst { top: 12%; right: 4%; color: #C6E870; }
+        .mark-corner { bottom: 8%; left: 42%; }
+        .mark-x { bottom: 4%; right: 6%; }
+        .mark-asterisk-left { bottom: 8%; left: 4%; color: #C6E870; }
 
         @media (max-width: 899px) {
-          .ivory-grid { grid-template-columns: 1fr; gap: 32px; }
-          .ivory-left { max-width: 100%; order: 2; }
-          .ivory-right { order: 1; min-height: 0; }
-          .ivory-portrait-wrap { max-width: 420px; }
-          .ivory-portrait-wrap::before { width: 340px; top: 78%; }
-          .ivory-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
+          .agency-grid { grid-template-columns: 1fr; gap: 24px; }
+          .agency-left { max-width: 100%; order: 2; }
+          .agency-right { order: 1; min-height: 380px; }
+          .agency-halo { width: min(360px, 80%); }
+          .agency-portrait { width: min(380px, 90%); }
+          .mark-paperclip { top: 2%; }
+          .mark-starburst { top: 6%; right: 2%; transform: scale(0.75); }
+          .mark-corner, .mark-x, .mark-asterisk-left { display: none; }
         }
-        @media (min-width: 900px) and (max-width: 1199px) {
-          .ivory-portrait-wrap::before { width: 460px; top: 78%; }
-        }
-
-
       `}</style>
 
-      <div className="ivory-hero">
-        <div className="ivory-shell">
-          <div className="ivory-grid">
+      <div className="agency-hero">
+        <div className="agency-shell">
+          <div className="agency-grid">
             {/* LEFT */}
-            <div className="ivory-left">
-              <motion.h1 {...fade(20, 0.12)} className="ivory-headline">
-                Built from real conversations,
+            <div className="agency-left">
+              <motion.div {...fade(14, 0.05)} className="agency-eyebrow" aria-hidden>
+                {[0, 1, 2, 3].map((i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 2 L11 7 L3 12 Z" fill="#1E3A2A" opacity={0.35 + i * 0.2} />
+                  </svg>
+                ))}
+              </motion.div>
+
+              <motion.h1 {...fade(20, 0.12)} className="agency-headline">
+                Building Structured
                 <br />
-                not assumptions.
+                Solutions From Real
+                <br />
+                Customer Problems
               </motion.h1>
 
-              <motion.p {...fade(16, 0.24)} className="ivory-body">
-                My product education started in client calls and stakeholder rooms. Long before roadmaps or sprint
-                planning. Just real people, real problems, and the gap between what was promised and what was delivered.
+              <motion.p {...fade(16, 0.24)} className="agency-body">
+                Product Manager focused on operations — turning research, conversations, and messy
+                real-world problems into structured products that ship.
               </motion.p>
 
-              <motion.div {...fade(14, 0.34)} className="ivory-actions">
-                <a href="#case-studies" onClick={onView} className="ivory-btn">
-                  Explore My Work
+              <motion.div {...fade(14, 0.34)} className="agency-actions">
+                <a href="#contact" onClick={scrollTo("contact")} className="agency-btn">
+                  Get in Touch
                   <span aria-hidden="true">→</span>
                 </a>
+                <div className="agency-social">
+                  <div className="agency-avatars">
+                    <img src={avatar1} alt="" />
+                    <img src={avatar2} alt="" />
+                    <img src={avatar3} alt="" />
+                  </div>
+                  <div className="agency-social-text">
+                    <strong>4+ Projects Shipped</strong>
+                    <span>Let's Work Together!</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
             {/* RIGHT */}
-            <motion.div className="ivory-right" {...fade(24, 0.18)}>
-              <div className="ivory-portrait-wrap">
-                <img src={portrait} alt="Shristy Kumari" className="ivory-portrait" />
-              </div>
+            <motion.div className="agency-right" {...fade(24, 0.18)}>
+              <div className="agency-halo" aria-hidden />
+
+              {/* Decorative marks */}
+              <span className="mark mark-paperclip" aria-hidden>
+                <svg width="26" height="52" viewBox="0 0 26 52" fill="none">
+                  <rect x="1.5" y="1.5" width="23" height="49" rx="11.5" stroke="#1E3A2A" strokeWidth="2" />
+                  <text x="13" y="20" textAnchor="middle" fontFamily="serif" fontSize="14" fill="#1E3A2A">0</text>
+                </svg>
+              </span>
+              <span className="mark mark-starburst" aria-hidden>
+                <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+                  <g stroke="#1E3A2A" strokeWidth="1.5">
+                    {Array.from({ length: 16 }).map((_, i) => {
+                      const a = (i * Math.PI) / 8;
+                      const x1 = 36 + Math.cos(a) * 10;
+                      const y1 = 36 + Math.sin(a) * 10;
+                      const x2 = 36 + Math.cos(a) * 32;
+                      const y2 = 36 + Math.sin(a) * 32;
+                      return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
+                    })}
+                  </g>
+                  <circle cx="36" cy="36" r="6" fill="#C6E870" stroke="#1E3A2A" strokeWidth="1.5" />
+                </svg>
+              </span>
+              <span className="mark mark-corner" aria-hidden>
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <path d="M8 8 L8 40 L40 40" stroke="#1E3A2A" strokeWidth="2" fill="none" />
+                  <path d="M12 12 L12 36 L36 36" stroke="#1E3A2A" strokeWidth="2" fill="none" />
+                </svg>
+              </span>
+              <span className="mark mark-x" aria-hidden>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                  <path d="M6 6 L30 30 M30 6 L6 30" stroke="#1E3A2A" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>
+              <span className="mark mark-asterisk-left" aria-hidden>
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                  <g stroke="#1E3A2A" strokeWidth="1.5" strokeLinecap="round">
+                    {Array.from({ length: 8 }).map((_, i) => {
+                      const a = (i * Math.PI) / 4;
+                      const x1 = 17 + Math.cos(a) * 4;
+                      const y1 = 17 + Math.sin(a) * 4;
+                      const x2 = 17 + Math.cos(a) * 14;
+                      const y2 = 17 + Math.sin(a) * 14;
+                      return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
+                    })}
+                  </g>
+                </svg>
+              </span>
+
+              <img src={portrait} alt="Shristy Kumari" className="agency-portrait" />
             </motion.div>
           </div>
         </div>
