@@ -95,8 +95,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
         style={{ scale, opacity, transformOrigin: "center top" }}
         className="mx-auto"
       >
-        <a
-          href={project.href}
+        <div
           className="group relative mx-auto block overflow-hidden bg-white"
           style={{
             width: "88vw",
