@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import portrait from "@/assets/shristy-portrait-hero.png";
+import portrait from "@/assets/shristy-portrait-hero.png.asset.json";
 import avatar1 from "@/assets/meetcraft-editorial.jpg";
 import avatar2 from "@/assets/mailniti-editorial.jpg";
 import avatar3 from "@/assets/global-makhana-editorial.jpg";
