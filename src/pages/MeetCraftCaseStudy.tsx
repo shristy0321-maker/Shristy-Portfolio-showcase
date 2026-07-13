@@ -20,6 +20,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import meetcraftCover from "@/assets/meetcraft-editorial.jpg";
+import certificateAsset from "@/assets/skillathon-certificate.jpg.asset.json";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
