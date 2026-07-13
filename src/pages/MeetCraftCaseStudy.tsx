@@ -377,14 +377,6 @@ const MeetCraftCaseStudy = () => {
             </div>
             <p className="mt-4 text-sm font-medium text-foreground">🏆 Skillathon Winner</p>
             <p className="mt-1 text-xs text-muted-foreground">Institute of Product Leadership</p>
-            <a
-              href={CERTIFICATE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-accent transition-opacity hover:opacity-80"
-            >
-              View Certificate <ExternalLink size={11} />
-            </a>
           </motion.div>
         </div>
 
