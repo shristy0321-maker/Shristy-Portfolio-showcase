@@ -370,11 +370,16 @@ const MeetCraftCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: EASE }}
-            className="group w-[260px] rounded-[20px] border border-border bg-card p-5 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
+            className="group w-full max-w-md rounded-[20px] border border-border bg-card p-5 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
           >
             <p className="mb-3 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Recognition</p>
-            <div className="mx-auto flex h-[140px] w-full items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 via-accent/10 to-background">
-              <Trophy size={54} className="text-accent" strokeWidth={1.4} />
+            <div className="mx-auto overflow-hidden rounded-xl border border-border bg-background">
+              <img
+                src={certificateAsset.url}
+                alt="Skillathon Winner certificate from Institute of Product Leadership"
+                className="h-auto w-full object-contain"
+                loading="lazy"
+              />
             </div>
             <p className="mt-4 text-sm font-medium text-foreground">🏆 Skillathon Winner</p>
             <p className="mt-1 text-xs text-muted-foreground">Institute of Product Leadership</p>
