@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Trophy, Presentation, Lightbulb, LucideIcon, Sparkles } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import skillathonImg from "@/assets/recognition-skillathon.jpg.asset.json";
-import skillathonPresentingImg from "@/assets/recognition-skillathon-presenting.jpg.asset.json";
-import sessionLeadImg from "@/assets/recognition-session-lead.jpg.asset.json";
-import registrationDeskImg from "@/assets/recognition-registration-desk.jpg.asset.json";
-import innovationLabImg from "@/assets/recognition-innovation-lab.jpg.asset.json";
+import skillathonImg from "@/assets/recognition-skillathon.jpg";
+import skillathonPresentingImg from "@/assets/recognition-skillathon-presenting.jpg";
+import sessionLeadImg from "@/assets/recognition-session-lead.jpg";
+import registrationDeskImg from "@/assets/recognition-registration-desk.jpg";
+import innovationLabImg from "@/assets/recognition-innovation-lab.jpg";
 
 type Recognition = {
   icon: LucideIcon;
