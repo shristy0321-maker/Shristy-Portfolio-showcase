@@ -28,8 +28,8 @@ const items: Recognition[] = [
     meta: "Award · Product Strategy",
     year: "2026",
     images: [
-      { src: skillathonImg.url, alt: "Receiving the Skillathon Winner award on stage", caption: "Award moment" },
-      { src: skillathonPresentingImg.url, alt: "Presenting the MeetCraft persona slide during Skillathon", caption: "MeetCraft pitch" },
+      { src: skillathonImg, alt: "Receiving the Skillathon Winner award on stage", caption: "Award moment" },
+      { src: skillathonPresentingImg, alt: "Presenting the MeetCraft persona slide during Skillathon", caption: "MeetCraft pitch" },
     ],
     accent: "#c7e05a",
   },
@@ -42,8 +42,8 @@ const items: Recognition[] = [
     meta: "Leadership · Community",
     year: "2026",
     images: [
-      { src: sessionLeadImg.url, alt: "Hosting the ProdXPulse registration desk", caption: "Front desk · ProdXPulse" },
-      { src: registrationDeskImg.url, alt: "Attendees at the ProdXPulse registration desk", caption: "Attendee onboarding" },
+      { src: sessionLeadImg, alt: "Hosting the ProdXPulse registration desk", caption: "Front desk · ProdXPulse" },
+      { src: registrationDeskImg, alt: "Attendees at the ProdXPulse registration desk", caption: "Attendee onboarding" },
     ],
     accent: "#f4c9a6",
   },
@@ -56,7 +56,7 @@ const items: Recognition[] = [
     meta: "Innovation · Product Discovery",
     year: "2026",
     images: [
-      { src: innovationLabImg.url, alt: "Pitching the Global Makhana idea at the Innovation Lab", caption: "Envisioning the idea" },
+      { src: innovationLabImg, alt: "Pitching the Global Makhana idea at the Innovation Lab", caption: "Envisioning the idea" },
     ],
     accent: "#a8d5c0",
   },
