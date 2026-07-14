@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Shristy Kumari – Product Manager Portfolio</title>
+    <meta name="description" content="Portfolio of Shristy Kumari — Product Management, Operations, and Customer-Centric Solutions. MBA candidate at Institute of Product Leadership.">
+    <meta name="author" content="Shristy Kumari" />
+
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/53a8c7ba-0897-47b7-bcba-61519ee3c4eb/id-preview-f73531f7--21ea41ce-d5ee-4683-b537-5ad94cdee885.lovable.app-1774270914472.png">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/53a8c7ba-0897-47b7-bcba-61519ee3c4eb/id-preview-f73531f7--21ea41ce-d5ee-4683-b537-5ad94cdee885.lovable.app-1774270914472.png">
+    <meta property="og:title" content="Shristy Kumari – Product Manager Portfolio">
+  <meta name="twitter:title" content="Shristy Kumari – Product Manager Portfolio">
+  <meta property="og:description" content="Portfolio of Shristy Kumari — Product Management, Operations, and Customer-Centric Solutions. MBA candidate at Institute of Product Leadership.">
+  <meta name="twitter:description" content="Portfolio of Shristy Kumari — Product Management, Operations, and Customer-Centric Solutions. MBA candidate at Institute of Product Leadership.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,400&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
