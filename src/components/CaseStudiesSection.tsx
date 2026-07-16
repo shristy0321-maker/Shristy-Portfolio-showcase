@@ -170,44 +170,177 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
   const top = 80 + index * 18;
   const t = themes[index % themes.length];
 
+  // Per-card decorative signature
+  const stamp = ["◆ DISCOVERY", "✦ BUILD", "❋ SHIP", "✺ IMPACT"][index % 4];
+  const chapter = ["CHAPTER ONE", "CHAPTER TWO", "CHAPTER THREE", "CHAPTER FOUR"][index % 4];
+
   return (
     <div className="sticky" style={{ top }}>
       <motion.article
         style={{ scale, opacity, transformOrigin: "center top" }}
         className="mx-auto"
       >
+        {/* Outer wrapper hosts overflow-visible flourishes */}
         <div
-          className="group relative mx-auto block overflow-hidden"
-          style={{
-            width: "88vw",
-            maxWidth: "1450px",
-            height: "720px",
-            borderRadius: "36px",
-            background: t.bg,
-            color: t.ink,
-            boxShadow: "0px 40px 120px rgba(10,51,35,0.22)",
-          }}
+          className="relative mx-auto"
+          style={{ width: "88vw", maxWidth: "1450px" }}
         >
-          {/* Decorative giant serif numeral */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute select-none"
+          {/* Floating chapter tag — top-left, hanging off the card edge */}
+          <div
+            className="pointer-events-none absolute -top-5 left-8 z-30 flex items-center gap-2 px-4 py-1.5"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(320px, 42vw, 620px)",
-              fontWeight: 500,
-              lineHeight: 0.8,
-              color: t.ink,
-              opacity: 0.05,
-              top: "-40px",
-              right: "-30px",
-              letterSpacing: "-0.05em",
+              background: t.chipBg,
+              color: t.chipInk,
+              borderRadius: "999px",
+              boxShadow: "0 8px 24px rgba(10,51,35,0.25)",
+              fontFamily: "'Inter Tight', sans-serif",
+              fontSize: "10px",
+              fontWeight: 600,
+              letterSpacing: "0.28em",
             }}
           >
-            {project.number}
-          </span>
+            <span
+              className="inline-block h-1.5 w-1.5 rounded-full"
+              style={{ background: t.chipInk, opacity: 0.7 }}
+            />
+            {chapter}
+          </div>
 
-          <div className="relative grid h-full grid-cols-12 gap-8 px-16 py-20">
+          {/* Torn / stamped signature — top-right */}
+          <div
+            className="pointer-events-none absolute -top-4 right-10 z-30 rotate-[6deg] px-4 py-1.5"
+            style={{
+              background: t.bg,
+              color: t.ink,
+              border: `1.5px dashed ${t.ring}`,
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontStyle: "italic",
+              fontSize: "13px",
+              letterSpacing: "0.06em",
+            }}
+          >
+            {stamp}
+          </div>
+
+          {/* Ticket-stub perforation notches — left & right mid */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute z-20 h-10 w-10 rounded-full"
+            style={{
+              left: "-20px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "hsl(var(--background))",
+              boxShadow: "inset 2px 0 6px rgba(10,51,35,0.10)",
+            }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute z-20 h-10 w-10 rounded-full"
+            style={{
+              right: "-20px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "hsl(var(--background))",
+              boxShadow: "inset -2px 0 6px rgba(10,51,35,0.10)",
+            }}
+          />
+
+          <div
+            className="group relative mx-auto block overflow-hidden"
+            style={{
+              height: "720px",
+              borderRadius: "36px",
+              background: t.bg,
+              color: t.ink,
+              boxShadow: "0px 40px 120px rgba(10,51,35,0.22), inset 0 0 0 1px rgba(255,255,255,0.05)",
+            }}
+          >
+            {/* Inner editorial hairline frame */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-4 rounded-[28px]"
+              style={{ border: `1px solid ${t.ring}`, opacity: 0.45 }}
+            />
+
+            {/* Corner tick marks (editorial crop marks) */}
+            {[
+              { top: 14, left: 14, b: `2px solid ${t.ink}`, borders: "tl" },
+              { top: 14, right: 14, borders: "tr" },
+              { bottom: 14, left: 14, borders: "bl" },
+              { bottom: 14, right: 14, borders: "br" },
+            ].map((c, ci) => (
+              <span
+                key={ci}
+                aria-hidden
+                className="pointer-events-none absolute z-10 h-4 w-4"
+                style={{
+                  top: (c as any).top,
+                  left: (c as any).left,
+                  right: (c as any).right,
+                  bottom: (c as any).bottom,
+                  borderTop: c.borders.includes("t") ? `2px solid ${t.ink}` : undefined,
+                  borderBottom: c.borders.includes("b") ? `2px solid ${t.ink}` : undefined,
+                  borderLeft: c.borders.includes("l") ? `2px solid ${t.ink}` : undefined,
+                  borderRight: c.borders.includes("r") ? `2px solid ${t.ink}` : undefined,
+                  opacity: 0.55,
+                }}
+              />
+            ))}
+
+            {/* Decorative giant serif numeral */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute select-none"
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(320px, 42vw, 620px)",
+                fontWeight: 500,
+                lineHeight: 0.8,
+                color: t.ink,
+                opacity: 0.05,
+                top: "-40px",
+                right: "-30px",
+                letterSpacing: "-0.05em",
+              }}
+            >
+              {project.number}
+            </span>
+
+            {/* Vertical archive label on left spine */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute z-10 hidden md:flex items-center gap-3"
+              style={{
+                left: "26px",
+                bottom: "36px",
+                writingMode: "vertical-rl",
+                transform: "rotate(180deg)",
+                fontFamily: "'Inter Tight', sans-serif",
+                fontSize: "10px",
+                letterSpacing: "0.4em",
+                color: t.ink,
+                opacity: 0.55,
+              }}
+            >
+              ARCHIVE · {project.year} · N°{project.number}
+            </div>
+
+            {/* Bottom baseline rule with dots */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute z-10 flex items-center gap-2"
+              style={{ right: "36px", bottom: "22px", color: t.ink, opacity: 0.5 }}
+            >
+              <span style={{ fontSize: "10px", letterSpacing: "0.3em", fontWeight: 600 }}>
+                CASE STUDY
+              </span>
+              <span className="inline-block h-1 w-1 rounded-full" style={{ background: t.ink }} />
+              <span className="inline-block h-1 w-1 rounded-full" style={{ background: t.ink, opacity: 0.6 }} />
+              <span className="inline-block h-1 w-1 rounded-full" style={{ background: t.ink, opacity: 0.3 }} />
+            </div>
+
+            <div className="relative grid h-full grid-cols-12 gap-8 px-16 py-20">
             {/* LEFT — 30% */}
             <div className="col-span-12 flex flex-col justify-between md:col-span-4">
               <div>
