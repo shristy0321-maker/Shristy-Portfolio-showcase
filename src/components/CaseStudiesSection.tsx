@@ -463,6 +463,7 @@ const StackedCard = ({ project, index, total, scrollProgress }: StackedCardProps
             </div>
           </div>
         </div>
+        </div>
       </motion.article>
     </div>
   );
