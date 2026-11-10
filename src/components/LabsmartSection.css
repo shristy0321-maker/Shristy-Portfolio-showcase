@@ -5,8 +5,8 @@
 .labsmart-row {
   overflow-x: auto;
   scrollbar-width: none;
-  mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent);
 }
 
 .labsmart-row::-webkit-scrollbar {
@@ -20,23 +20,23 @@
 
 .labsmart-track {
   display: flex;
-  width: max-content;
-  animation: labsmart-scroll 50s linear infinite;
-  will-change: transform;
-}
-
-.labsmart-set {
-  display: flex;
-  flex-shrink: 0;
   gap: 16px;
-  padding-right: 16px;
+  width: max-content;
+  padding: 0 48px;
+  animation: labsmart-slide 25s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .labsmart-card {
   width: 320px;
-  height: 480px;
   flex: 0 0 320px;
+  aspect-ratio: 4 / 5;
   box-shadow: var(--shadow-card);
+}
+
+.labsmart-caption {
+  color: hsl(var(--background));
+  background: linear-gradient(to top, hsl(var(--foreground) / 0.85), hsl(var(--foreground) / 0.45) 55%, transparent);
 }
 
 .labsmart-row:hover .labsmart-track,
@@ -45,9 +45,9 @@
   animation-play-state: paused;
 }
 
-@keyframes labsmart-scroll {
+@keyframes labsmart-slide {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(min(0px, calc(-100% + 100vw))); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -55,9 +55,5 @@
     animation: none;
     transform: none;
     will-change: auto;
-  }
-
-  .labsmart-set[aria-hidden="true"] {
-    display: none;
   }
 }
