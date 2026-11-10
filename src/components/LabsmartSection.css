@@ -1,0 +1,63 @@
+.labsmart-section {
+  background: hsl(var(--background));
+}
+
+.labsmart-row {
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+}
+
+.labsmart-row::-webkit-scrollbar {
+  display: none;
+}
+
+.labsmart-row:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 4px;
+}
+
+.labsmart-track {
+  display: flex;
+  width: max-content;
+  animation: labsmart-scroll 50s linear infinite;
+  will-change: transform;
+}
+
+.labsmart-set {
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+.labsmart-card {
+  width: 320px;
+  height: 480px;
+  flex: 0 0 320px;
+  box-shadow: var(--shadow-card);
+}
+
+.labsmart-row:hover .labsmart-track,
+.labsmart-row:focus-within .labsmart-track,
+.labsmart-row[data-touching="true"] .labsmart-track {
+  animation-play-state: paused;
+}
+
+@keyframes labsmart-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .labsmart-track {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .labsmart-set[aria-hidden="true"] {
+    display: none;
+  }
+}
